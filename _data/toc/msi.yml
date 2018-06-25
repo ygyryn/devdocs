@@ -4,3 +4,21 @@ pages:
 
     - label: Overview
       url: /msi/index.html
+
+    - label: Architecture
+      url: /msi/architecture.html
+
+    - label: WebAPI Routes
+      url: /msi/webapi-routes.html
+
+    - label: Source Endpoints and APIs
+      url: /msi/source.html
+
+    - label: SourceItem Endpoints
+      url: /msi/source-item.html
+
+    - label: Stock Endpoints
+      url: /msi/stock.html
+
+    - label: StockSourceLink Endpoints
+      url: /msi/stock-source-link.html
