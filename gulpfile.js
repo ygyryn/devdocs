@@ -23,7 +23,6 @@ var gulp = require('gulp'),
    browsersync = require('browser-sync'),
    reload = browsersync.reload,
 
-
 //
 //  Paths
 //  ---------------------------------------------
@@ -195,3 +194,19 @@ gulp.task('default',
 * Use `gulp dev` to run local development tasks (e.g., compile HTML, watch source files for changes, recompile HTML, start local web server, and auto reload page after recompiling HTML).
 */
 gulp.task('dev', ['jekyll', 'watch']);
+
+/**
+ * A gulp task for the directory structure migration
+ */
+gulp.task('migrate', () => {
+  let migrateDirectory = require('./_lib/DirectoryMigrator');
+
+  migrateDirectory({
+    mappingFile: './_lib/v2.1-migration-mapping.csv',
+    directory: 'guides/v2.1',
+    destination: 'tmp',
+    destinationFormat: /\.md$/,
+    gulp: gulp,
+    rootDirectory: __dirname
+  })
+});
