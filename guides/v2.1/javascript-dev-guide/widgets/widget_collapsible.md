@@ -108,15 +108,6 @@ Specifies if the collapse/expand actions are performed with animation.
 
 **Type**: 
 Multiple types are supported:
-<ul>
-<li>Boolean: the `false` value disables the animation </li> 
-<li>Number: duration in milliseconds</li> 
-<li>String: is parsed to an object as a json string</li> 
-<li>Object: 
-    
-For details about the object passed, see <a href="http://api.jquery.com/animate/" target="_blank">jQuery.animate()</a>.
-</li>
-</ul>
 
 -   Boolean: the \`false\` value disables the animation
 -   Number: duration in milliseconds
