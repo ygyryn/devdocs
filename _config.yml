@@ -37,8 +37,11 @@ collections:
     output: true
     permalink: "/videos/:path/"
 
-# Specific settings for different scopes.
-#
+plugins:
+  - jekyll-redirect-from
+  - jekyll-optional-front-matter
+  - jekyll-relative-links
+
 defaults:
 
   -
@@ -63,6 +66,11 @@ defaults:
       type: videos
     values:
       layout: video
+  -
+    scope:
+      path: "page-builder"
+    values:
+      layout: full-width
 
   -
     scope:
@@ -203,3 +211,6 @@ exclude:
   - rakelib
   - README.md
   - _plugins
+
+optional_front_matter:
+  remove_originals: true
