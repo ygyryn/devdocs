@@ -214,3 +214,7 @@ exclude:
 
 optional_front_matter:
   remove_originals: true
+
+include:
+- CONTRIBUTING.md
+- README.md
