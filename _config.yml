@@ -129,3 +129,7 @@ exclude: ['scss', 'bin', 'node_modules', 'vendor', '.git', '.idea', 'Rakefile' ]
 
 optional_front_matter:
   remove_originals: true
+
+include:
+- CONTRIBUTING.md
+- README.md
