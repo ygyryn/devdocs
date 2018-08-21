@@ -72,12 +72,6 @@ collections:
     output: true
     permalink: "/videos/:path/"
 
-plugins:
-  - jekyll-redirect-from
-  - jekyll-optional-front-matter
-  - jekyll-relative-links
-  - jekyll-titles-from-headings
-
 defaults:
 
   -
@@ -102,6 +96,10 @@ defaults:
       layout: full-width
 
 # toc_baseurl: "https://github.corp.ebay.com/pages/Magento/devdocs_internal"
+titles_from_headings:
+  enabled:     true
+  strip_title: true
+  collections: false
 
 # Build settings
 markdown: kramdown
@@ -127,6 +125,12 @@ google:
   analytics: 'UA-66243208-1'
 
 exclude: ['scss', 'bin', 'node_modules', 'vendor', '.git', '.idea', 'Rakefile' ]
+
+plugins:
+- jekyll-redirect-from
+- jekyll-optional-front-matter
+- jekyll-relative-links
+- jekyll-titles-from-headings
 
 optional_front_matter:
   remove_originals: true
