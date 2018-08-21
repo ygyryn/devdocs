@@ -76,6 +76,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-optional-front-matter
   - jekyll-relative-links
+  - jekyll-titles-from-headings
 
 defaults:
 
