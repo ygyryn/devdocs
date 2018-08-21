@@ -37,12 +37,6 @@ collections:
     output: true
     permalink: "/videos/:path/"
 
-plugins:
-  - jekyll-redirect-from
-  - jekyll-optional-front-matter
-  - jekyll-relative-links
-  - jekyll-titles-from-headings
-
 defaults:
 
   -
@@ -212,6 +206,12 @@ exclude:
   - rakelib
   - README.md
   - _plugins
+
+plugins:
+- jekyll-redirect-from
+- jekyll-optional-front-matter
+- jekyll-relative-links
+- jekyll-titles-from-headings
 
 optional_front_matter:
   remove_originals: true
