@@ -1,5 +1,5 @@
 # Custom Toolbar
-
+<!-- {% comment %} -->
 ## Navigation
 
 1. [Introduction]
@@ -56,7 +56,7 @@
 [Add image uploader to content type]: image-uploader.md
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
-
+<!-- {% endcomment %} -->
 ## What's in this topic
 This document outlines how to add a custom toolbar in Page Builder. It's a simplified/lightweight version of a WYSIWYG:
 ![Page Builder toolbar](images/toolbar.png)

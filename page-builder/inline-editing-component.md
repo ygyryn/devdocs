@@ -1,5 +1,5 @@
 # Use the inline editing component
-
+<!-- {% comment %} -->
 ## Navigation
 
 1. [Introduction]
@@ -56,7 +56,7 @@
 [Add image uploader to content type]: image-uploader.md
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
-
+<!-- {% endcomment %} -->
 ## What's in this topic
 This topic describes how to add a reusable inline text editing text component to the PageBuilder stage for a content type.
 

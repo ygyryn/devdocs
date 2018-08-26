@@ -1,5 +1,5 @@
 # Third-party content type migration
-
+<!-- {% comment %} -->
 ## Navigation
 
 1. [Introduction]
@@ -56,7 +56,7 @@
 [Add image uploader to content type]: image-uploader.md
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
-
+<!-- {% endcomment %} -->
 ## Before you begin...
 
 This tutorial goes through the process of using the PageBuilder migration API to convert data from a third-party content type into its new PageBuilder content type.
