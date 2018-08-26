@@ -1,5 +1,5 @@
 # How to create custom content type container
-
+<!-- {% comment %} -->
 ## Navigation
 
 1. [Introduction]
@@ -56,7 +56,7 @@
 [Add image uploader to content type]: image-uploader.md
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
-
+<!-- {% endcomment %} -->
 This tutorial takes you through the process of creating a module with the name `VendorName_CustomContainer`.
 
 The module creates a new custom container group content type with a `left` and `right` appearance.

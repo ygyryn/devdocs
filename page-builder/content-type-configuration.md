@@ -2,7 +2,7 @@
 
 **Note:**
 *We are revising configuration, format will change. We will publish draft of new improved configuration soon to get feedback.*
-
+<!-- {% comment %} -->
 ## Navigation
 
 1. [Introduction]
@@ -59,7 +59,7 @@
 [Add image uploader to content type]: image-uploader.md
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
-
+<!-- {% endcomment %} -->
 
 ## Configuration
 

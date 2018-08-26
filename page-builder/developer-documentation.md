@@ -1,5 +1,5 @@
 # Developer Documentation
-
+<!-- {% comment %} -->
 ## Navigation
 
 1. [Introduction]
@@ -28,7 +28,7 @@
     1. [Full width page layouts]
 5. [Roadmap and known issues]
 6. [How to create custom PageBuilder content type container]
-
+<!-- {% endcomment %} -->
 **[Architecture overview]** - An overview of the PageBuilder module architecture.
 
 **[BlueFoot to PageBuilder data migration]** - An overview of how data is migrated from BlueFoot to PageBuilder and a summary of the API available for this process.

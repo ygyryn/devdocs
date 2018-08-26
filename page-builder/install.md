@@ -1,5 +1,5 @@
 # Installation Guide
-
+<!-- {% comment %} -->
 ## Navigation
 
 1. [Introduction]
@@ -19,7 +19,7 @@
 [Developer documentation]: developer-documentation.md
 [Roadmap and known issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
-
+<!-- {% endcomment %} -->
 ## Overview
 
 PageBuilder has two installation paths, one through Composer and the other through GitHub.

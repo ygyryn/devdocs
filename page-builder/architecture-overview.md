@@ -1,5 +1,5 @@
 # Architecture overview
-
+<!-- {% comment %} -->
 ## Navigation
 
 1. [Introduction]
@@ -56,9 +56,7 @@
 [Add image uploader to content type]: image-uploader.md
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
-
-***
-
+<!--{% endcomment %}-->
 ## What is PageBuilder?
 
 PageBuilder is tool that simplifies content creation by letting you drag and drop content types and configure them without writing a line of code.
