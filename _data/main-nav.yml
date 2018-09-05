@@ -177,6 +177,10 @@
     - label: Order Management
       url: http://omsdocs.magento.com/en/
 
+    - label: Page Builder
+      url: /page-builder/README
+      versionless:  true
+
     - label: Payment Integrations
       url: /payments-integrations/bk-payments-integrations.html
 

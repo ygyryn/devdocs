@@ -1,0 +1,84 @@
+label: Page Builder
+pages:
+  - label: Introduction
+    url: README
+    versionless: true
+  - label: Contribution guide
+    url: CONTRIBUTING
+    versionless: true
+  - label: Installation guide
+    url: install
+    versionless: true
+  - label: Developer documentation
+    url: developer-documentation
+    versionless: true
+    children:
+      - label: Architecture overview
+        url: architecture-overview
+        versionless: true
+      - label: BlueFoot to PageBuilder data migration
+        url: bluefoot-data-migration
+        versionless: true
+      - label: Third-party content type migration
+        url: new-content-type-example
+        versionless: true
+      - label: Iconography
+        url: iconography
+        versionless: true
+      - label: Add image uploader to content type
+        url: image-uploader
+        versionless: true
+      - label: Module integration
+        url: module-integration
+        versionless: true
+      - label: Additional data configuration
+        url: custom-configuration
+        versionless: true
+      - label: Content type configuration
+        url: content-type-configuration
+        versionless: true
+      - label: How to add a new content type
+        url: how-to-add-new-content-type
+        versionless: true
+      - label: Events
+        url: events
+        versionless: true
+      - label: Bindings
+        url: bindings
+        versionless: true
+      - label: Master format
+        url: master-format
+        versionless: true
+      - label: Visual select
+        url: visual-select
+        versionless: true
+      - label: Reuse product conditions in content types
+        url: product-conditions
+        versionless: true
+      - label: Store component master format as widget directive
+        url: widget-directive
+        versionless: true
+      - label: Use the block chooser UI component
+        url: block-chooser-component
+        versionless: true
+      - label: Use the inline text editing component
+        url: inline-editing-component
+        versionless: true
+      - label: Render a backend content type preview
+        url: content-type-preview
+        versionless: true
+      - label: Custom Toolbar
+        url: toolbar
+        versionless: true
+      - label: Full width page layouts
+        url: full-width-page-layouts
+        versionless: true
+      - label: Add image uploader to content type
+        url: image-uploader
+        versionless: true
+  - label: Roadmap and Known Issues
+    url: roadmap
+    versionless: true
+  - label: How to create custom PageBuilder content type container
+    url: how-to-create-custom-content-type-container
+    versionless: true
