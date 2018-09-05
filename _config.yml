@@ -91,9 +91,11 @@ defaults:
       layout: video
   -
     scope:
-      path: "page-builder"
+      path: page-builder
     values:
-      layout: full-width
+      layout: default
+      group: page-builder
+      strip_title: true
 
 # toc_baseurl: "https://github.corp.ebay.com/pages/Magento/devdocs_internal"
 titles_from_headings:
