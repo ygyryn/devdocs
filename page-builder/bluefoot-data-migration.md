@@ -1,5 +1,5 @@
 # BlueFoot to PageBuilder data migration
-<!-- {% comment %} -->
+
 ## Navigation
 
 1. [Introduction]
@@ -26,11 +26,12 @@
     1. [Render a backend content type preview]
     1. [Custom Toolbar]
     1. [Full width page layouts]
+    1. [Add custom logic to content types]
 5. [Roadmap and known issues]
 6. [How to create custom PageBuilder content type container]
 
-[Introduction]: README.md
-[Contribution guide]: CONTRIBUTING.md
+[Introduction]: introduction.md
+[Contribution guide]: ../CONTRIBUTING.md
 [Installation guide]: install.md
 [Developer documentation]: developer-documentation.md
 [Architecture overview]: architecture-overview.md
@@ -53,10 +54,10 @@
 [Render a backend content type preview]: content-type-preview.md
 [Custom Toolbar]: toolbar.md
 [Full width page layouts]: full-width-page-layouts.md
-[Add image uploader to content type]: image-uploader.md
+[Add custom logic to content types]: add-custom-logic.md
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
-<!-- {% endcomment %} -->
+
 
 ## Overview
 
@@ -74,10 +75,11 @@ During the migration, Magento converts old BlueFoot content to its PageBuilder e
 
 The following content types are deprecated in PageBuilder:
 
-* BlueFoot Slider - The Slider content type will be migrated as Advanced Slider.
+* BlueFoot Slider - The BlueFoot Slider content type is deprecated. Slider and Advanced Slider content types are now displayed and functional as Slider.
 * BlueFoot Search - The content for the Search content block will be converted to HTML during migration.
 * BlueFoot Anchor - The content for the Anchor content block will be converted to HTML during migration.
 * BlueFoot Accordion - The content for the Accordion content block will be converted to HTML during migration.
+* BlueFoot Newsletter - The content for the Newsletter content block will be converted to HTML during migration.
 * BlueFoot Code - The content for the Code content block will be wrapped with the following tags:
     ```
     <pre><code></code></pre>
