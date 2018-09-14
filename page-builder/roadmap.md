@@ -1,5 +1,5 @@
 # Project Roadmap
-<!-- {% comment %} -->
+
 ## Navigation
 
 1. [Introduction]
@@ -13,8 +13,8 @@
 6. [How to create custom PageBuilder content type container]
 
 
-[Introduction]: README.md
-[Contribution guide]: CONTRIBUTING.md
+[Introduction]: introduction.md
+[Contribution guide]: ../CONTRIBUTING.md
 [Installation guide]: install.md
 [Developer documentation]: developer-documentation.md
 [Architecture overview]: architecture-overview.md
@@ -37,10 +37,10 @@
 [Render a backend content type preview]: content-type-preview.md
 [Custom Toolbar]: toolbar.md
 [Full width page layouts]: full-width-page-layouts.md
-[Add image uploader to content type]: image-uploader.md
+[Add custom logic to content types]: add-custom-logic.md
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
-<!-- {% endcomment %} -->
+
 ## Overview
 
 This page lists the upcoming functionality and known issues for the PageBuilder project.

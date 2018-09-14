@@ -1,5 +1,5 @@
 # Additional Data Configuration
-<!-- {% comment %} -->
+
 ## Navigation
 
 1. [Introduction]
@@ -26,11 +26,12 @@
     1. [Render a backend content type preview]
     1. [Custom Toolbar]
     1. [Full width page layouts]
+    1. [Add custom logic to content types]
 5. [Roadmap and known issues]
 6. [How to create custom PageBuilder content type container]
 
-[Introduction]: README.md
-[Contribution guide]: CONTRIBUTING.md
+[Introduction]: introduction.md
+[Contribution guide]: ../CONTRIBUTING.md
 [Installation guide]: install.md
 [Developer documentation]: developer-documentation.md
 [Architecture overview]: architecture-overview.md
@@ -53,10 +54,10 @@
 [Render a backend content type preview]: content-type-preview.md
 [Custom Toolbar]: toolbar.md
 [Full width page layouts]: full-width-page-layouts.md
-[Add image uploader to content type]: image-uploader.md
+[Add custom logic to content types]: add-custom-logic.md
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
-<!-- {% endcomment %} -->
+
 ## What's in this topic
 This topic describes how to extend and configure Page Builder content types to accommodate any preferred setting that is not addressed in the confines of our existing `content_type.xsd` schema definition.
 
@@ -78,7 +79,7 @@ Use `additional_data` in your `Vendor/ModuleName/view/adminhtml/pagebuilder/cont
 ``` xml
 <additional_data>
     <item name="uploaderConfig" xsi:type="array">
-        <item name="maxFileSize" xsi:type="object">Magento\PageBuilder\Model\Config\ContentType\AdditionalData\Provider\Uploader\MaxFileSize</item>
+        <item name="maxFileSize" xsi:type="string">4194304</item>
         <item name="allowedExtensions" xsi:type="string">jpg jpeg gif png</item>
         <item name="component" xsi:type="string">Magento_PageBuilder/js/form/element/image-uploader</item>
         <item name="componentType" xsi:type="string">imageUploader</item>

@@ -1,4 +1,4 @@
-# Iconography
+# Custom Theme Integration
 
 ## Navigation
 
@@ -8,8 +8,9 @@
 4. [Developer documentation]
     1. [Architecture overview]
     1. [BlueFoot to PageBuilder data migration]
+    1. **Custom theme integration**
     1. [Third-party content type migration]
-    1. **Iconography**
+    1. [Iconography]
     1. [Add image uploader to content type]
     1. [Module integration]
     1. [Additional data configuration]
@@ -36,6 +37,7 @@
 [Developer documentation]: developer-documentation.md
 [Architecture overview]: architecture-overview.md
 [BlueFoot to PageBuilder data migration]: bluefoot-data-migration.md
+[Custom theme integration]: custom-themes.md
 [Third-party content type migration]: new-content-type-example.md
 [Iconography]: iconography.md
 [Add image uploader to content type]: image-uploader.md
@@ -58,32 +60,38 @@
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
 
-## Overview
+## What's in this topic
+This topic describes how to use your custom themes to control responsive layouts within Page Builder.
 
-PageBuilder Admin icons follow the same design principles as the core [Magento Admin icons].
-They are simple, flat, and monochromatic to prevent the loss of detail at smaller sizes and makes the shapes easier to comprehend.
+## Responsive Mobile Images
+By default, when you configure Page Builder to render a background image for a container, it uses a mobile image when the container's width is less than the industry-standard max-width of 768px. This width is configured within `Magento_PageBuilder/etc/view.xml`, as follows:
+```xml
+<vars module="Magento_PageBuilder">
+    <var name="breakpoints">
+        <var name="mobile">
+            <var name="conditions">
+                <var name="max-width">768px</var>
+            </var>
+        </var>
+    </var>
+</vars>
+```
 
-## Icon library
-The following image shows all available PageBuilder Admin icons:
+If your custom theme also uses this max-width breakpoint for your mobile layout, no additional configuration is required.
 
-![PageBuilder admin icons](images/pagebuilder-icons.png)
+However, if your custom theme uses a different mobile breakpoint, you'll need to add that breakpoint (in pixels) to your theme's `view.xml` by including the following XML within the `<view />` node, and replacing `CUSTOM-BREAKPOINT` with the integer value of your theme's breakpoint, as follows:
+```xml
+<vars module="Magento_PageBuilder">
+    <var name="breakpoints">
+        <var name="mobile">
+            <var name="conditions">
+                <var name="max-width">CUSTOM-BREAKPOINTpx</var>
+            </var>
+        </var>
+    </var>
+</vars>
+```
 
-You can use these icons when extending or customizing the PageBuilder module or [create your own icons].
+This directs Page Builder to use your theme's mobile breakpoint instead of its default breakpoint of 768px. Other responsive breakpoints from your custom theme can be added in the same way.
 
-## Icon fonts
-We recommend using icon fonts to get the best quality for your icons. 
-The PageBuilder Admin icon fonts can be found in the [cms-icons repository].
-
-If you want to add your own icons, each icon will need to be in its own SVG files. There are multiple ways to create icon fonts, here is one to get started:
-
-1. Go to <a href="https://icomoon.io/app/" target="\_blank"> https://icomoon.io/app/ </a> or download this app in Chrome web store.  
-
-2. Upload your icons in SVG format into the app.
-
-3. Specify desired font names and specify the Unicode characters to map the icons. Setting the icons to Private User Area will disable screen-readers or other accessibility tools to read your icon's characters (read "Unicode" section here).
-
-4. Then initialize a download in the app to generate the icon font and CSS style sheet.
-
-[Magento Admin icons]: https://devdocs.magento.com/guides/v2.2/pattern-library/graphics/iconography/iconography.html
-[create your own icons]: https://devdocs.magento.com/guides/v2.2/pattern-library/graphics/iconography/iconography.html#creating-icons
-[cms-icons repository]: https://github.com/magento-ux/cms-icons
+[Note: I think it might be nice to include another example or two of configuring other breakpoints (or other styles?) from custom themes as relevant.]

@@ -1,5 +1,5 @@
 # Events
-<!-- {% comment %} -->
+
 ## Navigation
 
 1. [Introduction]
@@ -26,11 +26,12 @@
     1. [Render a backend content type preview]
     1. [Custom Toolbar]
     1. [Full width page layouts]
+    1. [Add custom logic to content types]
 5. [Roadmap and known issues]
 6. [How to create custom PageBuilder content type container]
 
-[Introduction]: README.md
-[Contribution guide]: CONTRIBUTING.md
+[Introduction]: introduction.md
+[Contribution guide]: ../CONTRIBUTING.md
 [Installation guide]: install.md
 [Developer documentation]: developer-documentation.md
 [Architecture overview]: architecture-overview.md
@@ -53,10 +54,10 @@
 [Render a backend content type preview]: content-type-preview.md
 [Custom Toolbar]: toolbar.md
 [Full width page layouts]: full-width-page-layouts.md
-[Add image uploader to content type]: image-uploader.md
+[Add custom logic to content types]: add-custom-logic.md
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
-<!-- {% endcomment %} -->
+
 This document contains reference information for events dispatched in Page Builder.
 
 **Note:**
@@ -72,6 +73,7 @@ This document contains reference information for events dispatched in Page Build
 * [contentType:duplicateAfter](#contenttypeduplicateafter)
 * [contentType:moveBefore](#contenttypemovebefore)
 * [contentType:moveAfter](#contenttypemoveafter)
+* [contentType:redrawAfter](#contenttyperedrawafter)
 * [column:dragStart](#columdragstart)
 * [column:dragStop](#columndragstop)
 * [column:initializeAfter](#columninitializeafter)
@@ -262,6 +264,39 @@ All events starting with `contentType:` can also be called for specific content 
     targetParent: ContentTypeCollectionInterface;
     targetIndex: number;
     stageId: string;
+}
+```
+
+[Back to top]
+
+### `contentType:redrawAfter`
+
+#### Backend
+
+**Triggers**
+
+* `Tabs.Preview::onTabClick`
+
+**Params**
+
+``` js
+{
+    id: string,
+    contentType: ContentTypeInterface & ContentTypeCollectionInterface
+}
+```
+
+#### Frontend
+
+**Triggers**
+
+* `Tabs.widget.ui.tabs::activate`
+
+**Params**
+
+``` js
+{
+    element: HTMLElement
 }
 ```
 
