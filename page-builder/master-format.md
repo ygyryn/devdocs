@@ -1,5 +1,6 @@
 # Master format
 
+<!--{% comment %}-->
 ## Navigation
 
 1. [Introduction]
@@ -57,6 +58,7 @@
 [Add custom logic to content types]: add-custom-logic.md
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
+<!--{% endcomment %}-->
 
 <!-- {% raw %} -->
 
