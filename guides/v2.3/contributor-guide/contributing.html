@@ -1676,9 +1676,14 @@ As of September 17, 2018, in an effort to keep 2.2 and 2.3 releases aligned, we 
 
 <ol>
   <li>Create a feature branch for your changes and push those changes to the copy of your repository on GitHub. This is the best way to organize and even update your PR.</li>
-  <li>In your repository, click <strong>Pull requests</strong> on the right, and then click <strong>New pull request</strong>. <br /><img src="/common/images/pr.png" target="_blank" /></li>
-  <li>Ensure that you are creating a PR to the one of following  branches: <code class="highlighter-rouge">magento:2.3-develop</code>, <code class="highlighter-rouge">magento:2.2-develop</code> or <code class="highlighter-rouge">magento:2.1-develop</code> branch. We accept PRs to these branches only.</li>
-  <li>Review the changes, then click <strong>Create pull request</strong>. Fill out the form, and click <strong>Create pull request</strong> again to submit the PR—that’s it!</li>
+  <li>
+    <p>In your repository, click <strong>Pull requests</strong> on the right, and then click <strong>New pull request</strong>.</p>
+
+    <p><img src="/common/images/pr.png" alt="Create a Pull Request" /></p>
+  </li>
+  <li>Ensure that you are creating a PR to the one of following  branches: <code class="highlighter-rouge">magento:2.3-develop</code> or <code class="highlighter-rouge">magento:2.2-develop</code>. We accept PRs to these branches only.</li>
+  <li>Review the changes, then click <strong>Create pull request</strong>.</li>
+  <li>Fill out the PR form, and click <strong>Create pull request</strong> again to submit the PR—that’s it!</li>
 </ol>
 
 <p>After submitting your PR, you can head over to the Magento 2 repository’s <a href="https://github.com/magento/magento2/pulls?q=is%3Aopen+is%3Apr" target="_blank">Pull Requests panel</a> to see your PR. Your PR undergoes automated testing, and if it passes, the Community Engineering Team considers it for inclusion in the Magento 2 core. If some tests fail, please make the corresponding corrections in your code.</p>
@@ -1709,7 +1714,7 @@ As of September 17, 2018, in an effort to keep 2.2 and 2.3 releases aligned, we 
 <p><strong>Actions:</strong> The following actions complete for the command:</p>
 
 <ul>
-  <li>If the instance does not exist, it will be deployed. Deploymnent takes ~2 minutes.</li>
+  <li>If the instance does not exist, it will be deployed. Deployment takes ~2 minutes.</li>
   <li>If the instance exists, a fresh instance will be redeployed.</li>
   <li>By default, instances have a lifetime of 3 hours. All deployments are terminated after that.</li>
 </ul>
@@ -1718,15 +1723,11 @@ As of September 17, 2018, in an effort to keep 2.2 and 2.3 releases aligned, we 
 
 <ul>
   <li>http://i-xxx.engcom.dev.magento.com/admin</li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>Credentials: Username: admin</td>
-          <td>Password: 123123q</td>
-        </tr>
-      </tbody>
-    </table>
+  <li>Admin Credentials:
+    <ul>
+      <li>Username: admin</li>
+      <li>Password: 123123q</li>
+    </ul>
   </li>
 </ul>
 
@@ -1755,15 +1756,11 @@ As of September 17, 2018, in an effort to keep 2.2 and 2.3 releases aligned, we 
 
 <ul>
   <li>http://pr-xxx.engcom.dev.magento.com/admin</li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>Credentials: Username: admin</td>
-          <td>Password: 123123q</td>
-        </tr>
-      </tbody>
-    </table>
+  <li>Admin Credentials:
+    <ul>
+      <li>Username: admin</li>
+      <li>Password: 123123q</li>
+    </ul>
   </li>
 </ul>
 
@@ -1793,7 +1790,7 @@ As of September 17, 2018, in an effort to keep 2.2 and 2.3 releases aligned, we 
   <li>All mentioned pull requests are open</li>
   <li>All mentioned pull requests have been created by the same contributor (author)</li>
   <li>All mentioned pull requests have same target (base) branch</li>
-  <li>All mentioned pull requests are mergeable with each other</li>
+  <li>All mentioned pull requests can be merged with each other</li>
 </ul>
 
 <p><strong>Permissions:</strong></p>
@@ -1882,7 +1879,7 @@ As of September 17, 2018, in an effort to keep 2.2 and 2.3 releases aligned, we 
   <li>Create a new branch for your fix: <code class="highlighter-rouge">git checkout -b up-port-pull-13528</code>.</li>
   <li>Apply changes from the existing pull request: <code class="highlighter-rouge">curl -L https://github.com/magento/magento2/pull/13528.patch | git am</code>.</li>
   <li>Push changes to your repository: <code class="highlighter-rouge">git push origin up-port-pull-13528:up-port-pull-13528</code>.</li>
-  <li>Create a pull request from <code class="highlighter-rouge">&lt;your-fork&gt;:up-port-pull-13528</code> to m<code class="highlighter-rouge">agento:2.3-develop</code>.</li>
+  <li>Create a pull request from <code class="highlighter-rouge">&lt;your-fork&gt;:up-port-pull-13528</code> to <code class="highlighter-rouge">magento:2.3-develop</code>.</li>
   <li>In the up-port pull request description, add the full path to the original pull request (for example: https://github.com/magento/magento2/pull/13528) to help the Magento team link these pull requests.</li>
 </ol>
 
@@ -1917,19 +1914,26 @@ git push origin back-port-pull-&lt;PR_NUMBER&gt;:back-port-pull-&lt;PR_NUMBER&gt
 <p>To add an issue:</p>
 
 <ol>
-  <li>In the Magento 2 public repository, click the <strong>Issues</strong> link on the right. <br /><img src="/common/images/issues.png" alt="the Issues link at the right" /></li>
-  <li>Click <strong>New issue</strong>.<br /><img src="/common/images/new_issue.png" alt="the New Issue button" /></li>
-  <li>Fill in the Title and Issue description.</li>
+  <li>
+    <p>In the Magento 2 public repository, click the <strong>Issues</strong> tab.</p>
+
+    <p><img src="/common/images/issues.png" alt="Issues tab" /></p>
+  </li>
+  <li>
+    <p>Click <strong>New issue</strong>.</p>
+
+    <p><img src="/common/images/new_issue.png" alt="Create new issue" /></p>
+  </li>
+  <li>Select a type of issue: Bug report, Developer experience issue, or Feature request.</li>
+  <li>Fill in the Title, description, and additional information for the template.</li>
   <li>Click <strong>Submit new issue</strong>.</li>
 </ol>
+
+<p>When you submit the issue, a validation process begins. If the issue doesn’t have enough information, you as the Reporter may need to add more information. See <a href="https://github.com/magento/magento2/wiki/GitHub-Issues-Processing-Workflow">GitHub Issues Processing Workflow</a> for complete details on issue verification.</p>
 
 <h2 id="triage">Help triage issues  <a href="https://www.codetriage.com/magento/magento2"><img src="https://www.codetriage.com/magento/magento2/badges/users.svg" alt="" /></a></h2>
 
 <p>In addition to contributing code, you can help to triage issues. This can include reproducing bug reports or asking for vital information, such as affected versions or instructions to reproduce bugs. If you would like to start triaging issues, one easy way to get started is to <a href="https://www.codetriage.com/magento/magento2" target="_blank">subscribe to Magento on CodeTriage</a>.</p>
-
-<h2 id="labels">Labels applied by the Magento team</h2>
-
-<p>We apply labels to public Pull Requests and Issues to help other participants retrieve additional information about current progress, component assignments, Magento release lines, and much more. The following information details global labels used in Magento 2 repositories and across Community Engineering contributions.</p>
 
 <h2 id="labels">Labels applied by the Magento team</h2>
 
@@ -1970,13 +1974,14 @@ git push origin back-port-pull-&lt;PR_NUMBER&gt;:back-port-pull-&lt;PR_NUMBER&gt
   <li><code class="highlighter-rouge">Award: MFTF test coverage</code></li>
   <li><code class="highlighter-rouge">Award: bug fix</code></li>
   <li><code class="highlighter-rouge">Cleanup</code></li>
-  <li><code class="highlighter-rouge">Port</code> - For up-port and back-port work
-<!-- For more information on awards and points, see our [Contribution Rewards](http://test.com). --></li>
+  <li><code class="highlighter-rouge">Port</code></li>
 </ul>
 
 <h3 class="no_toc" id="partners">Partners</h3>
 
 <p>All partners Pull Requests should be marked with label <code class="highlighter-rouge">partners-contribution</code>. Additionally, add a partner label for PRs submitted by specific Partners. Use the format: <code class="highlighter-rouge">Partner: &lt;PartnerName&gt;</code>. The following are Partner examples:</p>
+
+<p>Example labels:</p>
 
 <ul>
   <li><code class="highlighter-rouge">partners-contribution</code></li>
@@ -1984,29 +1989,32 @@ git push origin back-port-pull-&lt;PR_NUMBER&gt;:back-port-pull-&lt;PR_NUMBER&gt
   <li><code class="highlighter-rouge">Partner: Comwrap</code></li>
   <li><code class="highlighter-rouge">Partner: Interactiv4</code></li>
   <li><code class="highlighter-rouge">Partner: Wagento</code></li>
-  <li><code class="highlighter-rouge">etc</code></li>
 </ul>
 
 <h3 class="no_toc" id="components">Components</h3>
 
 <p>Component labels indicate the components affected by the Pull Request. To learn more about available components and assigned architects, see <a href="https://github.com/magento/magento2/wiki/Magento-Components-Assignment">Magento Components Assignment</a>.</p>
 
+<p>Example labels:</p>
+
 <ul>
   <li><code class="highlighter-rouge">Component: Catalog</code></li>
   <li><code class="highlighter-rouge">Component: Report</code></li>
   <li><code class="highlighter-rouge">Component: Checkout</code></li>
-  <li><code class="highlighter-rouge">etc</code></li>
 </ul>
+
+<p>For edge cases, <code class="highlighter-rouge">Component: Other</code> and <code class="highlighter-rouge">Component: Multiple</code> may be used.</p>
 
 <h3 class="no_toc" id="events">Events</h3>
 
 <p>Event labels mark recommended issues and submitted PRs for a specific event. Events may include Contribution Days, Hackathons, Imagine, special events like Smashtoberfest, and others. Contributors and Maintainers can easily locate code when attending those events. Some events may also have a <a href="https://magentocommeng.slack.com">Community Engineering Slack</a> channel using the same label.</p>
 
+<p>Example labels:</p>
+
 <ul>
   <li><code class="highlighter-rouge">Event: mm18in</code></li>
   <li><code class="highlighter-rouge">Event: mm17es</code></li>
   <li><code class="highlighter-rouge">Event: mlau18</code></li>
-  <li><code class="highlighter-rouge">etc</code></li>
 </ul>
 
 <h3 class="no_toc" id="general">General</h3>
@@ -2020,22 +2028,22 @@ git push origin back-port-pull-&lt;PR_NUMBER&gt;:back-port-pull-&lt;PR_NUMBER&gt
 </ul>
 
 <h3 class="no_toc" id="issue-resolution-status">Issue Resolution Status</h3>
-<!-- old labels -->
+
+<p>Labels applied to issues through verification and completion. For details on the process, see <a href="">GitHub Issues Processing Workflow</a>.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">G1 Passed</code> - Automatic verification of the issue description successfully passed. Minimum required information is provided (Preconditions, Steps to Reproduce, Actual Result, Expected Result).</li>
-  <li><code class="highlighter-rouge">G1 Failed</code> - Automatic verification of the issue description failed. Minimum required information is not provided (Preconditions, Steps to Reproduce, Actual Result, Expected Result).</li>
-  <li><code class="highlighter-rouge">G2 Passed</code> - The Community Engineering Team has confirmed that this issue contains the minimum required information to reproduce.</li>
-  <li><code class="highlighter-rouge">G3 Passed</code> - The Community Engineering Team has validated and confirmed the issue.</li>
+  <li><code class="highlighter-rouge">Issue: Format is not valid</code> - Gate 1 failed. Automatic verification by the Automated Contributor Assistant failed and the issue needs updates. The <a href="https://github.com/magento/magento2/tree/2.3-develop/.github/ISSUE_TEMPLATE">format</a> of the issue description and minimum required information is not provided: Preconditions, Steps to Reproduce, Actual Result, Expected Result. Previous label <code class="highlighter-rouge">G1 Failed</code>.</li>
+  <li><code class="highlighter-rouge">Issue: Format is valid</code> - Gate 1 passed. Automatic verification by the Automated Contributor Assistant passed for all issue content. Previous label <code class="highlighter-rouge">G1 Passed</code>.</li>
+  <li><code class="highlighter-rouge">Issue: Clear Description</code> - Gate 2 passed. The Community Engineering Team has confirmed that this issue contains the minimum required information to reproduce. Previous label <code class="highlighter-rouge">G2 Passed</code>.</li>
+  <li><code class="highlighter-rouge">Issue: Cannot Reproduce</code> - Gate 3 failed. The issue could not be reproduced or validated. Previous label <code class="highlighter-rouge">Cannot Reproduce</code>.</li>
+  <li><code class="highlighter-rouge">Issue: Confirmed</code> - Gate 3 passed. Manual verification of the issue description and reproduction steps was confirmed. Previous label <code class="highlighter-rouge">G3 Passed</code>.</li>
+  <li><code class="highlighter-rouge">Issue: Ready for Work</code> - Gate 4 passed. The issue is acknowledged and added to the backlog for open development. Previous label <code class="highlighter-rouge">acknowledged</code>.</li>
   <li><code class="highlighter-rouge">Reproduced on 2.1.x</code> - The Community Engineering Team reproduced the issue on latest 2.1.x release.</li>
   <li><code class="highlighter-rouge">Reproduced on 2.2.x</code> - The Community Engineering Team reproduced the issue on latest 2.2.x release.</li>
   <li><code class="highlighter-rouge">Reproduced on 2.3.x</code> - The Community Engineering Team reproduced the issue on latest 2.3.x release.</li>
   <li><code class="highlighter-rouge">Fixed in 2.1.x</code> - The issue has been fixed in one of the 2.1.x releases or in 2.1-develop branch and will be available with the upcoming patch release.</li>
   <li><code class="highlighter-rouge">Fixed in 2.2.x</code> - The issue has been fixed in one of the 2.2.x releases or in 2.2-develop branch and will be available with the upcoming patch release.</li>
   <li><code class="highlighter-rouge">Fixed in 2.3.x</code> - The issue has been fixed in one of the 2.3.x releases or in 2.3-develop branch and will be available with the upcoming patch release.</li>
-  <li><code class="highlighter-rouge">acknowledged</code> - The Community Engineering Team has created internal ticket.</li>
-  <li><code class="highlighter-rouge">needs update</code> - The Community Engineering Team needs additional information from the reporter to properly prioritize and process the issue.</li>
-  <li><code class="highlighter-rouge">Cannot Reproduce</code> - The Community Engineering Team cannot reproduce the issue with the given steps to reproduce.</li>
   <li><code class="highlighter-rouge">non-issue</code> - A described behavior in the issue description is valid and shouldn’t be changed in Magento code base.</li>
 </ul>
 
@@ -2082,7 +2090,7 @@ git push origin back-port-pull-&lt;PR_NUMBER&gt;:back-port-pull-&lt;PR_NUMBER&gt
 
 <p>Every merged PR receives one base achievement.</p>
 
-<table>
+<table style="table-layout:auto;">
   <thead>
     <tr>
       <th>Achievement</th>
@@ -2113,7 +2121,7 @@ git push origin back-port-pull-&lt;PR_NUMBER&gt;:back-port-pull-&lt;PR_NUMBER&gt
 
 <p>Every PR may receive several additional achievements during assessment.</p>
 
-<table>
+<table style="table-layout:auto;">
   <thead>
     <tr>
       <th>Achievement</th>
@@ -2168,7 +2176,7 @@ git push origin back-port-pull-&lt;PR_NUMBER&gt;:back-port-pull-&lt;PR_NUMBER&gt
 
 <p>Every merged PR to the <a href="https://github.com/magento/devdocs">DevDocs repository</a> receives one base achievement. If you enter a PR with editorial fixes and new content, you receive the Improvement and additional achievements.</p>
 
-<table>
+<table style="table-layout:auto;">
   <thead>
     <tr>
       <th>Achievement</th>
@@ -2194,7 +2202,7 @@ git push origin back-port-pull-&lt;PR_NUMBER&gt;:back-port-pull-&lt;PR_NUMBER&gt
 
 <p>Each PR can earn one of the following additional achievements. If you entered an editorial PR, you may not receive an additional achievement.</p>
 
-<table>
+<table style="table-layout:auto;">
   <thead>
     <tr>
       <th>Achievement</th>
