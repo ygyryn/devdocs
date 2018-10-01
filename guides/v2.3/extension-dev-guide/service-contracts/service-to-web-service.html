@@ -3270,10 +3270,7 @@
 
 <h2 id="configure-webapi">Configure a web API</h2>
 
-<p>To configure a web API for a service, you define XML elements and attributes in the
-   <code>app/code/Magento/&lt;MODULE&gt;/etc/webapi.xml</code> file, where <code>&lt;MODULE&gt;</code> is the module name.
-   For example, the web API for the Customer service is defined in the <code>app/code/Magento/Customer/etc/webapi.xml</code> configuration file.
-</p>
+<p>To configure a web API for a service, you define XML elements and attributes in the <code class="highlighter-rouge">app/code/Magento/&lt;MODULE&gt;/etc/webapi.xml</code> file, where <code class="highlighter-rouge">&lt;MODULE&gt; is the module name.</code> For example, the web API for the Customer service is defined in the <code class="highlighter-rouge">app/code/Magento/Customer/etc/webapi.xml</code> configuration file.</p>
 
 <h2 id="service-interface-requirements">Service Interface Requirements</h2>
 
@@ -3384,7 +3381,7 @@
             </li>
             <li>
                <p><code>url</code>. Required. String.
-                  Magento resource. Optionally, one or more template parameters.
+                  The URL to the Magento resource. The string must begin with <code>/V1</code> (or <code>/V&lt;integer&gt;</code>) to indicate the version number. You must prepend any template parameters with a colon. Example: <code>/V1/products/:sku</code>
                </p>
             </li>
             <li>
