@@ -2472,121 +2472,103 @@
 
 -->
 
-<p>Upgrade Magento from the command line if you installed the software using any of the following:</p>
+<p>You can upgrade Magento from the command line if you installed the software by:</p>
 
 <ul>
-  <li>Downloaded the   <span term-uuid="7490850a-0654-4ce1-83ff-d88c1d7d07fa" class="glossary-term" data-toggle="popover">metapackage</span>
- using <code class="highlighter-rouge">composer create-project</code></li>
-  <li>Installed the compressed archive</li>
+  <li>Downloading the   <span term-uuid="7490850a-0654-4ce1-83ff-d88c1d7d07fa" class="glossary-term" data-toggle="popover">metapackage</span>
+ using <code class="highlighter-rouge">composer create-project</code>.</li>
+  <li>Installing the compressed archive.</li>
 </ul>
 
-<p>There are two ways to upgrade your Magento application to 2.3:</p>
+<p>There are two ways to upgrade your Magento application to the 2.3 version:</p>
 <ol>
-  <li>Manual: <a href="#upgrade-cli-upgr">Upgrade using the command line</a>.</li>
-  <li>Semi-automated: <a href="#upgrade-cli-script">Upgrade using the script</a>.
-The upgrading scenario is the same from the system’s point of view except that several steps are automated using the PHP script.</li>
+  <li><a href="#upgrade-cli-upgr">Upgrade using the command line</a> (manual process)</li>
+  <li><a href="#upgrade-cli-script">Upgrade using the script</a> (semi-automated process)</li>
 </ol>
 
-<p class="bs-callout bs-callout-warning">Both ways require that you comply with the pre-upgrade checklist.</p>
+<p>The upgrade scenario is the same for each of these options (both utilize Composer and a command line interface) from the system’s point of view. However, if you upgrade using the script several of the steps are automated.</p>
 
-<p class="bs-callout bs-callout-info">If you cloned the Magento 2 GitHub repository, you <strong>cannot</strong> use this method to upgrade. Instead, see <a href="/guides/v2.3/install-gde/install/cli/dev_update-magento.html">Update the Magento application</a>.</p>
+<p class="bs-callout bs-callout-warning">Both scenarios require that you comply with the <a href="#pre-upgrade-checklist">Pre-upgrade checklist</a>.</p>
 
-<h2 id="pre-upgrade-checklist">Pre-upgrade checklist</h2>
+<p class="bs-callout bs-callout-info">If you cloned the Magento 2 GitHub repository, you <strong>cannot</strong> use this method to upgrade. Instead, see <a href="/guides/v2.3/install-gde/install/cli/dev_update-magento.html">Update the Magento application</a> for upgrade instructions.</p>
 
-<p>Comply with the <a href="../prereq/prereq_compman-checklist.html">Update and upgrade checklist</a>.</p>
+<h2 id="prerequisites">Prerequisites</h2>
 
-<h3 id="upgrade-cli-pub">Prerequisite for the <code class="highlighter-rouge">pub</code> directory root</h3>
+<p>Complete the following prerequisites to prepare your environment before starting the upgrade process:</p>
+<ul>
+  <li><strong>Complete the Update and upgrade checklist</strong>—To avoid possible errors during installation or upgrading, complete the <a href="../prereq/prereq_compman-checklist.html">Update and upgrade checklist</a>.</li>
+  <li><strong>Set the <code class="highlighter-rouge">pub</code> directory root</strong>—If you set the Magento root directory to <code class="highlighter-rouge">&lt;your Magento install dir&gt;/pub</code>, create another subdomain or docroot that uses the Magento installation directory as its root, and run the <a href="/guides/v2.3/comp-mgr/upgrader/upgrade-start.html">System Upgrade utility</a> using that subdomain.</li>
+  <li><strong>Check PHP and environment settings</strong>—Verify that your PHP and other environment settings are compatible with the <a href="/guides/v2.3/install-gde/system-requirements-tech.html">system requirements</a>.</li>
+  <li>
+    <p><strong>Switch to maintenance mode</strong>—To prevent access to your store while it’s being upgraded, switch your store to maintenance mode:</p>
 
-<p>This section applies to you <em>only</em> if you set the Magento root directory to <code class="highlighter-rouge">&lt;your Magento install dir&gt;/pub</code>.
-If you did not do this, skip this section and continue with the next section.</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  php &lt;your Magento install dir&gt;/bin/magento maintenance:enable
+</code></pre></div>    </div>
 
-<p>For the upgrade, create another subdomain or docroot that uses the Magento installation directory as its root.
-Run the <a href="/guides/v2.3/comp-mgr/upgrader/upgrade-start.html">System Upgrade utility</a> using that subdomain.</p>
+    <p>See <a href="/guides/v2.3/install-gde/install/cli/install-cli-subcommands-maint.html">Enable or disable maintenance mode</a> for additional options.</p>
 
-<h3 id="php-and-other-environment-settings">PHP and other environment settings</h3>
-
-<p>Check PHP and other environment settings to be compatible with the <a href="/guides/v2.3/install-gde/system-requirements-tech.html">system requirements</a>.</p>
-
-<h3 id="upgrade-cli-maint">Switch your store to the maintenance mode</h3>
-
-<p>To prevent access to your store while it’s being upgraded, put your store in the maintenance mode.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php &lt;your Magento install dir&gt;/bin/magento maintenance:enable
-</code></pre></div></div>
-
-<p>For additional options, see <a href="/guides/v2.3/install-gde/install/cli/install-cli-subcommands-maint.html">Enable or disable maintenance mode</a>.</p>
-
-<p class="bs-callout bs-callout-info">You can optionally create a <a href="/guides/v2.3/comp-mgr/trouble/cman/maint-mode.html">custom maintenance mode page</a>.</p>
+    <p class="bs-callout bs-callout-info">Optionally, you can create a <a href="/guides/v2.3/comp-mgr/trouble/cman/maint-mode.html">custom maintenance mode page</a>.</p>
+  </li>
+</ul>
 
 <h2 id="upgrade-cli-upgr">Upgrade using the command line</h2>
+
+<p>Using the more manual process of upgrading via the command line allows you to track and control exactly what’s being changed in the upgrade. If you previously made updates to the same values that the upgrade script affects, the script will override those values, so using the manual process is the best approach. Upgrading using the script process is a bit easier and less intensive, if you have not made updates to values that the script affects.</p>
 
 <h3 id="backup-composerjson">Backup <code class="highlighter-rouge">composer.json</code></h3>
 
 <p>Backup the existing <code class="highlighter-rouge">composer.json</code> file in the Magento installation directory.</p>
 
-<h3 id="optional-to-upgrade-from-magento-open-source-to-magento-commerce">(Optional) To upgrade from Magento Open Source to Magento Commerce</h3>
+<h3 id="manage-packages">Manage packages</h3>
 
-<p>If you are upgrading from Magento Open Source to Magento Commerce, deactivate the Magento Open Source update:</p>
+<p>Specify needed packages and remove any unneeded ones before proceeding with the upgrade.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer remove magento/product-community-edition <span class="nt">--no-update</span>
-</code></pre></div></div>
+<h4 id="deactivate-the-magento-open-source-update">Deactivate the Magento Open Source update</h4>
 
-<h3 id="require-the-magento-packages-using-composer">Require the Magento packages using Composer</h3>
-
-<p>Require the Magento packages of the corresponding edition (<code class="highlighter-rouge">community</code> or <code class="highlighter-rouge">enterprise</code>) and version (<code class="highlighter-rouge">&lt;2.3_version&gt;</code>).</p>
-
-<h4 id="optional-if-you-are-upgrading-from-magento-open-source-to-magento-commerce">(Optional) If you are upgrading from Magento Open Source to Magento Commerce</h4>
-
-<p>If you are upgrading from Magento Open Source to Magento Commerce, deactivate the Magento Open Source update:</p>
+<p><em>Optional</em>—If you are upgrading from Magento Open Source to Magento Commerce, deactivate the Magento Open Source update:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer remove magento/product-community-edition <span class="nt">--no-update</span>
 </code></pre></div></div>
 
-<h4 id="for-magento-open-source">For Magento Open Source</h4>
+<h4 id="specify-magento-packages">Specify Magento packages</h4>
 
+<p>Indicate the Magento packages, both the edition (<code class="highlighter-rouge">community</code> or <code class="highlighter-rouge">enterprise</code>) and the version (<code class="highlighter-rouge">2.3.0</code>), that you want to upgrade to.</p>
+
+<p><em>Magento Open Source</em></p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require magento/product-community-edition<span class="o">=</span>2.3.0 <span class="nt">--no-update</span>
 </code></pre></div></div>
 
-<!-- Available note types: "info", "warning", "tip" -->
-
-<div class="bs-callout bs-callout-tip" id="tip">
-  <p>To see a full list of available 2.3 versions, use:</p>
-
-  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer show magento/product-community-edition 2.3.<span class="k">*</span> <span class="nt">--all</span> | <span class="nb">grep</span> <span class="nt">-m</span> 1 versions
-</code></pre></div>  </div>
-
-</div>
-
-<h4 id="for-magento-commerce">For Magento Commerce</h4>
-
+<p><em>Magento Commerce</em></p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require magento/product-enterprise-edition<span class="o">=</span>2.3.0 <span class="nt">--no-update</span>
 </code></pre></div></div>
 
 <!-- Available note types: "info", "warning", "tip" -->
 
 <div class="bs-callout bs-callout-tip" id="tip">
-  <p>To see a full list of available 2.3 versions, use:</p>
+  <p>To see a full list of available 2.3 versions:</p>
 
-  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer show magento/product-enterprise-edition 2.3.<span class="k">*</span> <span class="nt">--all</span> | <span class="nb">grep</span> <span class="nt">-m</span> 1 versions
+  <p><em>Magento Open Source</em></p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer show magento/product-community-edition 2.3.<span class="k">*</span> <span class="nt">--all</span> | <span class="nb">grep</span> <span class="nt">-m</span> 1 versions
+</code></pre></div>  </div>
+  <p><em>Magento Commerce</em></p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require magento/product-enterprise-edition<span class="o">=</span>2.3.0 <span class="nt">--no-update</span>
 </code></pre></div>  </div>
 
 </div>
 
-<h3 id="require-the-additional-packages-using-composer">Require the additional packages using Composer</h3>
+<h4 id="specify-additional-packages">Specify additional packages</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require <span class="nt">--dev</span> phpunit/phpunit:~6.2.0 friendsofphp/php-cs-fixer:~2.10.1 lusitanian/oauth:~0.8.10 pdepend/pdepend:2.5.2 sebastian/phpcpd:~3.0.0 squizlabs/php_codesniffer:3.2.2 <span class="nt">--no-update</span>
 </code></pre></div></div>
 
-<h3 id="remove-the-unused-packages-using-composer">Remove the unused packages using Composer</h3>
+<h4 id="remove-unused-packages">Remove unused packages</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer remove <span class="nt">--dev</span> sjparkinson/static-review fabpot/php-cs-fixer <span class="nt">--no-update</span>
 </code></pre></div></div>
 
-<h3 id="update-autoload-in-composerjson">Update <code class="highlighter-rouge">autoload</code> in <code class="highlighter-rouge">composer.json</code></h3>
+<h3 id="update-autoload">Update <code class="highlighter-rouge">autoload</code></h3>
 
-<p>Open <code class="highlighter-rouge">composer.json</code> and edit the <code class="highlighter-rouge">"autoload": "psr-4"</code> section to include <code class="highlighter-rouge">"Zend\\Mvc\\Controller\\": "setup/src/Zend/Mvc/Controller/"</code></p>
-
-<p>Example:</p>
+<p>Open <code class="highlighter-rouge">composer.json</code> and edit the the <code class="highlighter-rouge">"autoload": "psr-4"</code> section to include <code class="highlighter-rouge">"Zend\\Mvc\\Controller\\": "setup/src/Zend/Mvc/Controller/"</code>:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"autoload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"psr-4"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2599,62 +2581,52 @@ Run the <a href="/guides/v2.3/comp-mgr/upgrader/upgrade-start.html">System Upgra
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="optional-update-the-magento-updater">(Optional) Update the Magento updater</h3>
+<h3 id="modify-the-magento-updater">Modify the Magento updater</h3>
 
-<p>Update the Magento updater if it is installed.
-It is located at <code class="highlighter-rouge">&lt;Magento install dir&gt;/update</code> when installed.
-To update the tool, follow the guidelines below.</p>
+<p><em>Optional</em>—If the Magento updater is installed (it is located in <code class="highlighter-rouge">&lt;Magento install dir&gt;/update</code>) modify it:</p>
 
-<h4 id="remove-the-old-updater">Remove the old updater</h4>
-
-<p>Backup and remove the <code class="highlighter-rouge">&lt;Magento install dir&gt;/update</code> directory.</p>
-
-<h4 id="create-a-composer-project">Create a Composer project</h4>
-
-<ul>
+<ol>
+  <li>Backup and remove the old updater, in the <code class="highlighter-rouge">&lt;Magento install dir&gt;/update</code> directory.</li>
   <li>
-    <p>For Magento Open Source</p>
+    <p>Create a Composer project.</p>
 
-    <p>Example for version 2.3.0:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer create-project <span class="nt">--repository</span><span class="o">=</span>https://repo.magento.com magento/project-community-edition<span class="o">=</span>2.3.0 temp_dir <span class="nt">--no-install</span>
+    <p><em>Magento Open Source version 2.3.0:</em></p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> composer create-project <span class="nt">--repository</span><span class="o">=</span>https://repo.magento.com magento/project-community-edition<span class="o">=</span>2.3.0 temp_dir <span class="nt">--no-install</span>
 </code></pre></div>    </div>
 
-    <p class="bs-callout bs-callout-info">If you need to use a repository that contains non-public packages such as internal sandboxes, change the URL in <code class="highlighter-rouge">--repository</code> correspondingly.</p>
-  </li>
-  <li>
-    <p>For Magento Commerce</p>
+    <p><em>Magento Commerce version 2.3.0:</em></p>
 
-    <p>Example for version 2.3.0:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer create-project <span class="nt">--repository</span><span class="o">=</span>https://repo.magento.com magento/project-enterprise-edition<span class="o">=</span>2.3.0 temp_dir <span class="nt">--no-install</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> composer create-project <span class="nt">--repository</span><span class="o">=</span>https://repo.magento.com magento/project-enterprise-edition<span class="o">=</span>2.3.0 temp_dir <span class="nt">--no-install</span>
 </code></pre></div>    </div>
 
-    <p class="bs-callout bs-callout-info">If need to use a repository that contains non-public packages such as internal sandboxes, change the URL in <code class="highlighter-rouge">--repository</code> correspondingly.</p>
+    <p class="bs-callout bs-callout-info">If you need to use a repository that contains non-public packages, such as internal sandboxes, change the URL in <code class="highlighter-rouge">--repository</code> accordingly.</p>
   </li>
-</ul>
+  <li>
+    <p>Move the project to the <code class="highlighter-rouge">&lt;Magento install dir&gt;/update</code> directory:</p>
 
-<h4 id="move-the-project-to-magento-install-dirupdate">Move the project to <code class="highlighter-rouge">&lt;Magento install dir&gt;/update</code></h4>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir update
+</code></pre></div>    </div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv temp_dir/update &lt;Magento install dir&gt;/update
+</code></pre></div>    </div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm <span class="nt">-rf</span> temp_dir
+</code></pre></div>    </div>
+  </li>
+</ol>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir update
-</code></pre></div></div>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv temp_dir/update &lt;Magento install dir&gt;/update
-</code></pre></div></div>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm <span class="nt">-rf</span> temp_dir
-</code></pre></div></div>
+<h3 id="update-metadata">Update metadata</h3>
 
-<h3 id="update-metadata-in-composerjson">Update metadata in <code class="highlighter-rouge">composer.json</code></h3>
+<p>Update the <code class="highlighter-rouge">"name"</code>, <code class="highlighter-rouge">"version"</code>, and <code class="highlighter-rouge">"description"</code> fields in the <code class="highlighter-rouge">&lt;Magento install dir&gt;/composer.json</code> file as desired.</p>
 
-<p class="bs-callout bs-callout-info">These changes are cosmetic, not functional.</p>
+<p class="bs-callout bs-callout-info">Updating the metadata in <code class="highlighter-rouge">composer.json</code> file is entirely superficial, not functional.</p>
 
-<p>Update the <code class="highlighter-rouge">"name"</code>, <code class="highlighter-rouge">"version"</code>, and <code class="highlighter-rouge">"description"</code> fields in <code class="highlighter-rouge">&lt;Magento install dir&gt;/composer.json</code>.</p>
-
-<h3 id="apply-the-updates-using-composer">Apply the updates using Composer</h3>
+<h3 id="apply-updates">Apply updates</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer update
 </code></pre></div></div>
 
-<h3 id="clear-var-and-generated-subdirectories">Clear <code class="highlighter-rouge">var</code> and <code class="highlighter-rouge">generated</code> subdirectories</h3>
+<h3 id="clear-caches-and-generated-content">Clear caches and generated content</h3>
+
+<p>Clear the <code class="highlighter-rouge">var</code> and <code class="highlighter-rouge">generated</code> subdirectories:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm <span class="nt">-rf</span> &lt;Magento install dir&gt;/var/cache/<span class="k">*</span>
 </code></pre></div></div>
@@ -2663,7 +2635,7 @@ To update the tool, follow the guidelines below.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm <span class="nt">-rf</span> &lt;Magento install dir&gt;/generated/code/<span class="k">*</span>
 </code></pre></div></div>
 
-<p class="bs-callout bs-callout-info">If you use a cache storage other than the filesystem (for example, Redis or Memcached), you must manually clear the cache there too.</p>
+<p class="bs-callout bs-callout-info">If you use a cache storage other than the filesystem, such as Redis or Memcached, you must manually clear the cache there too.</p>
 
 <h3 id="update-the-database-schema-and-data">Update the database schema and data</h3>
 
@@ -2675,58 +2647,55 @@ To update the tool, follow the guidelines below.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php bin/magento maintenance:disable
 </code></pre></div></div>
 
-<h3 id="optional-restart-varnish">(Optional) Restart Varnish</h3>
+<h3 id="restart-varnish">Restart Varnish</h3>
 
-<p>Restart Varnish if you use it for page caching.</p>
+<p><em>Optional</em>—If you use Varnish for page caching, restart it:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service varnish restart
 </code></pre></div></div>
 
-<h3 id="check-your-storefront-online">Check your storefront online</h3>
+<h3 id="check-your-work">Check your work</h3>
 
-<p>Open your storefront to check if the upgrade was successful.</p>
+<p>Open your storefront URL in a web browser to check whether the upgrade was successful. If your upgrade was unsuccessful, your storefront will not load properly.</p>
 
-<h4 id="troubleshooting">Troubleshooting</h4>
-
-<p>If the application fails with the following error:</p>
-
-<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">We're sorry, an error has occurred while generating this email.
-</span></code></pre></div></div>
-
-<p>follow the next steps:</p>
+<p>If the application fails with a  <code class="highlighter-rouge">We're sorry, an error has occurred while generating this email.</code> error:</p>
 
 <ol>
   <li>Reset <a href="/guides/v2.3/install-gde/prereq/file-system-perms.html">file system ownership and permissions</a> as a user with <code class="highlighter-rouge">root</code> privileges.</li>
-  <li>Clear the following directories and check the storefront again:
+  <li>Clear these directories:
     <ul>
       <li><code class="highlighter-rouge">&lt;your Magento install dir&gt;/var/cache</code></li>
       <li><code class="highlighter-rouge">&lt;your Magento install dir&gt;/var/page_cache</code></li>
       <li><code class="highlighter-rouge">&lt;your Magento install dir&gt;/generated/code</code></li>
     </ul>
   </li>
+  <li>Check your storefront in your web browser again.</li>
 </ol>
 
 <h2 id="upgrade-cli-script">Upgrade using the script</h2>
 
-<p>The script updates Magento with the 2.3 requirements.
-Run this script after upgrading to PHP 7.1/7.2.</p>
+<p>Upgrading your Magento installation with our script, which makes the upgrade process semi-automated, is the preferred method—it’s easy, quick, and efficient.</p>
 
-<p>The upgrade script performs the following tasks:</p>
+<p>Run this script after upgrading to PHP 7.1 or 7.2.</p>
+
+<p class="bs-callout bs-callout-info">If you previously made updates to the same values that the upgrade script affects, the script will override those values, so using <a href="#upgrade-cli-upgr">the manual process</a> is the best approach.</p>
+
+<p>The upgrade script:</p>
 <ul>
-  <li>Back up <code class="highlighter-rouge">composer.json</code></li>
-  <li>Require the new version of the Magento metapackage</li>
-  <li>Update the <code class="highlighter-rouge">"require-dev"</code> section in <code class="highlighter-rouge">composer.json</code></li>
-  <li>Add <code class="highlighter-rouge">"Zend\\Mvc\\Controller\\": "setup/src/Zend/Mvc/Controller/"</code> to the <code class="highlighter-rouge">"autoload":"psr-4"</code> section in <code class="highlighter-rouge">composer.json</code></li>
-  <li>Back up and update <code class="highlighter-rouge">magento/updater</code> if it has been installed</li>
-  <li>Update the <code class="highlighter-rouge">"name"</code>, <code class="highlighter-rouge">"version"</code>, and <code class="highlighter-rouge">"description"</code> fields in <code class="highlighter-rouge">composer.json</code></li>
+  <li>Updates Magento with the 2.3 requirements.</li>
+  <li>Backs up the <code class="highlighter-rouge">composer.json</code> file.</li>
+  <li>Specifies the new version of the Magento metapackage.</li>
+  <li>Updates the <code class="highlighter-rouge">"require-dev"</code> section in the <code class="highlighter-rouge">composer.json</code> file.</li>
+  <li>Adds <code class="highlighter-rouge">"Zend\\Mvc\\Controller\\": "setup/src/Zend/Mvc/Controller/"</code> to the <code class="highlighter-rouge">"autoload":"psr-4"</code> section in the <code class="highlighter-rouge">composer.json</code> file.</li>
+  <li>Backs up and updates the <code class="highlighter-rouge">magento/updater</code>, if it has been installed.</li>
+  <li>Updates the <code class="highlighter-rouge">"name"</code>, <code class="highlighter-rouge">"version"</code>, and <code class="highlighter-rouge">"description"</code> fields in the <code class="highlighter-rouge">composer.json</code> file.</li>
 </ul>
 
-<h3 id="download-the-upgrade-script">Download the upgrade script</h3>
+<h3 id="download-the-script">Download the script</h3>
 
-<p>The file containing the upgrade script is available in the <code class="highlighter-rouge">magento/magento2</code> repo, which is <a target="_blank" href="https://raw.githubusercontent.com/magento/magento2/2.3-develop/dev/tools/UpgradeScripts/pre_composer_update_2.3.php"><code class="highlighter-rouge">/dev/tools/UpgradeScripts/pre_composer_update_2.3.php</code></a>.
-Download or copy the file.</p>
+<p>Download, or copy, the script file from the <code class="highlighter-rouge">magento/magento2</code> repo, <a target="_blank" href="https://raw.githubusercontent.com/magento/magento2/2.3-develop/dev/tools/UpgradeScripts/pre_composer_update_2.3.php"><code class="highlighter-rouge">/dev/tools/UpgradeScripts/pre_composer_update_2.3.php</code></a>.</p>
 
-<h3 id="check-out-the-available-options">Check out the available options</h3>
+<h3 id="show-script-options">Show script options</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php <span class="nt">-f</span> pre_composer_update_2.3.php <span class="nt">--</span> <span class="nt">--help</span>
 </code></pre></div></div>
@@ -2736,12 +2705,14 @@ Download or copy the file.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php <span class="nt">-f</span> pre_composer_update_2.3.php <span class="nt">--</span> <span class="nt">--root</span><span class="o">=</span><span class="s1">'&lt;path/to/magento/install/dir&gt;'</span> &lt;options&gt;
 </code></pre></div></div>
 
-<h3 id="apply-the-updates-using-composer-1">Apply the updates using Composer</h3>
+<h3 id="apply-updates-1">Apply updates</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer update
 </code></pre></div></div>
 
-<h3 id="clear-var-and-generated-subdirectories-1">Clear <code class="highlighter-rouge">var</code> and <code class="highlighter-rouge">generated</code> subdirectories</h3>
+<h3 id="clear-caches-and-generated-content-1">Clear caches and generated content</h3>
+
+<p>Clear the <code class="highlighter-rouge">var</code> and <code class="highlighter-rouge">generated</code> subdirectories:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm <span class="nt">-rf</span> &lt;Magento install dir&gt;/var/cache/<span class="k">*</span>
 </code></pre></div></div>
@@ -2750,7 +2721,7 @@ Download or copy the file.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm <span class="nt">-rf</span> &lt;Magento install dir&gt;/generated/code/<span class="k">*</span>
 </code></pre></div></div>
 
-<p class="bs-callout bs-callout-info">If you use a cache storage other than the filesystem (for example, Redis or Memcached), you must manually clear the cache there too.</p>
+<p class="bs-callout bs-callout-info">If you use a cache storage other than the filesystem, such as Redis or Memcached, you must manually clear the cache there too.</p>
 
 <h3 id="update-the-database-schema-and-data-1">Update the database schema and data</h3>
 
@@ -2762,16 +2733,30 @@ Download or copy the file.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php bin/magento maintenance:disable
 </code></pre></div></div>
 
-<h3 id="optional-restart-varnish-1">(Optional) Restart Varnish</h3>
+<h3 id="restart-varnish-1">Restart Varnish</h3>
 
-<p>Restart Varnish if you use it for page caching.</p>
+<p><em>Optional</em>—If you use Varnish for page caching, restart it:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service varnish restart
 </code></pre></div></div>
 
-<h3 id="check-your-storefront-online-1">Check your storefront online</h3>
+<h3 id="check-your-work-1">Check your work</h3>
 
-<p>Open your storefront to check if the upgrade was successful.</p>
+<p>Open your storefront URL in a web browser to check whether the upgrade was successful. If your upgrade was unsuccessful, your storefront will not load properly.</p>
+
+<p>If the application fails with a  <code class="highlighter-rouge">We're sorry, an error has occurred while generating this email.</code> error:</p>
+
+<ol>
+  <li>Reset <a href="/guides/v2.3/install-gde/prereq/file-system-perms.html">file system ownership and permissions</a> as a user with <code class="highlighter-rouge">root</code> privileges.</li>
+  <li>Clear these directories:
+    <ul>
+      <li><code class="highlighter-rouge">&lt;your Magento install dir&gt;/var/cache</code></li>
+      <li><code class="highlighter-rouge">&lt;your Magento install dir&gt;/var/page_cache</code></li>
+      <li><code class="highlighter-rouge">&lt;your Magento install dir&gt;/generated/code</code></li>
+    </ul>
+  </li>
+  <li>Check your storefront in your web browser again.</li>
+</ol>
 
 <!-- Link definitions -->
 
