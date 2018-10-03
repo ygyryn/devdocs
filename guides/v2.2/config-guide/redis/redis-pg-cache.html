@@ -3905,33 +3905,27 @@
 
 <p>As a result of the two example commands, Magento adds lines similar to the following to <code class="highlighter-rouge">&lt;Magento install dir&gt;app/etc/env.php</code>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'cache' =&gt;
-  array(
-    'frontend' =&gt;
-      array(
-        'default' =&gt;
-          array(
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'cache' =&gt; [
+    'frontend' =&gt; [
+        'default' =&gt; [
             'backend' =&gt; 'Cm_Cache_Backend_Redis',
-            'backend_options' =&gt;
-              array(
+            'backend_options' =&gt; [
                 'server' =&gt; 'redis.example.com',
                 'database' =&gt; '0',
                 'port' =&gt; '6379'
-              ),
-        ),
-        'page_cache' =&gt;
-          array(
+            ],
+        ],
+        'page_cache' =&gt; [
             'backend' =&gt; 'Cm_Cache_Backend_Redis',
-            'backend_options' =&gt;
-              array(
+            'backend_options' =&gt; [
                 'server' =&gt; 'redis.example.com',
                 'port' =&gt; '6379',
                 'database' =&gt; '1',
                 'compress_data' =&gt; '0'
-              )
-        )
-    )
-  ),
+            ]
+        ]
+    ]
+],
 </code></pre></div></div>
 
 <h2 id="redis-verify">Basic verification</h2>
