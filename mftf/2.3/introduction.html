@@ -1842,7 +1842,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 </section>
 
 			
-<p style="text-align: right"><em>The latest MFTF release is <a href="https://github.com/magento/magento2-functional-testing-framework/releases/tag/2.3.6">2.3.6</a>.</em></p>
+<p style="text-align: right"><em>The latest MFTF release is <a href="https://github.com/magento/magento2-functional-testing-framework/releases/tag/2.3.7">2.3.7</a>.</em></p>
 
 <p class="bs-callout bs-callout-info"><a href="./introduction.html#find-version">Find out your version</a> of the MFTF.
 If your version is 2.2, see the <a href="/mftf/2.2/introduction.html">MFTF 2.2 documentation</a>.</p>
@@ -1870,6 +1870,7 @@ Refer to <code class="highlighter-rouge">&lt;magento_root&gt;/app/code/&lt;vendo
 <h2 id="goals">Goals</h2>
 
 <p>The purpose of MFTF is to:</p>
+
 <ul>
   <li>Facilitate functional testing and minimize the effort it takes to perform regression testing.</li>
   <li>Make it easier to support the extension and customization of tests via XML merging.</li>
@@ -1878,6 +1879,7 @@ Refer to <code class="highlighter-rouge">&lt;magento_root&gt;/app/code/&lt;vendo
 <h2 id="scope">Scope</h2>
 
 <p>MFTF will enable you to:</p>
+
 <ul>
   <li>Test user interactions with web applications in testing.</li>
   <li>Write functional tests located in <code class="highlighter-rouge">&lt;magento_root&gt;/app/code/&lt;vendor_name&gt;/&lt;module_name&gt;/Test/Mftf/</code>.</li>
@@ -1894,6 +1896,7 @@ Refer to <code class="highlighter-rouge">&lt;magento_root&gt;/app/code/&lt;vendo
 <h2 id="find-version">Find your MFTF version</h2>
 
 <p>There are two options to find out your MFTF version:</p>
+
 <ul>
   <li>using the MFTF CLI</li>
   <li>using the Composer CLI</li>
@@ -1903,6 +1906,7 @@ Refer to <code class="highlighter-rouge">&lt;magento_root&gt;/app/code/&lt;vendo
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> &lt;magento_root&gt;/
 </code></pre></div></div>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vendor/bin/mftf <span class="nt">--version</span>
 </code></pre></div></div>
 
@@ -1910,12 +1914,13 @@ Refer to <code class="highlighter-rouge">&lt;magento_root&gt;/app/code/&lt;vendo
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> &lt;magento_root&gt;/
 </code></pre></div></div>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer show magento/magento2-functional-testing-framework
 </code></pre></div></div>
 
 <h2 id="contents-of-devtestsacceptance">Contents of dev/tests/acceptance</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tests
+<pre><code class="language-tree">tests
     _data                       // Additional files required for tests (e.g. pictures, CSV files for import/export, etc.)
     _output                     // The directory is generated during test run. It contains testing reports.
     _suite                      // Test suites.
@@ -1928,7 +1933,7 @@ utils                           // The test-running utilities.
 .htaccess.sample                // Access settings for the Apache web server to perform the Magento CLI commands.
 RoboFile.php                    // TO BE DEPRECATED SINCE MFTF 3.0. The MFTF CLI commands configuration for Robo task runner.
 codeception.dist.yml            // Codeception configuration (generated while running 'bin/mftf build:project')
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="mftf-output">MFTF output</h2>
 
@@ -1943,6 +1948,7 @@ codeception.dist.yml            // Codeception configuration (generated while ru
 <h2 id="mftf-tests">MFTF tests</h2>
 
 <p>The MFTF supports two different locations for storing the tests and test artifacts:</p>
+
 <ul>
   <li><code class="highlighter-rouge">&lt;magento_root&gt;/app/code/&lt;vendor_name&gt;/&lt;module_name&gt;/Test/Mftf/</code> is the directory to create new tests.</li>
   <li><code class="highlighter-rouge">&lt;magento_root&gt;/vendor/&lt;vendor_name&gt;/&lt;module_name&gt;/Test/Mftf/</code> is the directory with the out of the box tests (fetched by the Composer).</li>
@@ -1951,7 +1957,8 @@ codeception.dist.yml            // Codeception configuration (generated while ru
 <p>All tests and test data from these locations are merged in the order indicated in the above list.</p>
 
 <p>The file structure under the both path cases is the same:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Path&gt;
+
+<pre><code class="language-tree">&lt;Path&gt;
 ├── ActionGroup
 │   └── ...
 ├── Data
@@ -1964,7 +1971,7 @@ codeception.dist.yml            // Codeception configuration (generated while ru
 │   └── ...
 └── Test
     └── ...
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="mftf-on-github">MFTF on Github</h2>
 

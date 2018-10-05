@@ -1985,8 +1985,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 <p>In this example:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">customer</code> is a <code class="highlighter-rouge">stepKey</code> of the corresponding test step, where an entity is created.</li>
-  <li><code class="highlighter-rouge">email</code> is a <code class="highlighter-rouge">dataKey</code> of the entity. The corresponding value will be assigned to <code class="highlighter-rouge">userInput</code> as a result.</li>
+  <li><code class="highlighter-rouge">customer</code> is a step key of the corresponding test step, where an entity is created.</li>
+  <li><code class="highlighter-rouge">email</code> is a data key of the entity. The corresponding value will be assigned to <code class="highlighter-rouge">userInput</code> as a result.</li>
 </ul>
 
 <!-- Available note types: "info", "warning", "tip" -->
@@ -1997,6 +1997,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
   <p>Since <code class="highlighter-rouge">_before()</code> is a function outside a <code class="highlighter-rouge">myTest()</code> test method, it creates a variable in the class scope instead of the method scope (<code class="highlighter-rouge">$this-&gt;persistedData</code> vs <code class="highlighter-rouge">$persistedData</code>).</p>
 
   <p>As they are relevant to test:</p>
+
   <ul>
     <li><code class="highlighter-rouge">$persistedData.field$</code> turns into <code class="highlighter-rouge">$persistedData.getData('field')</code>.</li>
     <li><code class="highlighter-rouge">$$persistedData.field$$</code> turns into <code class="highlighter-rouge">$this-&gt;persistedData.getData('field')</code>.</li>

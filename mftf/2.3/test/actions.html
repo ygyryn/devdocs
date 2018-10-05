@@ -1842,7 +1842,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 </section>
 
 			
-<p style="text-align: right"><em>This topic was updated due to the 2.3.6 MFTF release.</em></p>
+<p style="text-align: right"><em>This topic was updated due to the 2.3.7 MFTF release.</em></p>
 
 <p>Actions in the MFTF allow you to automate different scenarios of Magento user’s actions.
 They are mostly XML implementations of <a href="http://codeception.com/docs/modules/WebDriver#Actions">Codeception actions</a>.
@@ -3544,7 +3544,7 @@ This field is replaced at a top level only (nested values such as custom attribu
 <h4 id="example-19">Example</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Verify that `&lt;div id="box" ... &gt;...&lt;/div&gt;` is missing or invisible on the current page. --&gt;</span>
-<span class="nt">&lt;dontSeeElement</span> <span class="na">selectore=</span><span class="s">"div#box"</span> <span class="na">stepKey=</span><span class="s">"dontSeeBox"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;dontSeeElement</span> <span class="na">selector=</span><span class="s">"div#box"</span> <span class="na">stepKey=</span><span class="s">"dontSeeBox"</span><span class="nt">/&gt;</span>
 </code></pre></div></div>
 
 <h3 id="dontseeelementindom">dontSeeElementInDOM</h3>
@@ -3609,7 +3609,7 @@ This field is replaced at a top level only (nested values such as custom attribu
 <h4 id="example-20">Example</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Verify that `&lt;div id="box" ... &gt;...&lt;/div&gt;` is completely missing on the current page. --&gt;</span>
-<span class="nt">&lt;dontSeeElementInDOM</span> <span class="na">selectore=</span><span class="s">"div#box"</span> <span class="na">stepKey=</span><span class="s">"dontSeeBoxInDOM"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;dontSeeElementInDOM</span> <span class="na">selector=</span><span class="s">"div#box"</span> <span class="na">stepKey=</span><span class="s">"dontSeeBoxInDOM"</span><span class="nt">/&gt;</span>
 </code></pre></div></div>
 
 <h3 id="dontseeincurrenturl">dontSeeInCurrentUrl</h3>
@@ -3950,7 +3950,7 @@ This field is replaced at a top level only (nested values such as custom attribu
 
 <h3 id="dontseejserror">dontSeeJsError</h3>
 
-<p>Ensure that there are no JavaScript errors.</p>
+<p>Ensure that the current page does not have JavaScript errors.</p>
 
 <table>
   <thead>
@@ -4597,7 +4597,7 @@ To access this value, use `{$generateDate}` in later actions. --&gt;</span>
 
 <h4 id="example-34">Example</h4>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Get the product attribute that was created using `&lt;createData stepkey="productAttributeHandle" ... /&gt;`. --&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Get the product attribute that was created using `&lt;createData stepKey="productAttributeHandle" ... /&gt;`. --&gt;</span>
 <span class="nt">&lt;getData</span> <span class="na">entity=</span><span class="s">"ProductAttributeOptionGetter"</span> <span class="na">index=</span><span class="s">"1"</span> <span class="na">stepKey=</span><span class="s">"getAttributeOption1Handle"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;requiredEntity</span> <span class="na">createDataKey=</span><span class="s">"productAttributeHandle"</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/getData&gt;</span>
@@ -5742,8 +5742,11 @@ To access this value, use the `loadSessionSnapshot` action --&gt;</span>
 <span class="nt">&lt;pressKey</span> <span class="na">userInput=</span><span class="s">"a"</span> <span class="na">selector=</span><span class="s">"#targetElement"</span> <span class="na">stepKey=</span><span class="s">"pressA"</span><span class="nt">/&gt;</span>
 </code></pre></div></div>
 
+<p>The <code class="highlighter-rouge">parameterArray</code> attribute value must begin with <code class="highlighter-rouge">[</code> and end with <code class="highlighter-rouge">]</code>.
+To press more than one key at a time, wrap the keys in secondary <code class="highlighter-rouge">[]</code>.</p>
+
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Press the delete within the selected area uses key constants from the WebDriverKeys class. --&gt;</span>
-<span class="nt">&lt;pressKey</span> <span class="na">selector=</span><span class="s">"#targetElement"</span> <span class="na">parameterArray=</span><span class="s">"[\Facebook\WebDriver\WebDriverKeys::ENTER]"</span> <span class="na">stepKey=</span><span class="s">"pressDelete"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;pressKey</span> <span class="na">selector=</span><span class="s">"#targetElement"</span> <span class="na">parameterArray=</span><span class="s">"[['ctrl', 'a'], \Facebook\WebDriver\WebDriverKeys::DELETE]"</span> <span class="na">stepKey=</span><span class="s">"pressDelete"</span><span class="nt">/&gt;</span>
 </code></pre></div></div>
 
 <h3 id="reloadpage">reloadPage</h3>
@@ -6186,6 +6189,7 @@ For example, the drop-down menu you use to assign Products to Categories.</p>
 </code></pre></div></div>
 
 <p>On this test step the MFTF:</p>
+
 <ol>
   <li>Searches for a drop-down HTML element that matches the <code class="highlighter-rouge">#stuff</code> selector.</li>
   <li>Opens the drop-down menu.</li>
@@ -6544,7 +6548,7 @@ For example, the drop-down menu you use to assign Products to Categories.</p>
 <h4 id="example-56">Example</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Verify that `&lt;div id="box" ... &gt;...&lt;/div&gt;` is available and visible on the current page. --&gt;</span>
-<span class="nt">&lt;seeElement</span> <span class="na">selectore=</span><span class="s">"div#box"</span> <span class="na">stepKey=</span><span class="s">"seeBox"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;seeElement</span> <span class="na">selector=</span><span class="s">"div#box"</span> <span class="na">stepKey=</span><span class="s">"seeBox"</span><span class="nt">/&gt;</span>
 </code></pre></div></div>
 
 <h3 id="seeelementindom">seeElementInDOM</h3>
@@ -6603,7 +6607,7 @@ For example, the drop-down menu you use to assign Products to Categories.</p>
 <h4 id="example-57">Example</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Verify that `&lt;div id="box" ... &gt;...&lt;/div&gt;` is available on the current page. --&gt;</span>
-<span class="nt">&lt;seeElementInDOM</span> <span class="na">selectore=</span><span class="s">"div#box"</span> <span class="na">stepKey=</span><span class="s">"seeBoxInDOM"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;seeElementInDOM</span> <span class="na">selector=</span><span class="s">"div#box"</span> <span class="na">stepKey=</span><span class="s">"seeBoxInDOM"</span><span class="nt">/&gt;</span>
 </code></pre></div></div>
 
 <h3 id="seeincurrenturl">seeInCurrentUrl</h3>

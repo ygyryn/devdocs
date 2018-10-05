@@ -1939,10 +1939,21 @@ An example use case for these would be if you wanted to run your tests against a
 <p>These values can be used in cases where you are working locally on both MFTF’s implementation code and Magento’s test case code.
 Use them if you have a more advanced local development setup involving symlinking MFTF into the <code class="highlighter-rouge">vendor</code> directory of <code class="highlighter-rouge">magento2</code>.</p>
 
-<div class="language-config highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TESTS_BP</span>
+<div class="language-config highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">MAGENTO_BP</span>
+<span class="n">TESTS_BP</span>
 <span class="n">FW_BP</span>
 <span class="n">TESTS_MODULES_PATH</span>
 </code></pre></div></div>
+
+<h4 id="magento_bp">MAGENTO_BP</h4>
+
+<p>BP is an acronym for BasePath.</p>
+
+<ul>
+  <li>Use: Optional.</li>
+  <li>Description: The path to a Magento2 codebase</li>
+  <li>Example: <code class="highlighter-rouge">~/magento2ce/</code></li>
+</ul>
 
 <h4 id="tests_bp">TESTS_BP</h4>
 
