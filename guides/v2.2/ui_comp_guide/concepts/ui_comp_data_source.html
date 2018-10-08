@@ -2966,7 +2966,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>In the block of code above, [YourNameSpace][YourModule] would be the directory that contains all of the module’s files and directories. [YourComponentName] is the name of this instance of a component, which should be the file name as well.</p>
 
-<p>The main node of interest is <code class="highlighter-rouge">&lt;argument name="class" /&gt;.</code> This references a PHP class that must implement <code class="highlighter-rouge">\Magento\Framework\View\Element\UiComponent\DataProvider\DataProviderInterface</code>. To meet that requirement, it can extend <code class="highlighter-rouge">\Magento\Ui\DataProvider\AbstractDataProvider</code>. The <code class="highlighter-rouge">AbstractDataProvider</code> class implements all of the required methods in the <code class="highlighter-rouge">DataProviderInterface</code>. The DataProvider class is the primary source of any data or   <span term-uuid="3f0f2ef1-ad38-41c6-bd1e-390daaa71d76" class="glossary-term" data-toggle="popover">metadata</span>
+<p>The main node of interest is <code class="highlighter-rouge">&lt;argument name="class" /&gt;.</code> This references a PHP class that must implement <code class="highlighter-rouge">\Magento\Framework\View\Element\UiComponent\DataProvider\DataProviderInterface</code>. To meet that requirement, it can extend <a href="https://github.com/magento/magento2/blob/2.2/app/code/Magento/Ui/DataProvider/AbstractDataProvider.php"><code class="highlighter-rouge">\Magento\Ui\DataProvider\AbstractDataProvider</code></a>. The <code class="highlighter-rouge">AbstractDataProvider</code> class implements all of the required methods in the <code class="highlighter-rouge">DataProviderInterface</code>. The DataProvider class is the primary source of any data or   <span term-uuid="3f0f2ef1-ad38-41c6-bd1e-390daaa71d76" class="glossary-term" data-toggle="popover">metadata</span>
  that the component needs or will use.</p>
 
 <p>While the   <span term-uuid="8c0645c5-aa6b-4a52-8266-5659a8b9d079" class="glossary-term" data-toggle="popover">XML</span>
@@ -2986,7 +2986,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 <span class="nt">&lt;/argument&gt;</span>
 </code></pre></div></div>
 
-<p>This will include <code class="highlighter-rouge">Magento/Ui/view/base/web/js/form/provider.js</code> on the page as part of this DataSource component. The Form Provider javascript can also be extended if the functionality doesn’t do what is necessary in your case.</p>
+<p>This will include <a href="https://github.com/magento/magento2/blob/2.2/app/code/Magento/Ui/view/base/web/js/form/provider.js"><code class="highlighter-rouge">Magento/Ui/view/base/web/js/form/provider.js</code></a> on the page as part of this DataSource component. The Form Provider javascript can also be extended if the functionality doesn’t do what is necessary in your case.</p>
 
 <p>Remember that this data provider is still, technically speaking, a completely separate UI Component. To fully link it to the “base” component, there are a few things that need to happen so that the “base” UI component’s javascript can use the data provided by the data provider.</p>
 
@@ -3011,7 +3011,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <h1 id="javascript-component-linking">Javascript Component Linking</h1>
 
-<p>Every Javascript component should extend the core Element class in some way (mapped to <a href="/guides/v2.2/ui_comp_guide/concepts/ui_comp_uielement_concept.html"><code class="highlighter-rouge">uiElement</code></a> with RequireJS and located in <code class="highlighter-rouge">Magento/Ui/view/base/web/js/lib/core/element/element.js</code>.  When this class initializes it runs an <code class="highlighter-rouge">initLinks()</code> method. That method, in turn, passes a few class properties into a method that handles linking components together. This file (<code class="highlighter-rouge">lib/core/element/link.js</code>) binds the values of those parameters to actual components.</p>
+<p>Every Javascript component should extend the core Element class in some way (mapped to <a href="/guides/v2.2/ui_comp_guide/concepts/ui_comp_uielement_concept.html"><code class="highlighter-rouge">uiElement</code></a> with RequireJS and located in <a href="https://github.com/magento/magento2/blob/2.2/app/code/Magento/Ui/view/base/web/js/lib/core/element/element.js"><code class="highlighter-rouge">Magento/Ui/view/base/web/js/lib/core/element/element.js</code></a>.  When this class initializes it runs an <code class="highlighter-rouge">initLinks()</code> method. That method, in turn, passes a few class properties into a method that handles linking components together. This file (<code class="highlighter-rouge">lib/core/element/link.js</code>) binds the values of those parameters to actual components.</p>
 
 <p>The properties Magento will parse are:</p>
 
