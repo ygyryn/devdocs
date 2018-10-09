@@ -2880,7 +2880,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <h2 id="how-magento-stylesheet-files-are-organized">How Magento stylesheet files are organized</h2>
 
-<p>Conventionally, CSS and LESS files are stored only in themes.   <span term-uuid="c1e4242b-1f1a-44c3-9d72-1d5b1435e142" class="glossary-term" data-toggle="popover">Module</span>
+<p>Conventionally, CSS and Less files are stored only in themes.   <span term-uuid="c1e4242b-1f1a-44c3-9d72-1d5b1435e142" class="glossary-term" data-toggle="popover">Module</span>
  directories do not contain any default styles.</p>
 
 <p>In a <a href="/guides/v2.2/frontend-dev-guide/themes/theme-structure.html">theme directory</a>, stylesheets are stored in the following locations:</p>
@@ -2905,14 +2905,14 @@ Contains the following:
 <li>
 <code>print.less</code>: used to generate styles for the printed version of store pages.
 </li>
-<li><code>_styles.less</code> - a composite file, which includes all LESS files used in the   <span term-uuid="d2093e4a-2b71-48a3-99b7-b32af7158019" class="glossary-term" data-toggle="popover">theme</span>
+<li><code>_styles.less</code> - a composite file, which includes all Less files used in the   <span term-uuid="d2093e4a-2b71-48a3-99b7-b32af7158019" class="glossary-term" data-toggle="popover">theme</span>
 . The underscore sign ("_") in a file name conventionally means that a file is not used independently, but is included in other files.
 </li>
 <li><code>styles-m.less</code>: used to generate mobile-specific styles, includes <code>_styles.less</code>
 </li>
 <li><code>styles-l.less</code>: used to generate desktop-specific styles, includes <code>_styles.less</code>.
 </li>
-<li><code>/source</code>: this subdirectory contains LESS configuration files that invoke mixins from the Magento UI   <span term-uuid="08968dbb-2eeb-45c7-ae95-ffca228a7575" class="glossary-term" data-toggle="popover">library</span>
+<li><code>/source</code>: this subdirectory contains Less configuration files that invoke mixins from the Magento UI   <span term-uuid="08968dbb-2eeb-45c7-ae95-ffca228a7575" class="glossary-term" data-toggle="popover">library</span>
 
 </li>
 <li>

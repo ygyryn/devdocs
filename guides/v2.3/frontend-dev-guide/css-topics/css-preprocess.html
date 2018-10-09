@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>How CSS and LESS files are preprocessed and how to debug them | Magento 2 Developer Documentation</title>
+	<title>How CSS and Less files are preprocessed and how to debug them | Magento 2 Developer Documentation</title>
 	<meta name="description" content="Magento 2 Developer Documentation.
 ">
 
@@ -2891,7 +2891,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 	
 
-	<h1 class="page-heading">How CSS and LESS files are preprocessed and how to debug them</h1>
+	<h1 class="page-heading">How CSS and Less files are preprocessed and how to debug them</h1>
 
   
 
@@ -2940,18 +2940,18 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
     </tr>
 </table>
 
-<h2 id="less_modes">LESS compilation modes</h2>
+<h2 id="less_modes">Less compilation modes</h2>
 
 <p>In the Magento application, the following modes of compiling <code class="highlighter-rouge">.less</code> files to CSS are implemented:</p>
 
 <ol>
   <li>
-    <p>Server-side LESS compilation.</p>
+    <p>Server-side Less compilation.</p>
 
-    <p>This is the default compilation mode, and is the only option in <a href="/guides/v2.3/config-guide/bootstrap/magento-modes.html#production-mode">production application mode</a>. In this case the compilation is performed on the server, using the <a href="https://github.com/oyejorge/less.php">LESS PHP library</a>.</p>
+    <p>This is the default compilation mode, and is the only option in <a href="/guides/v2.3/config-guide/bootstrap/magento-modes.html#production-mode">production application mode</a>. In this case the compilation is performed on the server, using the <a href="https://github.com/oyejorge/less.php">Less PHP library</a>.</p>
   </li>
   <li>
-    <p>Client-side LESS compilation.</p>
+    <p>Client-side Less compilation.</p>
 
     <p>When your application is not in the production mode, you can set Magento to compile <code class="highlighter-rouge">.less</code> files in a browser, using the <a href="http://lesscss.org/usage/#using-less-in-the-browser">native <code class="highlighter-rouge">less.js</code> library</a></p>
   </li>
@@ -2961,30 +2961,30 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 <ol>
   <li>In the Magento Admin, navigate to <strong>Stores</strong> &gt; <strong>Configuration</strong> &gt; ADVANCED &gt; <strong>Developer</strong>.</li>
   <li>In the <strong>Store View</strong> drop-down field, select <strong>Default Config</strong>.</li>
-  <li>Under <strong>Front-end development workflow</strong>, in the <strong>Workflow type</strong> field, select the compilation mode.</li>
+  <li>Under <strong>Frontend development workflow</strong>, in the <strong>Workflow type</strong> field, select the compilation mode.</li>
   <li>To save the settings, click <strong>Save Config</strong>.</li>
 </ol>
 
-<h3 id="server-side">Server-side LESS compilation</h3>
+<h3 id="server-side">Server-side Less compilation</h3>
 
-<p>The following paragraph describes how the LESS preprocessor works in server-side compilation mode.
-For each CSS file included in the layouts, LESS preprocessor does the following:</p>
+<p>The following paragraph describes how the Less preprocessor works in server-side compilation mode.
+For each CSS file included in the layouts, Less preprocessor does the following:</p>
 
 <ol>
   <li>Checks if the requested <code class="highlighter-rouge">.css</code> file is found. If it is found, the preprocessor stops its execution. Otherwise, it proceeds to the next step.</li>
-  <li>Changes the extension of the requested file to <code class="highlighter-rouge">.less</code> and tries to find the file using the <a href="/guides/v2.3/frontend-dev-guide/themes/theme-inherit.html#theme-inherit-static">Magento fallback mechanism</a>. If the <code class="highlighter-rouge">.less</code> file is not found, LESS preprocessor stops its execution. Otherwise, it proceeds to the next step.</li>
+  <li>Changes the extension of the requested file to <code class="highlighter-rouge">.less</code> and tries to find the file using the <a href="/guides/v2.3/frontend-dev-guide/themes/theme-inherit.html#theme-inherit-static">Magento fallback mechanism</a>. If the <code class="highlighter-rouge">.less</code> file is not found, Less preprocessor stops its execution. Otherwise, it proceeds to the next step.</li>
   <li>
-    <p>Reads <code class="highlighter-rouge">.less</code> file contents and resolves <a href="#fedg_css-magento-import"><code class="highlighter-rouge">@magento_import</code></a> and default LESS <code class="highlighter-rouge">@import</code> directives.</p>
+    <p>Reads <code class="highlighter-rouge">.less</code> file contents and resolves <a href="#fedg_css-magento-import"><code class="highlighter-rouge">@magento_import</code></a> and default Less <code class="highlighter-rouge">@import</code> directives.</p>
   </li>
   <li>
-    <p>Resolves all paths in <code class="highlighter-rouge">.less</code> files to relative paths in the system using the Magento fallback mechanism. All files resolved by the LESS preprocessor are copied to <code class="highlighter-rouge">var/view_preprocessed/less</code>. Imported files are processed recursively.</p>
+    <p>Resolves all paths in <code class="highlighter-rouge">.less</code> files to relative paths in the system using the Magento fallback mechanism. All files resolved by the Less preprocessor are copied to <code class="highlighter-rouge">var/view_preprocessed/less</code>. Imported files are processed recursively.</p>
   </li>
-  <li>All source files are passed to the PHP LESS compiler. The resulting compiled <code class="highlighter-rouge">.css</code> files are published to <code class="highlighter-rouge">pub/static/frontend/&lt;Vendor&gt;/&lt;theme&gt;/&lt;locale&gt;</code>.</li>
+  <li>All source files are passed to the PHP Less compiler. The resulting compiled <code class="highlighter-rouge">.css</code> files are published to <code class="highlighter-rouge">pub/static/frontend/&lt;Vendor&gt;/&lt;theme&gt;/&lt;locale&gt;</code>.</li>
 </ol>
 
 <h4 id="css_debug_server">Styles debugging in server-side compilation mode</h4>
 
-<p>In server-side LESS compilation mode, to have your changes applied, you need to do the following:</p>
+<p>In server-side Less compilation mode, to have your changes applied, you need to do the following:</p>
 
 <ol>
   <li>Clear <code class="highlighter-rouge">pub/static/frontend/&lt;Vendor&gt;/&lt;theme&gt;/&lt;locale&gt;</code> by deleting the directory in the file system.</li>

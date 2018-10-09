@@ -2290,7 +2290,7 @@ The corresponding value will be assigned to <code class="highlighter-rouge">user
   <p>As of MFTF 2.3.6, you no longer need to differentiate between scopes (a test, a hook, or a suite) for persisted data when referencing it in tests.</p>
 
   <p>The MFTF now stores the persisted data and attempts to retrieve it using the combination of <code class="highlighter-rouge">stepKey</code> and the scope of where it has been called.
-The current scope is prefered, then widening to <em>test &gt; hook &gt; suite</em> or <em>hook &gt; test &gt; suite</em>.</p>
+The current scope is preferred, then widening to <em>test &gt; hook &gt; suite</em> or <em>hook &gt; test &gt; suite</em>.</p>
 
   <p>This emphasizes the practice for the <code class="highlighter-rouge">stepKey</code> of <code class="highlighter-rouge">createData</code> to be descriptive and unique, as a duplicated <code class="highlighter-rouge">stepKey</code> in both a <code class="highlighter-rouge">&lt;test&gt;</code> and <code class="highlighter-rouge">&lt;before&gt;</code> prefers the <code class="highlighter-rouge">&lt;test&gt;</code> data.</p>
 </div>

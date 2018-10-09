@@ -3868,8 +3868,8 @@ languages:</p>
 
 <p>The hooks fail if the final command in them fails. To cause them to fail on the first failed command, add <code class="highlighter-rouge">set -e</code> to the beginning of the hook.</p>
 
-<h4 id="example-compile-sass-files-using-grunt">[Example] Compile SASS files using grunt</h4>
-<p>For example, to compile SASS files using grunt:</p>
+<h4 id="example-compile-sass-files-using-grunt">[Example] Compile Sass files using grunt</h4>
+<p>For example, to compile Sass files using grunt:</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">dependencies</span><span class="pi">:</span>
   <span class="na">ruby</span><span class="pi">:</span>
@@ -3886,7 +3886,7 @@ languages:</p>
     <span class="no">php ./bin/magento magento-cloud:build</span>
 </code></pre></div></div>
 
-<p>You must compile SASS files using <code class="highlighter-rouge">grunt</code> before static content deployment, which happens during the build. Place the <code class="highlighter-rouge">grunt</code> command before the <code class="highlighter-rouge">build</code> command.</p>
+<p>You must compile Sass files using <code class="highlighter-rouge">grunt</code> before static content deployment, which happens during the build. Place the <code class="highlighter-rouge">grunt</code> command before the <code class="highlighter-rouge">build</code> command.</p>
 
 <h2 id="cloud-yaml-platform-cron"><code class="highlighter-rouge">crons</code></h2>
 <p><code class="highlighter-rouge">crons</code> describes processes that are triggered on a schedule. We recommend you run cron as the <a href="/guides/v2.0/cloud/before/before-workspace-file-sys-owner.html">Magento file system owner</a>. Do not run cron as <code class="highlighter-rouge">root</code>. We also recommend against running cron as the web server user.</p>

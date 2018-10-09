@@ -4465,7 +4465,7 @@ nodejs:
 
 <p>The commands run from the application (<code class="highlighter-rouge">/app</code>) directory. You can use the <code class="highlighter-rouge">cd</code> command to change the directory. The hooks fail if the final command in them fails. To cause them to fail on the first failed command, add <code class="highlighter-rouge">set -e</code> to the beginning of the hook.</p>
 
-<h4 id="to-compile-sass-files-using-grunt">To compile SASS files using grunt:</h4>
+<h4 id="to-compile-sass-files-using-grunt">To compile Sass files using grunt:</h4>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">dependencies</span><span class="pi">:</span>
     <span class="na">ruby</span><span class="pi">:</span>
@@ -4482,7 +4482,7 @@ nodejs:
         <span class="no">php ./vendor/bin/ece-tools</span>
 </code></pre></div></div>
 
-<p>You must compile SASS files using <code class="highlighter-rouge">grunt</code> before static content deployment, which happens during the build. Place the <code class="highlighter-rouge">grunt</code> command before the <code class="highlighter-rouge">build</code> command.</p>
+<p>You must compile Sass files using <code class="highlighter-rouge">grunt</code> before static content deployment, which happens during the build. Place the <code class="highlighter-rouge">grunt</code> command before the <code class="highlighter-rouge">build</code> command.</p>
 
 <h3 id="crons"><code class="highlighter-rouge">crons</code></h3>
 <p>Describes processes that are triggered on a schedule. We recommend you run <code class="highlighter-rouge">cron</code> as the <a href="/guides/v2.2/cloud/before/before-workspace-file-sys-owner.html">Magento file system owner</a>. Do <em>not</em> run cron as <code class="highlighter-rouge">root</code> or as the web server user.</p>

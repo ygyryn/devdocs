@@ -2498,7 +2498,7 @@ Since the action is <strong>to create</strong> a category, the <abbr title="Mage
 <ul>
   <li><code class="highlighter-rouge">name="CreateCategory"</code> defines a descriptive name of the operation, which is used for merging if needed.</li>
   <li><code class="highlighter-rouge">dataType="category"</code> defines a relation with data entities with input data for a Category (<code class="highlighter-rouge">&lt;entity type="category"&gt;</code>).</li>
-  <li><code class="highlighter-rouge">auth="adminOauth"</code> defines Oauth authorization, which is required for the Admin area.</li>
+  <li><code class="highlighter-rouge">auth="adminOauth"</code> defines OAuth authorization, which is required for the Admin area.</li>
   <li><code class="highlighter-rouge">url="/V1/categories"</code> defines a routing URL to the corresponding service class.
   (The request will be sent to <a href="">https://example.com/rest/V1/categories</a> if <code class="highlighter-rouge">MAGENTO_BASE_URL=https://example.com/</code> and <code class="highlighter-rouge">MAGENTO_BACKEND_NAME=admin</code> are set in the <em>acceptance/.env</em> configuration file.)</li>
   <li><code class="highlighter-rouge">method="POST"</code> defines a POST method of the HTTP request.</li>

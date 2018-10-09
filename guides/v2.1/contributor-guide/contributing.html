@@ -1865,7 +1865,7 @@ As of September 17, 2018, we no longer accept contributions to the v2.1 release 
 
 <h2 id="fork">Fork a repository</h2>
 
-<p>To fork a repository on Github:</p>
+<p>To fork a repository on GitHub:</p>
 
 <ol>
   <li>Create or log in to your account on GitHub.</li>
@@ -2046,7 +2046,7 @@ As of September 17, 2018, we no longer accept contributions to the v2.1 release 
 
 <ul>
   <li><a href="#porting-tool">Magento Porting Tool</a> - Quick and easy method with a few clicks in a Magento tool</li>
-  <li><a href="#porting-manual">Manual porting</a> - Manual process requiring a strong understanding of git</li>
+  <li><a href="#porting-manual">Manual porting</a> - Manual process requiring a strong understanding of Git</li>
 </ul>
 
 <p class="bs-callout bs-callout-info">Creating back-ports and up-ports are recommended and a best practice, but not required to contribute code. Anyone can create a back-port and up-port for an already merged pull request.</p>
@@ -2096,7 +2096,7 @@ As of September 17, 2018, we no longer accept contributions to the v2.1 release 
 <ul>
   <li><strong>Use my fork as target</strong> - When checked, your fork is used to push the result. This is selected by default.</li>
   <li><strong>Target options</strong> - If you do not use your fork as a target (not checked), manually specify an organization and repository for ported commits.</li>
-  <li><strong>Porting strategy</strong> - Sets the git commands and method for committing the code port:
+  <li><strong>Porting strategy</strong> - Sets the Git commands and method for committing the code port:
     <ul>
       <li><code class="highlighter-rouge">git am</code> – Recommended. When selected, authorship and original commit message will be saved. This command is used to port.</li>
       <li><code class="highlighter-rouge">git apply</code> – A new commit will be created with a default message. GitHub provided patch is applied with <code class="highlighter-rouge">git apply</code>. <strong>Important</strong>: This is an experimental strategy and results may vary.</li>
@@ -2108,7 +2108,7 @@ As of September 17, 2018, we no longer accept contributions to the v2.1 release 
 
 <h3 id="manual-porting">Manual porting</h3>
 
-<p>When manually porting, you use git commands to create branches and pull requests. This option may require a strong understanding of git.</p>
+<p>When manually porting, you use Git commands to create branches and pull requests. This option may require a strong understanding of Git.</p>
 
 <p>The following is an example “Forwardport” (up-port) pull request for https://github.com/magento/magento2/pull/13528 from the <code class="highlighter-rouge">2.2-develop</code> branch to the <code class="highlighter-rouge">2.3-develop</code> branch:</p>
 
@@ -2121,7 +2121,7 @@ As of September 17, 2018, we no longer accept contributions to the v2.1 release 
   <li>In the up-port pull request description, add the full path to the original pull request (for example: https://github.com/magento/magento2/pull/13528) to help the Magento team link these pull requests.</li>
 </ol>
 
-<p>The following git commands detail how to up-port to <code class="highlighter-rouge">2.3-develop</code> branch from <code class="highlighter-rouge">2.2-develop</code> branch:</p>
+<p>The following Git commands detail how to up-port to <code class="highlighter-rouge">2.3-develop</code> branch from <code class="highlighter-rouge">2.2-develop</code> branch:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout 2.3-develop
 git checkout -b up-port-pull-&lt;PR_NUMBER&gt;
@@ -2129,7 +2129,7 @@ curl -L https://github.com/magento/magento2/pull/&lt;PR_NUMBER&gt;.patch | git a
 git push origin up-port-pull-&lt;PR_NUMBER&gt;:up-port-pull-&lt;PR_NUMBER&gt;
 </code></pre></div></div>
 
-<p>The following git commands detail how to back-port to <code class="highlighter-rouge">2.2-develop</code> branch from <code class="highlighter-rouge">2.3-develop</code> branch:</p>
+<p>The following Git commands detail how to back-port to <code class="highlighter-rouge">2.2-develop</code> branch from <code class="highlighter-rouge">2.3-develop</code> branch:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout 2.2-develop
 git checkout -b back-port-pull-&lt;PR_NUMBER&gt;
