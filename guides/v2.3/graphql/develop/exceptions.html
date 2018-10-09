@@ -2147,13 +2147,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 	
 
-	
-
 	<h1 class="page-heading">Exception handling</h1>
-
-  
-
-
 </section>
 
 			<p>The WebApi module has an implementation to “mask” <code class="highlighter-rouge">LocalizedExceptions</code> so they aren’t exposed to the client. GraphQL accomplishes this by restricting verbose output to only those exceptions implementing <code class="highlighter-rouge">\GraphQL\Error\ClientAware</code>, and only if the system is in developer mode. In these circumstances, Magento returns a full stack trace. Otherwise, Magento writes these exceptions to the system <code class="highlighter-rouge">exception.log</code> file while returning an “internal server error” to the client.</p>
