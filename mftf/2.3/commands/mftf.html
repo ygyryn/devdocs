@@ -2132,12 +2132,13 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vendor/bin/mftf generate:tests
 </code></pre></div></div>
+
 <h3 id="generate-tests-by-test-name">Generate tests by test name</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vendor/bin/mftf generate:tests LoginAsAdminTest LoginAsCustomerTest
 </code></pre></div></div>
 
-<h3 id="generate-and-run-the-tests-for-a-spcecified-group">Generate and run the tests for a spcecified group</h3>
+<h3 id="generate-and-run-the-tests-for-a-specified-group">Generate and run the tests for a specified group</h3>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vendor/bin/mftf run:group product <span class="nt">-r</span>
 </code></pre></div></div>
@@ -2212,8 +2213,8 @@ The path is set in the <code class="highlighter-rouge">TESTS_MODULE_PATH</code> 
       <td>Forces test generation, regardless of the module merge order defined in the Magento instance. Example: <code class="highlighter-rouge">generate:tests --force</code>.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">--lines</code></td>
-      <td>Sets the number of lines that determines the group size when <code class="highlighter-rouge">--config=parallel</code> is used. The <strong>default value</strong> is <code class="highlighter-rouge">500</code>. Example: <code class="highlighter-rouge">generate:tests --config=parallel --lines=400</code></td>
+      <td><code class="highlighter-rouge">-i,--time</code></td>
+      <td>Set time in minutes to determine the group size when <code class="highlighter-rouge">--config=parallel</code> is used. The <strong>default value</strong> is <code class="highlighter-rouge">10</code>. Example: <code class="highlighter-rouge">generate:tests --config=parallel --time=15</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">--tests</code></td>
@@ -2233,6 +2234,7 @@ The path is set in the <code class="highlighter-rouge">TESTS_MODULE_PATH</code> 
 <h4 id="examples-of-the-json-configuration">Examples of the JSON configuration</h4>
 
 <p>The configuration to generate a single test with no suites:</p>
+
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="s2">"tests"</span><span class="p">:[</span><span class="w">
       </span><span class="s2">"general_test1"</span><span class="w">     </span><span class="err">//Generate</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="s2">"general_test1"</span><span class="w"> </span><span class="err">test.</span><span class="w">
@@ -2242,6 +2244,7 @@ The path is set in the <code class="highlighter-rouge">TESTS_MODULE_PATH</code> 
 </span></code></pre></div></div>
 
 <p>The configuration to generate a single test in the suite:</p>
+
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="s2">"tests"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">No</span><span class="w"> </span><span class="err">tests</span><span class="w"> </span><span class="err">outside</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">suite</span><span class="w"> </span><span class="err">configuration</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">generated.</span><span class="w">
    </span><span class="s2">"suites"</span><span class="p">:{</span><span class="w">  
@@ -2256,7 +2259,7 @@ The path is set in the <code class="highlighter-rouge">TESTS_MODULE_PATH</code> 
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="s2">"tests"</span><span class="p">:[</span><span class="w">  
-      </span><span class="s2">"general_test1"</span><span class="p">,</span><span class="w">   
+      </span><span class="s2">"general_test1"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"general_test2"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"general_test3"</span><span class="w">
    </span><span class="p">],</span><span class="w">
@@ -2389,7 +2392,7 @@ The <code class="highlighter-rouge">.env</code> file is not affected.</p>
 
 <h4 id="usage-5">Usage</h4>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vendor/bin/mftf run:group <span class="o">[</span><span class="nt">--skip-generate</span>|--remove] <span class="o">[</span><span class="nt">--</span><span class="o">]</span> &lt;group1&gt; <span class="o">[</span>&lt;group2&gt;] 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vendor/bin/mftf run:group <span class="o">[</span><span class="nt">--skip-generate</span>|--remove] <span class="o">[</span><span class="nt">--</span><span class="o">]</span> &lt;group1&gt; <span class="o">[</span>&lt;group2&gt;]
 </code></pre></div></div>
 
 <h4 id="options-5">Options</h4>
