@@ -2957,7 +2957,48 @@ For example, if you created a “New Order” template, the configuration sectio
 
 <p>To add the store and sales related information to a template, use system variables.</p>
 
-<p>System variables are placeholders which are replaced by particular values when the actual email is generated. For example, the <code class="highlighter-rouge">{{var store_hours}}</code> variable is replaced by the value set in the <strong>STORES</strong> &gt; Settings &gt; <strong>Configuration</strong> &gt; GENERAL &gt; <strong>General</strong> &gt; <strong>Store Information</strong> section.</p>
+<p>System variables are placeholders which are replaced by particular values when the actual email is generated. For example, the Store Hours (<code class="highlighter-rouge">{{config path="general/store_information/hours"}}</code>) variable is replaced by the value set in the <strong>STORES</strong> &gt; Settings &gt; <strong>Configuration</strong> &gt; GENERAL &gt; <strong>General</strong> &gt; <strong>Store Information</strong> section.</p>
+
+<p>Here is a comprehensive list of some of the most commonly used email template variables that are available:</p>
+
+<ul>
+  <li>Email Footer Template: <code class="highlighter-rouge">{{template config_path="design/email/footer_template"}}</code></li>
+  <li>Email Header Template: <code class="highlighter-rouge">{{template config_path="design/email/header_template"}}</code></li>
+  <li>Email Logo Image Alt: <code class="highlighter-rouge">{{var logo_alt}}</code></li>
+  <li>Email Logo Image URL: <code class="highlighter-rouge">{{var logo_url}}</code></li>
+  <li>Email Logo Image Height: <code class="highlighter-rouge">{{var logo_height}}</code></li>
+  <li>Email Logo Image Width: <code class="highlighter-rouge">{{var logo_width}}</code></li>
+  <li>Template CSS: <code class="highlighter-rouge">{{var template_styles|raw}}</code></li>
+  <li>Base Unsecure URL: <code class="highlighter-rouge">{{config path="web/unsecure/base_url"}}</code></li>
+  <li>Base Secure URL: <code class="highlighter-rouge">{{config path="web/secure/base_url"}}</code></li>
+  <li>General Contact Name: <code class="highlighter-rouge">{{config path="trans_email/ident_general/name"}}</code></li>
+  <li>Sales Representative Contact Name: <code class="highlighter-rouge">{{config path="trans_email/ident_sales/name"}}</code></li>
+  <li>Sales Representative Contact Email: <code class="highlighter-rouge">{{config path="trans_email/ident_sales/email"}}</code></li>
+  <li>Custom1 Contact Name: <code class="highlighter-rouge">{{config path="trans_email/ident_custom1/name"}}</code></li>
+  <li>Custom1 Contact Email: <code class="highlighter-rouge">{{config path="trans_email/ident_custom1/email"}}</code></li>
+  <li>Custom2 Contact Name: <code class="highlighter-rouge">{{config path="trans_email/ident_custom2/name"}}</code></li>
+  <li>Custom2 Contact Email: <code class="highlighter-rouge">{{config path="trans_email/ident_custom2/email"}}</code></li>
+  <li>Store Name: <code class="highlighter-rouge">{{config path="general/store_information/name"}}</code></li>
+  <li>Store Phone Number: <code class="highlighter-rouge">{{config path="general/store_information/phone"}}</code></li>
+  <li>Store Hours: <code class="highlighter-rouge">{{config path="general/store_information/hours"}}</code></li>
+  <li>Country: <code class="highlighter-rouge">{{config path="general/store_information/country_id"}}</code></li>
+  <li>Region/State: <code class="highlighter-rouge">{{config path="general/store_information/region_id"}}</code></li>
+  <li>Zip/Postal Code: <code class="highlighter-rouge">{{config path="general/store_information/postcode"}}</code></li>
+  <li>City: <code class="highlighter-rouge">{{config path="general/store_information/city"}}</code></li>
+  <li>Street Address 1: <code class="highlighter-rouge">{{config path="general/store_information/street_line1"}}</code></li>
+  <li>Street Address 2: <code class="highlighter-rouge">{{config path="general/store_information/street_line2"}}</code></li>
+  <li>Store Contact Address: <code class="highlighter-rouge">{{config path="general/store_information/address"}}</code></li>
+  <li>Customer Account URL: <code class="highlighter-rouge">{{var this.getUrl($store, 'customer/account/')}}</code></li>
+  <li>Customer Email: <code class="highlighter-rouge">{{var customer.email}}</code></li>
+  <li>Customer Name: <code class="highlighter-rouge">{{var customer.name}}</code></li>
+  <li>Billing Address: <code class="highlighter-rouge">{{var formattedBillingAddress|raw}}</code></li>
+  <li>Email Order Note: <code class="highlighter-rouge">{{var order.getEmailCustomerNote()}}</code></li>
+  <li>Order ID: <code class="highlighter-rouge">{{var order.increment_id}}</code></li>
+  <li>Order Items Grid: <code class="highlighter-rouge">{{layout handle="sales_email_order_items" order=$order area="frontend"}}</code></li>
+  <li>Payment Details: <code class="highlighter-rouge">{{var payment_html|raw}}</code></li>
+  <li>Shipping Address: <code class="highlighter-rouge">{{var formattedShippingAddress|raw}}</code></li>
+  <li>Shipping Description: <code class="highlighter-rouge">{{var order.getShippingDescription()}}</code></li>
+</ul>
 
 <p class="bs-callout bs-callout-info">You can also create your own custom variables and set their values in the Admin, under <strong>SYSTEM</strong> &gt; <strong>Custom Variables</strong>.</p>
 
