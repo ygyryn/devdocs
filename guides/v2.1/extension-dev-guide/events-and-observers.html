@@ -3088,7 +3088,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
     <span class="c1">// Code...
 </span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">eventManager</span><span class="o">-&gt;</span><span class="na">dispatch</span><span class="p">(</span><span class="s1">'my_module_event_before'</span><span class="p">);</span>
     <span class="c1">// More code that sets $eventData...
-</span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">eventManager</span><span class="o">-&gt;</span><span class="na">dispatch</span><span class="p">(</span><span class="s1">'my_module_event_after'</span><span class="p">,[</span><span class="s1">'myEventData'</span><span class="o">=&gt;</span><span class="nv">$eventData</span><span class="p">]);</span>
+</span>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">eventManager</span><span class="o">-&gt;</span><span class="na">dispatch</span><span class="p">(</span><span class="s1">'my_module_event_after'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'myEventData'</span> <span class="o">=&gt;</span> <span class="nv">$eventData</span><span class="p">]);</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
@@ -3118,13 +3118,13 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 <span class="p">{</span>
   <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
   <span class="p">{</span>
-    <span class="c1">//Observer initialization code...
-</span>    <span class="c1">//You can use dependency injection to get any class this observer may need.
+    <span class="c1">// Observer initialization code...
+</span>    <span class="c1">// You can use dependency injection to get any class this observer may need.
 </span>  <span class="p">}</span>
 
   <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">\Magento\Framework\Event\Observer</span> <span class="nv">$observer</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="c1">//Observer execution code...
+    <span class="c1">// Observer execution code...
 </span>  <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
@@ -3138,14 +3138,14 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 <span class="p">{</span>
   <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
   <span class="p">{</span>
-    <span class="c1">//Observer initialization code...
-</span>    <span class="c1">//You can use dependency injection to get any class this observer may need.
+    <span class="c1">// Observer initialization code...
+</span>    <span class="c1">// You can use dependency injection to get any class this observer may need.
 </span>  <span class="p">}</span>
 
   <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="nx">\Magento\Framework\Event\Observer</span> <span class="nv">$observer</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="nv">$myEventData</span> <span class="o">=</span> <span class="nv">$observer</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">(</span><span class="s1">'myEventData'</span><span class="p">);</span>
-    <span class="c1">//Additional observer execution code...
+    <span class="c1">// Additional observer execution code...
 </span>  <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
