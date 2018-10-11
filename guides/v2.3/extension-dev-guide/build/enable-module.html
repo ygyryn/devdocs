@@ -3486,28 +3486,29 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 			<p>After you have built the component and are ready to enable it in your Magento environment, do the following:</p>
 
 <ol>
-<li>Disable the   <span term-uuid="0bc9c8bc-de1a-4a06-9c99-a89a29c30645" class="glossary-term" data-toggle="popover">cache</span>
- under <code>System-&gt;Cache Management</code>.</li>
-<li>Enter the following at the command line:
+  <li>Disable the   <span term-uuid="0bc9c8bc-de1a-4a06-9c99-a89a29c30645" class="glossary-term" data-toggle="popover">cache</span>
+ under <code class="highlighter-rouge">System-&gt;Cache Management</code>.</li>
+  <li>
+    <p>Enter the following in the command line:</p>
 
-<pre>
-bin/magento module:enable --clear-static-content Component_Name
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bin/magento module:enable <span class="nt">--clear-static-content</span> Component_Name
 bin/magento setup:upgrade
-</pre>
+</code></pre></div>    </div>
 
-where <code>Component_Name</code> is the name of the component you are enabling.
-</li>
-<li>Check under <code>Stores-&gt;Configuration-&gt;Advanced-&gt;Advanced</code> that the component is present.</li>
+    <p>Where <code class="highlighter-rouge">Component_Name</code> is the name of the component you are enabling.</p>
+  </li>
+  <li>Check under <code class="highlighter-rouge">Stores-&gt;Configuration-&gt;Advanced-&gt;Advanced</code> that the component is present.</li>
 </ol>
 
-<div class="bs-callout bs-callout-info" id="info">
-  <p>The general order of operations for <code class="highlighter-rouge">setup:upgrade</code> is:</p>
-  <ol>
-    <li><strong>Schema install/upgrade.</strong></li>
-    <li><strong>Schema post-upgrade</strong>— handles any additional updates. These recurring upgrades occur independently and regardless of any changes to the schema.</li>
-    <li><strong>Data install/upgrade</strong> — installs the data. Taken from <code class="highlighter-rouge">setup/InstallData.php</code>.</li>
-  </ol>
-</div>
+<h2 id="order-of-operations">Order of operations</h2>
+
+<p>The general order of operations for <code class="highlighter-rouge">setup:upgrade</code> is:</p>
+
+<ol>
+  <li><strong>Schema install/upgrade.</strong></li>
+  <li><strong>Schema post-upgrade</strong>— handles any additional updates. These recurring upgrades occur independently and regardless of any changes to the schema.</li>
+  <li><strong>Data install/upgrade</strong> — installs the data. Taken from <code class="highlighter-rouge">setup/InstallData.php</code>.</li>
+</ol>
 
 <h2 id="disable-a-component">Disable a component</h2>
 

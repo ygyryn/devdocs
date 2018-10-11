@@ -3511,12 +3511,12 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 <p>The <code>di.xml</code> file in your   <span term-uuid="c1e4242b-1f1a-44c3-9d72-1d5b1435e142" class="glossary-term" data-toggle="popover">module</span>
  declares a plugin for a class object:</p>
 
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"> 
-<span class="nt">&lt;config&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;config&gt;</span>
     <span class="nt">&lt;type</span> <span class="na">name=</span><span class="s">"{ObservedType}"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;plugin</span> <span class="na">name=</span><span class="s">"{pluginName}"</span> <span class="na">type=</span><span class="s">"{PluginClassName}"</span> <span class="na">sortOrder=</span><span class="s">"1"</span> <span class="na">disabled=</span><span class="s">"false"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/type&gt;</span>
-<span class="nt">&lt;/config&gt;</span></code></pre></figure>
+<span class="nt">&lt;/config&gt;</span>
+</code></pre></div></div>
 
 <p>You must specify these elements:</p>
 
@@ -3547,15 +3547,16 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>Below is an example of a before method modifying the <code class="highlighter-rouge">$name</code> argument before passing it on to the observed <code class="highlighter-rouge">setName</code> method.</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">namespace</span> <span class="nx">My\Module\Plugin</span><span class="p">;</span>
+<pre><code class="language-PHP">namespace My\Module\Plugin;
 
-<span class="k">class</span> <span class="nc">ProductAttributesUpdater</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">beforeSetName</span><span class="p">(</span><span class="nx">\Magento\Catalog\Model\Product</span> <span class="nv">$subject</span><span class="p">,</span> <span class="nv">$name</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="p">[</span><span class="s1">'('</span> <span class="o">.</span> <span class="nv">$name</span> <span class="o">.</span> <span class="s1">')'</span><span class="p">];</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+class ProductAttributesUpdater
+{
+    public function beforeSetName(\Magento\Catalog\Model\Product $subject, $name)
+    {
+        return ['(' . $name . ')'];
+    }
+}
+</code></pre>
 
 <h4 id="after-methods">After methods</h4>
 
@@ -3565,62 +3566,68 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>Below is an example of an after method modifying the return value <code class="highlighter-rouge">$result</code> of an observed methods call.</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">namespace</span> <span class="nx">My\Module\Plugin</span><span class="p">;</span>
+<pre><code class="language-PHP">
+namespace My\Module\Plugin;
 
-<span class="k">class</span> <span class="nc">ProductAttributesUpdater</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">afterGetName</span><span class="p">(</span><span class="nx">\Magento\Catalog\Model\Product</span> <span class="nv">$subject</span><span class="p">,</span> <span class="nv">$result</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">'|'</span> <span class="o">.</span> <span class="nv">$result</span> <span class="o">.</span> <span class="s1">'|'</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+class ProductAttributesUpdater
+{
+    public function afterGetName(\Magento\Catalog\Model\Product $subject, $result)
+    {
+        return '|' . $result . '|';
+    }
+}
+</code></pre>
 
 <p>After methods have access to all the arguments of their observed methods. When the observed method completes, Magento passes the result and arguments to the next after method that follows. If observed method does not return a result (<code class="highlighter-rouge">@return void</code>), then it passes <code class="highlighter-rouge">null</code> to the next after method.</p>
 
 <p>Below is an example of an after method that accepts the <code class="highlighter-rouge">null</code> result and arguments from the observed <code class="highlighter-rouge">login</code> method for <a href="https://github.com/magento/magento2/blob/2.1/app/code/Magento/Backend/Model/Auth.php" target="_blank"><code class="highlighter-rouge">Magento\Backend\Model\Auth</code></a>:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">namespace</span> <span class="nx">My\Module\Plugin</span><span class="p">;</span>
+<pre><code class="language-PHP">namespace My\Module\Plugin;
 
-<span class="k">class</span> <span class="nc">AuthLogger</span>
-<span class="p">{</span>
-    <span class="k">private</span> <span class="nv">$logger</span><span class="p">;</span>
+class AuthLogger
+{
+    private $logger;
 
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">\Psr\Log\LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
-    <span class="p">}</span>
+    public function __construct(\Psr\Log\LoggerInterface $logger)
+    {
+        $this-&gt;logger = $logger;
+    }
 
-    <span class="sd">/**
+    /**
      * @param \Magento\Backend\Model\Auth $authModel
      * @param null $result
      * @param string $username
      * @return void
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">afterLogin</span><span class="p">(</span><span class="nx">\Magento\Backend\Model\Auth</span> <span class="nv">$authModel</span><span class="p">,</span> <span class="nv">$result</span><span class="p">,</span> <span class="nv">$username</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span><span class="o">-&gt;</span><span class="na">debug</span><span class="p">(</span><span class="s1">'User '</span> <span class="o">.</span> <span class="nv">$username</span> <span class="o">.</span> <span class="s1">' signed in.'</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+     */
+    public function afterLogin(\Magento\Backend\Model\Auth $authModel, $result, $username)
+    {
+        $this-&gt;logger-&gt;debug('User ' . $username . ' signed in.');
+    }
+}
+</code></pre>
 
 <p>After methods do not need to declare all the arguments of their observed methods except those that the method uses and any arguments from the observed method that come before those used arguments.</p>
 
 <p>The following example is a class with an after method for <a href="https://github.com/magento/magento2/blob/2.1/app/code/Magento/Catalog/Model/Product/Action.php" target="_blank"><code class="highlighter-rouge">\Magento\Catalog\Model\Product\Action::updateWebsites($productIds, $websiteIds, $type)</code></a>:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">WebsitesLogger</span>
-<span class="p">{</span>
-    <span class="k">private</span> <span class="nv">$logger</span><span class="p">;</span>
+<pre><code class="language-PHP">
+class WebsitesLogger
+{
+    private $logger;
 
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">\Psr\Log\LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
-    <span class="p">}</span>
+    public function __construct(\Psr\Log\LoggerInterface $logger)
+    {
+        $this-&gt;logger = $logger;
+    }
 
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">afterUpdateWebsites</span><span class="p">(</span><span class="nx">\Magento\Catalog\Model\Product\Action</span> <span class="nv">$subject</span><span class="p">,</span> <span class="nv">$result</span><span class="p">,</span> <span class="nv">$productIds</span><span class="p">,</span> <span class="nv">$websiteIds</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span><span class="o">-&gt;</span><span class="na">log</span><span class="p">(</span><span class="s1">'Updated websites: '</span> <span class="o">.</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">', '</span><span class="p">,</span>  <span class="nv">$websiteIds</span><span class="p">));</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+    public function afterUpdateWebsites(\Magento\Catalog\Model\Product\Action $subject, $result, $productIds, $websiteIds)
+    {
+        $this-&gt;logger-&gt;log('Updated websites: ' . implode(', ',  $websiteIds));
+    }
+}
+
+</code></pre>
 
 <p>In the example, the <code class="highlighter-rouge">afterUpdateWebsites</code> function uses the variable <code class="highlighter-rouge">$websiteIds</code>, so it declares that variable as an argument. It also declares <code class="highlighter-rouge">$productIds</code> because it comes before <code class="highlighter-rouge">$websiteIds</code> in the parameter signature of the observed method. The after method did not list <code class="highlighter-rouge">$type</code> because it did not use it inside the method nor does it come before <code class="highlighter-rouge">$websiteIds</code>.</p>
 
@@ -3630,11 +3637,9 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>Magento runs the code in around methods before and after their observed methods. Using these methods allow you to override an observed method. Around methods must have the same name as the observed method with ‘around’ as the prefix.</p>
 
-<div class="bs-callout bs-callout-warning">
-  <p>Avoid using around method plugins when they are not required because they increase stack traces and affect performance.
+<p class="bs-callout bs-callout-warning">Avoid using around method plugins when they are not required because they increase stack traces and affect performance.
 The only use case for around method plugins is when the execution of all further plugins and original methods need termination.
 Use after method plugins if you require arguments for replacing or altering function results.</p>
-</div>
 
 <p>Before the list of the original method’s arguments, around methods receive a <code class="highlighter-rouge">callable</code> that will allow a call to the next method in the chain. When your code executes the <code class="highlighter-rouge">callable</code>, Magento calls the next plugin or the observed function.</p>
 
@@ -3642,68 +3647,72 @@ Use after method plugins if you require arguments for replacing or altering func
 
 <p>Below is an example of an around method adding behavior before and after an observed method:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">namespace</span> <span class="nx">My\Module\Plugin</span><span class="p">;</span>
+<pre><code class="language-PHP">namespace My\Module\Plugin;
 
-<span class="k">class</span> <span class="nc">ProductAttributesUpdater</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">aroundSave</span><span class="p">(</span><span class="nx">\Magento\Catalog\Model\Product</span> <span class="nv">$subject</span><span class="p">,</span> <span class="nx">callable</span> <span class="nv">$proceed</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$someValue</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">doSmthBeforeProductIsSaved</span><span class="p">();</span>
-        <span class="nv">$returnValue</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+class ProductAttributesUpdater
+{
+    public function aroundSave(\Magento\Catalog\Model\Product $subject, callable $proceed)
+    {
+        $someValue = $this-&gt;doSmthBeforeProductIsSaved();
+        $returnValue = null;
         
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">canCallProceedCallable</span><span class="p">(</span><span class="nv">$someValue</span><span class="p">))</span> <span class="p">{</span>
-            <span class="nv">$returnValue</span> <span class="o">=</span> <span class="nv">$proceed</span><span class="p">();</span>
-        <span class="p">}</span>
+        if ($this-&gt;canCallProceedCallable($someValue)) {
+            $returnValue = $proceed();
+        }
         
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$returnValue</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">postProductToFacebook</span><span class="p">();</span>
-        <span class="p">}</span>
+        if ($returnValue) {
+            $this-&gt;postProductToFacebook();
+        }
         
-        <span class="k">return</span> <span class="nv">$returnValue</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+        return $returnValue;
+    }
+}
+</code></pre>
 
 <p>When you wrap a method which accepts arguments, your plugin must also accept those arguments and you must forward them when you invoke the <code>proceed</code> callable. You must be careful to match the default parameters and type hints of the original signature of the method.</p>
 
 <p>For example, the following code defines a parameter of type <code>SomeType</code> which is nullable:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">namespace</span> <span class="nx">My\Module\Model</span><span class="p">;</span>
+<pre><code class="language-PHP">namespace My\Module\Model;
 
-<span class="k">class</span> <span class="nc">MyUtility</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="nx">SomeType</span> <span class="nv">$obj</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//do something
-</span>    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+class MyUtility
+{
+    public function save(SomeType $obj = null)
+    {
+        //do something
+    }
+}
+</code></pre>
 
 <p>If you wrapped this method with a plugin like below:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">namespace</span> <span class="nx">My\Module\Plugin</span><span class="p">;</span>
+<pre><code class="language-PHP">namespace My\Module\Plugin;
 
-<span class="k">class</span> <span class="nc">MyUtilityUpdater</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">aroundSave</span><span class="p">(</span><span class="nx">\My\Module\Model\MyUtility</span> <span class="nv">$subject</span><span class="p">,</span> <span class="nx">callable</span> <span class="nv">$proceed</span><span class="p">,</span> <span class="nx">SomeType</span> <span class="nv">$obj</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="c1">//do something
-</span>    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+class MyUtilityUpdater
+{
+    public function aroundSave(\My\Module\Model\MyUtility $subject, callable $proceed, SomeType $obj)
+    {
+      //do something
+    }
+}
+</code></pre>
 
 <p>Note the missing <code>= null</code>. Now, if Magento calls the original method with <code>null</code>,   <span term-uuid="bf703ab1-ca4b-48f9-b2b7-16a81fd46e02" class="glossary-term" data-toggle="popover">PHP</span>
  would throw a fatal error as your plugin does not accept <code>null</code>.</p>
 
 <p>You are responsible for forwarding the arguments from the plugin to the <code>proceed</code> callable. If you are not using/modifying the arguments, you could use variadics and argument unpacking to achieve this:</p>
 
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="k">namespace</span> <span class="nx">My\Module\Plugin</span><span class="p">;</span>
+<pre><code class="language-PHP">namespace My\Module\Plugin;
 
-<span class="k">class</span> <span class="nc">MyUtilityUpdater</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">aroundSave</span><span class="p">(</span><span class="nx">\My\Module\Model\MyUtility</span> <span class="nv">$subject</span><span class="p">,</span> <span class="nx">callable</span> <span class="nv">$proceed</span><span class="p">,</span> <span class="o">...</span><span class="nv">$args</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="c1">//do something
-</span>      <span class="nv">$proceed</span><span class="p">(</span><span class="o">...</span><span class="nv">$args</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+class MyUtilityUpdater
+{
+    public function aroundSave(\My\Module\Model\MyUtility $subject, callable $proceed, ...$args)
+    {
+      //do something
+      $proceed(...$args);
+    }
+}
+</code></pre>
 
 <h3 id="prioritizing-plugins">Prioritizing plugins</h3>
 

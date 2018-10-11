@@ -2423,10 +2423,7 @@ Each constraint name must be globally unique in Magento application and must be 
 
 <p>A test can contain constraints from different modules.</p>
 
-<div class="bs-callout bs-callout-warning">
-  <p>  
-Be careful when you use constraints from another module. A module that is referred by constraint can be disabled, that fails in the test execution. It is safe to use constraints of different modules in one test case if that modules have hard dependencies.   </p>
-</div>
+<p class="bs-callout bs-callout-warning">Be careful when you use constraints from another module. A module that is referred by constraint can be disabled, that fails in the test execution. It is safe to use constraints of different modules in one test case if that modules have hard dependencies.   </p>
 
 <p>The following example shows the <code class="highlighter-rouge">&lt;magento2_root_dir&gt;/dev/tests/functional/tests/app/Magento/Widget/Test/TestCase/DeleteWidgetEntityTest.xml</code> <a href="/guides/v2.3/mtf/mtf_entities/mtf_dataset.html">data set</a> with two constraints.</p>
 

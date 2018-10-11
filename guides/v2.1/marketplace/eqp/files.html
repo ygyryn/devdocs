@@ -1757,15 +1757,13 @@ Content-Type: application/pdf
 ------------287032381131322--
 </span></code></pre></div></div>
 
-<div class="bs-callout bs-callout-info">
-  <ul>
-    <li>Each part has a header and body with <code class="highlighter-rouge">Content-Disposition</code> header always set to <code class="highlighter-rouge">form-data</code>.</li>
-    <li>The <code class="highlighter-rouge">name</code> value must be set to <code class="highlighter-rouge">file[]</code> for all parts.</li>
-    <li>The original filename must be supplied in the <code class="highlighter-rouge">filename</code> parameter.</li>
-    <li>The <code class="highlighter-rouge">Content-Type</code> header must be set to the appropriate mime-type for the file.</li>
-    <li>The body of each part is the full contents of the raw file.</li>
-  </ul>
-</div>
+<ul>
+  <li>Each part has a header and body with <code class="highlighter-rouge">Content-Disposition</code> header always set to <code class="highlighter-rouge">form-data</code>.</li>
+  <li>The <code class="highlighter-rouge">name</code> value must be set to <code class="highlighter-rouge">file[]</code> for all parts.</li>
+  <li>The original filename must be supplied in the <code class="highlighter-rouge">filename</code> parameter.</li>
+  <li>The <code class="highlighter-rouge">Content-Type</code> header must be set to the appropriate mime-type for the file.</li>
+  <li>The body of each part is the full contents of the raw file.</li>
+</ul>
 
 <p>For example, if you save the previous request body is saved to a temporary file at <code class="highlighter-rouge">/tmp/files-payload</code>, you can use it in your POST request to upload the file:</p>
 
@@ -1907,14 +1905,12 @@ Content-Type: application/pdf
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="bs-callout bs-callout-info">
-  <ul>
-    <li>The API returns a batch response for each item, which includes a <code class="highlighter-rouge">code</code> and <code class="highlighter-rouge">message</code>.</li>
-    <li>A 200 OK HTTP response code indicates a successful upload.</li>
-    <li>Any non-200 HTTP response code indicates an error.</li>
-    <li>If no packages are associated with a file, the API returns an empty list and the file is removed.</li>
-  </ul>
-</div>
+<ul>
+  <li>The API returns a batch response for each item, which includes a <code class="highlighter-rouge">code</code> and <code class="highlighter-rouge">message</code>.</li>
+  <li>A 200 OK HTTP response code indicates a successful upload.</li>
+  <li>Any non-200 HTTP response code indicates an error.</li>
+  <li>If no packages are associated with a file, the API returns an empty list and the file is removed.</li>
+</ul>
 
 			
 		</div>

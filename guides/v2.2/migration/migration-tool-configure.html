@@ -2056,7 +2056,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
   </li>
 </ol>
 
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;source&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;source&gt;</span>
     <span class="nt">&lt;database</span> <span class="na">host=</span><span class="s">"127.0.0.1"</span> <span class="na">name=</span><span class="s">"magento1"</span> <span class="na">user=</span><span class="s">"root"</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/source&gt;</span>
 <span class="nt">&lt;destination&gt;</span>
@@ -2064,7 +2064,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 <span class="nt">&lt;/destination&gt;</span>
 <span class="nt">&lt;options&gt;</span>
     <span class="nt">&lt;crypt_key</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;/options&gt;</span></code></pre></figure>
+<span class="nt">&lt;/options&gt;</span>
+</code></pre></div></div>
 
 <p>The <code class="highlighter-rouge">&lt;crypt_key&gt;</code> tag is mandatory to fill. It can be found in <code class="highlighter-rouge">local.xml</code> file which is located in the directory of Magento 1 instance at <code class="highlighter-rouge">app/etc/local.xml</code> in <code class="highlighter-rouge">&lt;key&gt;</code> tag</p>
 
@@ -2078,7 +2079,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>For example, if your database owner’s username is <code class="highlighter-rouge">root</code> with password <code class="highlighter-rouge">pass</code> and you use the prefix <code class="highlighter-rouge">magento1</code> in your Magento 1 database, use the following in <code class="highlighter-rouge">config.xml</code>:</p>
 
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;source&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;source&gt;</span>
     <span class="nt">&lt;database</span> <span class="na">host=</span><span class="s">"127.0.0.1"</span> <span class="na">name=</span><span class="s">"magento1"</span> <span class="na">user=</span><span class="s">"root"</span> <span class="na">password=</span><span class="s">"pass"</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/source&gt;</span>
 <span class="nt">&lt;destination&gt;</span>
@@ -2087,29 +2088,30 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 <span class="nt">&lt;options&gt;</span>
     <span class="nt">&lt;source_prefix&gt;</span>magento1<span class="nt">&lt;/source_prefix&gt;</span>
     <span class="nt">&lt;crypt_key&gt;</span>f3e25abe619dae2387df9fs594f01985<span class="nt">&lt;/crypt_key&gt;</span>
-<span class="nt">&lt;/options&gt;</span></code></pre></figure>
+<span class="nt">&lt;/options&gt;</span>
+</code></pre></div></div>
 
 <p>When finished, save your changes to <code class="highlighter-rouge">config.xml</code> and exit the text editor.</p>
 
-<div class="bs-callout bs-callout-info" id="info">
-  <p>You can also connect to a database using the TLS protocol (i.e., using public/private cryptographic keys). Add the following optional attributes to the <code class="highlighter-rouge">database</code> element:</p>
+<h3 id="connect-using-the-tls-protocol">Connect using the TLS protocol</h3>
 
-  <ul>
-    <li><code class="highlighter-rouge">ssl_ca</code></li>
-    <li><code class="highlighter-rouge">ssl_cert</code></li>
-    <li><code class="highlighter-rouge">ssl_key</code></li>
-  </ul>
+<p>You can also connect to a database using the TLS protocol (i.e., using public/private cryptographic keys). Add the following optional attributes to the <code class="highlighter-rouge">database</code> element:</p>
 
-  <p>For example:</p>
+<ul>
+  <li><code class="highlighter-rouge">ssl_ca</code></li>
+  <li><code class="highlighter-rouge">ssl_cert</code></li>
+  <li><code class="highlighter-rouge">ssl_key</code></li>
+</ul>
 
-  <figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;source&gt;</span>
+<p>For example:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;source&gt;</span>
     <span class="nt">&lt;database</span> <span class="na">host=</span><span class="s">"localhost"</span> <span class="na">name=</span><span class="s">"magento1"</span> <span class="na">user=</span><span class="s">"root"</span> <span class="na">ssl_ca=</span><span class="s">"/path/to/file"</span> <span class="na">ssl_cert=</span><span class="s">"/path/to/file"</span> <span class="na">ssl_key=</span><span class="s">"/path/to/file"</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/source&gt;</span>
 <span class="nt">&lt;destination&gt;</span>
     <span class="nt">&lt;database</span> <span class="na">host=</span><span class="s">"localhost"</span> <span class="na">name=</span><span class="s">"magento2"</span> <span class="na">user=</span><span class="s">"root"</span> <span class="na">ssl_ca=</span><span class="s">"/path/to/file"</span> <span class="na">ssl_cert=</span><span class="s">"/path/to/file"</span> <span class="na">ssl_key=</span><span class="s">"/path/to/file"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/destination&gt;</span></code></pre></figure>
-
-</div>
+<span class="nt">&lt;/destination&gt;</span>
+</code></pre></div></div>
 
 <h2 id="migration-config">Work with configuration and mapping files</h2>
 

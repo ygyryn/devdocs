@@ -2050,11 +2050,9 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>Avoid using <a href="/guides/v2.3/extension-dev-guide/plugins.html">around method plugins</a> when they are not required because they increase stack traces and affect performance. The only use case for around method plugins is when you need to terminate the execution of all further plugins and original methods.</p>
 
-<div class="bs-callout bs-callout-info" id="info">
-  <p>Access to method parameters was the primary justification for using <strong>around</strong> method plugins instead of <strong>after</strong> method plugins.</p>
-
-  <p>Since 2.2, <a href="/guides/v2.3/extension-dev-guide/plugins.html#after-methods">after method plugins</a> give you access to method parameters. Use <strong>after</strong> method plugins if you need to replace or modify function results using arguments.</p>
-</div>
+<p class="bs-callout bs-callout-info">Access to method parameters was the primary justification for using <strong>around</strong> method plugins instead of <strong>after</strong> method plugins. 
+<br /><br /> 
+Since 2.2, <a href="/guides/v2.3/extension-dev-guide/plugins.html#after-methods">after method plugins</a> give you access to method parameters. Use <strong>after</strong> method plugins if you need to replace or modify function results using arguments.</p>
 
 <h3 id="test-your-code">Test your code</h3>
 

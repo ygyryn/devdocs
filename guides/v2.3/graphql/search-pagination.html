@@ -2252,12 +2252,9 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
   </tbody>
 </table>
 
-<div class="bs-callout bs-callout-info" id="info">
-  <ul>
-    <li><code class="highlighter-rouge">to</code> and <code class="highlighter-rouge">from</code> must always be used together. These condition types can be used in the same search term. For example, <code class="highlighter-rouge">qty: {from: "10" to: "20"}</code>.</li>
-    <li><code class="highlighter-rouge">gt</code> and <code class="highlighter-rouge">lt</code> can be used in the same search term. For example, <code class="highlighter-rouge">qty: {lt: "10" gt: "20"}</code>.</li>
-  </ul>
-</div>
+<p><code class="highlighter-rouge">to</code> and <code class="highlighter-rouge">from</code> must always be used together. These condition types can be used in the same search term. For example, <code class="highlighter-rouge">qty: {from: "10" to: "20"}</code>.</p>
+
+<p><code class="highlighter-rouge">gt</code> and <code class="highlighter-rouge">lt</code> can be used in the same search term. For example, <code class="highlighter-rouge">qty: {lt: "10" gt: "20"}</code>.</p>
 
 <h2 id="specifying-pagination">Specifying pagination</h2>
 
@@ -2287,7 +2284,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>The following search returns items that contain the word <code class="highlighter-rouge">yoga</code> or <code class="highlighter-rouge">pants</code>. The Catalog Search index contains search terms taken from the product <code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">description</code>, <code class="highlighter-rouge">short_description</code> and related attributes.</p>
 
-<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="err">products(</span><span class="w">
       </span><span class="err">search</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yoga pants"</span><span class="w">
     </span><span class="err">)</span><span class="w">
@@ -2310,7 +2307,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
           </span><span class="err">current_page</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre></figure>
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>The search returns 45 items.</p>
 
@@ -2326,7 +2324,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>The response for each item includes the <code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">sku</code>, <code class="highlighter-rouge">price</code> and <code class="highlighter-rouge">description</code> only. Up to 25 results are returned at a time, in decreasing order of price.</p>
 
-<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="err">products(</span><span class="w">
       </span><span class="err">search</span><span class="p">:</span><span class="w"> </span><span class="s2">"Messenger"</span><span class="w">
       </span><span class="err">filter</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2359,11 +2357,12 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
             </span><span class="err">page_size</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre></figure>
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>The query returns the following:</p>
 
-<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2400,13 +2399,14 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre></figure>
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h3 id="simple-search-using-a-timestamp">Simple search using a timestamp</h3>
 
 <p>The following search finds all products that were added after the specified time (midnight, November 1, 2017).</p>
 
-<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="err">products(</span><span class="w">
       </span><span class="err">filter</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="err">created_at</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">gt</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-01 00:00:00"</span><span class="p">}</span><span class="w">
@@ -2435,13 +2435,14 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
           </span><span class="err">current_page</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre></figure>
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h3 id="simple-logical-or-search">Simple Logical OR search</h3>
 
 <p>The following example searches for all products whose <code class="highlighter-rouge">sku</code> begins with the string <code class="highlighter-rouge">24-MB</code> or whose <code class="highlighter-rouge">name</code> ends with <code class="highlighter-rouge">Bag</code>.</p>
 
-<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="err">products(</span><span class="w">
       </span><span class="err">filter</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="err">or</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2473,7 +2474,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
           </span><span class="err">current_page</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre></figure>
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>The query returns 8 items.</p>
 
@@ -2481,7 +2483,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>This query searches for products that have <code class="highlighter-rouge">name</code> that ends with <code class="highlighter-rouge">Orange</code> or has a <code class="highlighter-rouge">sku</code> that indicates the product is a pair of women’s shorts in size 29 (<code class="highlighter-rouge">WSH%29%</code>). The system performs a logical AND to restrict the results to those that cost from $40 to $49.99.</p>
 
-<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="err">products(</span><span class="w">
       </span><span class="err">filter</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="err">price</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">from</span><span class="p">:</span><span class="w"> </span><span class="s2">"40"</span><span class="w"> </span><span class="err">to</span><span class="p">:</span><span class="w"> </span><span class="s2">"49.99"</span><span class="p">}</span><span class="w">
@@ -2513,7 +2515,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
           </span><span class="err">current_page</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre></figure>
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>The query returns 4 items.</p>
 

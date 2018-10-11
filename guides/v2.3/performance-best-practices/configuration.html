@@ -1863,13 +1863,13 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>When you activate the <strong>Enable JavaScript Bundling</strong> option, you allow Magento to merge all JS resources into one or a set of bundles that are loaded in storefront pages. Bundling JS results in fewer requests to the server, which improves page performance. It also helps the browser cache JS resources on the first call and reuse them for all further browsing. This option also brings lazy evaluation, as all JS is loaded as text. It initiates analysis and evaluation of code only after specific actions are triggered on the page. However, this setting is not recommended for stores where the first page load time is extremely critical, because all JS content will be loaded on the first call.</p>
 
-<div class="bs-callout bs-callout-info" id="info">
-  <ul>
-    <li>Magento recommends that you use third-party tools for minification and bundling (like <a href="http://requirejs.org/">r.js</a>). Magento built-in mechanisms are not optimal and are shipped as fallback alternatives.</li>
-    <li>Activating the HTTP2 protocol can be a good alternative to using JS bundling. The protocol provides pretty much the same benefits.</li>
-    <li>We do not recommend using deprecated settings like merging JS and CSS files, as they were designed only for synchronously-loaded JS in the HEAD section of the page. Using this technique can cause bundling and requireJS logic to work incorrectly.</li>
-  </ul>
-</div>
+<h3 id="bundling-tips">Bundling tips</h3>
+
+<ul>
+  <li>Magento recommends that you use third-party tools for minification and bundling (like <a href="http://requirejs.org/">r.js</a>). Magento built-in mechanisms are not optimal and are shipped as fallback alternatives.</li>
+  <li>Activating the HTTP2 protocol can be a good alternative to using JS bundling. The protocol provides pretty much the same benefits.</li>
+  <li>We do not recommend using deprecated settings like merging JS and CSS files, as they were designed only for synchronously-loaded JS in the HEAD section of the page. Using this technique can cause bundling and requireJS logic to work incorrectly.</li>
+</ul>
 
 <h2 id="database">Database maintenance schedule</h2>
 

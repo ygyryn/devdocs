@@ -1684,10 +1684,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 			<p>The <code class="highlighter-rouge">users</code> resource accesses and updates your user profile. You can also access reports you own.</p>
 
-<div class="bs-callout bs-callout-info">
-  <p>You cannot use this resource to create a new
+<p class="bs-callout bs-callout-info">You cannot use this resource to create a new
 profile. You must create a new profile on the <a href="https://developer.magento.com">Developer Portal</a>.</p>
-</div>
 
 <h2 id="profile">Profile</h2>
 
@@ -1948,20 +1946,19 @@ DELETE  /rest/v1/users/:mage_id/keys/:url_encoded_label_of_m2_key
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="bs-callout bs-callout-info">
-  <p>For Magento 2 keys:</p>
+<h4 id="magento-2-keys">Magento 2 keys</h4>
 
-  <ul>
-    <li>Each Composer key-pair has unique <code class="highlighter-rouge">label</code> and <code class="highlighter-rouge">is_enabled</code> flags to indicate whether the key is enabled.</li>
-    <li>A Composer key-pair is identified by <code class="highlighter-rouge">user_key</code> (username) and <code class="highlighter-rouge">password_key</code> (password) when prompted for Composer credentials.</li>
-  </ul>
+<ul>
+  <li>Each Composer key-pair has unique <code class="highlighter-rouge">label</code> and <code class="highlighter-rouge">is_enabled</code> flags to indicate whether the key is enabled.</li>
+  <li>A Composer key-pair is identified by <code class="highlighter-rouge">user_key</code> (username) and <code class="highlighter-rouge">password_key</code> (password) when prompted for Composer credentials.</li>
+</ul>
 
-  <p>For Magento 1 keys:</p>
-  <ul>
-    <li>Provides a list of product names and associated product keys, which can be used in the Magento Connect Manager to install extensions.</li>
-    <li>You cannot create, update, or delete these keys.</li>
-  </ul>
-</div>
+<h4 id="magento-1-keys">Magento 1 keys</h4>
+
+<ul>
+  <li>Provides a list of product names and associated product keys, which can be used in the Magento Connect Manager to install extensions.</li>
+  <li>You cannot create, update, or delete these keys.</li>
+</ul>
 
 <h3 id="create-keys">Create keys</h3>
 
@@ -2015,13 +2012,11 @@ DELETE  /rest/v1/users/:mage_id/keys/:url_encoded_label_of_m2_key
 }
 </span></code></pre></div></div>
 
-<div class="bs-callout bs-callout-info">
-  <ul>
-    <li>The API returns a batch response for each label.</li>
-    <li>A 200 OK HTTP response code indicates a successful update.</li>
-    <li>Any non-200 HTTP response code indicates an error. See the <code class="highlighter-rouge">message</code> field for details.</li>
-  </ul>
-</div>
+<ul>
+  <li>The API returns a batch response for each label.</li>
+  <li>A 200 OK HTTP response code indicates a successful update.</li>
+  <li>Any non-200 HTTP response code indicates an error. See the <code class="highlighter-rouge">message</code> field for details.</li>
+</ul>
 
 <h3 id="update-keys">Update keys</h3>
 

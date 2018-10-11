@@ -2793,20 +2793,17 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 <span class="p">}</span>
 </code></pre></div></div>
 
+<p>It is important to note that you should mention repository in data source class to use it for fixture field:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span> <span class="o">=</span> <span class="nv">$repositoryFactory</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">params</span><span class="p">[</span><span class="s1">'repository'</span><span class="p">])</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">'dataset'</span><span class="p">]);</span>
+</code></pre></div></div>
+
 <p>To apply the changes, enter the following commands:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> &lt;magento2_root_dir&gt;/dev/tests/functional/utils
 </code></pre></div></div>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php generate.php
 </code></pre></div></div>
-
-<div class="bs-callout bs-callout-warning">
-  <p>You should mention repository in data source class to use it for fixture field.</p>
-
-  <p>Example from <code class="highlighter-rouge">LayoutUpdates.php</code></p>
-  <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span> <span class="o">=</span> <span class="nv">$repositoryFactory</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">params</span><span class="p">[</span><span class="s1">'repository'</span><span class="p">])</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">'dataset'</span><span class="p">]);</span>
-</code></pre></div>  </div>
-</div>
 
 <h2 id="mtf_fixture_merge">Merge fixtures</h2>
 

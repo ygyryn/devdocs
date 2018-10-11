@@ -3119,12 +3119,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 <span class="p">}</span>
 </code></pre></div></div>
 
-<div class="bs-callout bs-callout-info" id="info">
-  <ul>
-    <li>You should take caching into account even if you need to refresh data every second. Lots of visitors can get content from the cache within a one-second time period.</li>
-    <li>Only GET and HEAD methods are cacheable.</li>
-  </ul>
-</div>
+<p class="bs-callout bs-callout-info">Take caching into account if you need to refresh data every second. Lots of visitors can get content from the cache within a one-second time period.
+Only GET and HEAD methods are cacheable.</p>
 
 <h2 id="configure-page-variations">Configure page variations</h2>
 
@@ -3149,17 +3145,6 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 <p>Context variables should not be specific to individual users because variables are used in cache keys for public content. In other words, a context variable per user results in a separate copy of content cached on the server for each user.</p>
 
 <p>Magento generates a hash based on all context variables (<code class="highlighter-rouge">\Magento\Framework\App\Http\Context::getVaryString</code>). The hash and current URL are used as keys for cache storage.</p>
-
-<div class="bs-callout bs-callout-tip">
-  <p>Use the <code class="highlighter-rouge">X-Magento-Vary</code> cookie to transfer context on the HTTP layer. HTTP proxies can be configured to calculate a unique identifier for cache based on the cookie and URL. For example, <a href="https://github.com/magento/magento2/blob/2.0/app/code/Magento/PageCache/etc/varnish4.vcl#L63-L68" target="_blank">our sample Varnish 4 configuration</a> uses the following:</p>
-  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sub vcl_hash {
-if (req.http.cookie ~ "X-Magento-Vary=") {
-hash_data(regsub(req.http.cookie, "^.?X-Magento-Vary=([^;]+);.*$", "\1"));
-}
-... more ...
-}
-</code></pre></div>  </div>
-</div>
 
 <p>For example, let’s declare a context variable that shows a drinks catalog and advertisement to adult customers only. The following code snippet will create a copy of every page in Magento for users under the age of 18.</p>
 
@@ -3190,6 +3175,18 @@ hash_data(regsub(req.http.cookie, "^.?X-Magento-Vary=([^;]+);.*$", "\1"));
 <p>The <code class="highlighter-rouge">subject-&gt;setValue</code> argument specifies the value for newcomer context and is used to guarantee parity during cache key generation for newcomers and users who already received the <code class="highlighter-rouge">X-Magento-Vary</code> cookie.</p>
 
 <p>For another example of a context class, see <a href="https://github.com/magento/magento2/blob/2.0/lib/internal/Magento/Framework/App/Http/Context.php" target="_blank">Magento/Framework/App/Http/Context</a>.</p>
+
+<h3 id="x-magento-vary-cookie"><code class="highlighter-rouge">X-Magento-Vary</code> cookie</h3>
+
+<p>Use the <code class="highlighter-rouge">X-Magento-Vary</code> cookie to transfer context on the HTTP layer. HTTP proxies can be configured to calculate a unique identifier for cache based on the cookie and URL. For example, <a href="https://github.com/magento/magento2/blob/2.0/app/code/Magento/PageCache/etc/varnish4.vcl#L63-L68" target="_blank">our sample Varnish 4 configuration</a> uses the following:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sub vcl_hash {
+if (req.http.cookie ~ "X-Magento-Vary=") {
+hash_data(regsub(req.http.cookie, "^.?X-Magento-Vary=([^;]+);.*$", "\1"));
+}
+... more ...
+}
+</code></pre></div></div>
 
 <h2 id="invalidate-public-content">Invalidate public content</h2>
 

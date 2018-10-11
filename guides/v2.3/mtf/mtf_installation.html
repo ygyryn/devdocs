@@ -2396,13 +2396,15 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 composer install
 </code></pre></div></div>
 
-<div class="bs-callout bs-callout-info" id="info">
-  <p>If command failed, maybe <a href="https://getcomposer.org">Composer</a> hasn’t been installed globally.<br />
- Copy <code class="highlighter-rouge">composer.phar</code> to <code class="highlighter-rouge">/usr/local/bin/composer</code>.<br />
- To run it locally put <code class="highlighter-rouge">composer.phar</code> into directory, where <code class="highlighter-rouge">composer.json</code> file is located (that is, <code class="highlighter-rouge">&lt;magento2&gt;/dev/tests/functional/</code>).<br />
- And run from this directory <code class="highlighter-rouge">php   &lt;span term-uuid="d85e2d0a-221f-4d03-aa43-0cda9f50809e" class="glossary-term" data-toggle="popover"&gt;composer&lt;/span&gt;
-.phar install</code>.</p>
-</div>
+<h3 id="command-fail">Command fail</h3>
+
+<p>If command failed, maybe <a href="https://getcomposer.org">Composer</a> hasn’t been installed globally.</p>
+
+<ul>
+  <li>Copy <code class="highlighter-rouge">composer.phar</code> to <code class="highlighter-rouge">/usr/local/bin/composer</code>.</li>
+  <li>To run it locally put <code class="highlighter-rouge">composer.phar</code> into directory, where <code class="highlighter-rouge">composer.json</code> file is located (that is, <code class="highlighter-rouge">&lt;magento2&gt;/dev/tests/functional/</code>).</li>
+  <li>And run from this directory <code class="highlighter-rouge">php composer.phar install</code>.</li>
+</ul>
 
 <h2 id="mtf_install_check">Check the installation</h2>
 

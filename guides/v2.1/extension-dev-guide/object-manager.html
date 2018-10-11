@@ -3055,10 +3055,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>In the Magento framework, the implementation of the <a href="https://github.com/magento/magento2/blob/2.0/lib/internal/Magento/Framework/ObjectManagerInterface.php" target="_blank"><code class="highlighter-rouge">ObjectManagerInterface</code></a> performs the duties of an object manager.</p>
 
-<div class="bs-callout bs-callout-warning">
-  <p>Magento prohibits the direct use of the <code class="highlighter-rouge">ObjectManager</code> in your code because it hides the real dependencies of a class.
+<p class="bs-callout bs-callout-warning">Magento prohibits the direct use of the <code class="highlighter-rouge">ObjectManager</code> in your code because it hides the real dependencies of a class.
 See <a href="#usage-rules">usage rules</a>.</p>
-</div>
 
 <h2 id="responsibilities">Responsibilities</h2>
 
@@ -3090,13 +3088,9 @@ Direct use of the <code class="highlighter-rouge">create</code> function prevent
 <p>Object creation is also a separate responsibility that should be moved to a dedicated class such as a <a href="/guides/v2.1/extension-dev-guide/factories.html">factory</a> or <a href="/guides/v2.1/extension-dev-guide/proxies.html">proxy</a>.
 In most cases, the framework generates these classes automatically during code compilation.</p>
 
-<div class="bs-callout bs-callout-warning">
-  <p>You may notice in the Magento 2 codebase that some core classes still call the <code class="highlighter-rouge">ObjectManager</code> directly.</p>
-
-  <p>This code needs porting or exist for backward compatibility purposes.</p>
-
-  <p>They are not tacit endorsements of using the <code class="highlighter-rouge">ObjectManager</code> directly.</p>
-</div>
+<p class="bs-callout bs-callout-warning">You may notice in the Magento 2 codebase that some core classes still call the <code class="highlighter-rouge">ObjectManager</code> directly.
+This code needs porting or exist for backward compatibility purposes.
+They are not tacit endorsements of using the <code class="highlighter-rouge">ObjectManager</code> directly.</p>
 
 <h3 id="exceptions">Exceptions</h3>
 

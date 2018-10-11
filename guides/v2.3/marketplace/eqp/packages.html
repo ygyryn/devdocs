@@ -2579,15 +2579,13 @@ PUT /rest/v1/products/packages/:item_id
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="bs-callout bs-callout-info">
-  <ul>
-    <li>The API returns a HTTP 200 batch response listing items in the same order as they were provided in the request.</li>
-    <li>Each item contains a <code class="highlighter-rouge">code</code> and <code class="highlighter-rouge">message</code> indicating success or failure. Any non-200 code indicates an error. Refer to the message for more details.</li>
-    <li>A unique <code class="highlighter-rouge">submission_id</code> is returned for each successful item, which must be used for any GET, PUT, or DELETE methods.</li>
-    <li>Optionally, if a user-defined <code class="highlighter-rouge">item_id</code> was supplied during the POST, the response will echo back the same <code class="highlighter-rouge">item_id</code> for each item in the batch. The resource can be retrieved via GET using the <code class="highlighter-rouge">item_id</code>.</li>
-    <li>Any non-200 HTTP response code indicates an error for the entire batch request.</li>
-  </ul>
-</div>
+<ul>
+  <li>The API returns a HTTP 200 batch response listing items in the same order as they were provided in the request.</li>
+  <li>Each item contains a <code class="highlighter-rouge">code</code> and <code class="highlighter-rouge">message</code> indicating success or failure. Any non-200 code indicates an error. Refer to the message for more details.</li>
+  <li>A unique <code class="highlighter-rouge">submission_id</code> is returned for each successful item, which must be used for any GET, PUT, or DELETE methods.</li>
+  <li>Optionally, if a user-defined <code class="highlighter-rouge">item_id</code> was supplied during the POST, the response will echo back the same <code class="highlighter-rouge">item_id</code> for each item in the batch. The resource can be retrieved via GET using the <code class="highlighter-rouge">item_id</code>.</li>
+  <li>Any non-200 HTTP response code indicates an error for the entire batch request.</li>
+</ul>
 
 <h3 id="update-a-package">Update a package</h3>
 
@@ -2937,14 +2935,12 @@ GET /rest/v1/products/packages/item/:item_id/status
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="bs-callout bs-callout-info">
-  <ul>
-    <li>The previous example shows one product only, but an array of products can be returned.</li>
-    <li>The <code class="highlighter-rouge">sku</code> and version will be determined from the code artifact (M1 tarball or M2 zip file) meta-information (M1 <code class="highlighter-rouge">packages.xml</code> or M2 <code class="highlighter-rouge">composer.json</code>), once it passes the malware checks.</li>
-    <li>The code, documentation, and media artifact files have additional info indicating meta-information on these files, including their current malware status.</li>
-    <li>The <code class="highlighter-rouge">eqp_status</code> field will indicate the current state of the package in the EQP process.</li>
-  </ul>
-</div>
+<ul>
+  <li>The previous example shows one product only, but an array of products can be returned.</li>
+  <li>The <code class="highlighter-rouge">sku</code> and version will be determined from the code artifact (M1 tarball or M2 zip file) meta-information (M1 <code class="highlighter-rouge">packages.xml</code> or M2 <code class="highlighter-rouge">composer.json</code>), once it passes the malware checks.</li>
+  <li>The code, documentation, and media artifact files have additional info indicating meta-information on these files, including their current malware status.</li>
+  <li>The <code class="highlighter-rouge">eqp_status</code> field will indicate the current state of the package in the EQP process.</li>
+</ul>
 
 <h3 id="get-eqp-status-details">Get EQP status details</h3>
 
@@ -3004,14 +3000,13 @@ GET /rest/v1/products/packages/item/:item_id/status
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-<div class="bs-callout bs-callout-info">
-  <ul>
-    <li>Technical reports include the Magento edition, version, and PHP version used to run tests.</li>
-    <li>The top-level <code class="highlighter-rouge">code</code> indicates the overall result, which can be <code class="highlighter-rouge">pass</code>, <code class="highlighter-rouge">fail</code>, or <code class="highlighter-rouge">in_progress</code>.</li>
-    <li>Each EQP review step, <code class="highlighter-rouge">technical</code> and <code class="highlighter-rouge">marketing</code> have their own overall status indicated by the <code class="highlighter-rouge">code</code> value, which can be <code class="highlighter-rouge">pass</code>, <code class="highlighter-rouge">fail</code> or <code class="highlighter-rouge">in_progress</code>.</li>
-    <li>The <code class="highlighter-rouge">results</code> list contains details for each tool and their respective outcome via the <code class="highlighter-rouge">status</code> field, which can be <code class="highlighter-rouge">pass</code> or <code class="highlighter-rouge">fail</code>.</li>
-  </ul>
-</div>
+
+<ul>
+  <li>Technical reports include the Magento edition, version, and PHP version used to run tests.</li>
+  <li>The top-level <code class="highlighter-rouge">code</code> indicates the overall result, which can be <code class="highlighter-rouge">pass</code>, <code class="highlighter-rouge">fail</code>, or <code class="highlighter-rouge">in_progress</code>.</li>
+  <li>Each EQP review step, <code class="highlighter-rouge">technical</code> and <code class="highlighter-rouge">marketing</code> have their own overall status indicated by the <code class="highlighter-rouge">code</code> value, which can be <code class="highlighter-rouge">pass</code>, <code class="highlighter-rouge">fail</code> or <code class="highlighter-rouge">in_progress</code>.</li>
+  <li>The <code class="highlighter-rouge">results</code> list contains details for each tool and their respective outcome via the <code class="highlighter-rouge">status</code> field, which can be <code class="highlighter-rouge">pass</code> or <code class="highlighter-rouge">fail</code>.</li>
+</ul>
 
 <h3 id="sorting-and-filtering">Sorting and Filtering</h3>
 

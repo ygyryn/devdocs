@@ -2108,8 +2108,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 <p>Default configuration file can be replaced by custom one using CLI (see <a href="/guides/v2.2/migration/migration-migrate.html"><code class="highlighter-rouge">--config &lt;value&gt;</code> parameter</a>).</p>
 
 <p>Configuration file has the following structure:</p>
-
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;config</span> <span class="na">xmlns:xs=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xs:noNamespaceSchemaLocation=</span><span class="s">"config.xsd"</span><span class="nt">&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;config</span> <span class="na">xmlns:xs=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xs:noNamespaceSchemaLocation=</span><span class="s">"config.xsd"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;steps</span> <span class="na">mode=</span><span class="s">"settings"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;step</span> <span class="na">title=</span><span class="s">"Settings step"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;integrity&gt;</span>Migration\Step\Settings<span class="nt">&lt;/integrity&gt;</span>
@@ -2146,7 +2145,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
         <span class="nt">&lt;dest_prefix</span> <span class="nt">/&gt;</span>
         ...
     <span class="nt">&lt;/options&gt;</span>
-<span class="nt">&lt;/config&gt;</span></code></pre></figure>
+<span class="nt">&lt;/config&gt;</span>
+</code></pre></div></div>
 
 <ul>
   <li>
@@ -2167,25 +2167,25 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>Configuration data is accessible via \Migration\Config class.</p>
 
-<div class="bs-callout bs-callout-info" id="info">
-  <p>You can also connect to a database using the TLS protocol (i.e., using public/private cryptographic keys). Add the following optional attributes to the <code class="highlighter-rouge">database</code> element:</p>
+<h3 id="connect-using-the-tls-protocol">Connect using the TLS protocol</h3>
 
-  <ul>
-    <li><code class="highlighter-rouge">ssl_ca</code></li>
-    <li><code class="highlighter-rouge">ssl_cert</code></li>
-    <li><code class="highlighter-rouge">ssl_key</code></li>
-  </ul>
+<p>You can also connect to a database using the TLS protocol (i.e., using public/private cryptographic keys). Add the following optional attributes to the <code class="highlighter-rouge">database</code> element:</p>
 
-  <p>For example:</p>
+<ul>
+  <li><code class="highlighter-rouge">ssl_ca</code></li>
+  <li><code class="highlighter-rouge">ssl_cert</code></li>
+  <li><code class="highlighter-rouge">ssl_key</code></li>
+</ul>
 
-  <figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;source&gt;</span>
+<p>For example:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;source&gt;</span>
     <span class="nt">&lt;database</span> <span class="na">host=</span><span class="s">"localhost"</span> <span class="na">name=</span><span class="s">"magento1"</span> <span class="na">user=</span><span class="s">"root"</span> <span class="na">ssl_ca=</span><span class="s">"/path/to/file"</span> <span class="na">ssl_cert=</span><span class="s">"/path/to/file"</span> <span class="na">ssl_key=</span><span class="s">"/path/to/file"</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/source&gt;</span>
 <span class="nt">&lt;destination&gt;</span>
     <span class="nt">&lt;database</span> <span class="na">host=</span><span class="s">"localhost"</span> <span class="na">name=</span><span class="s">"magento2"</span> <span class="na">user=</span><span class="s">"root"</span> <span class="na">ssl_ca=</span><span class="s">"/path/to/file"</span> <span class="na">ssl_cert=</span><span class="s">"/path/to/file"</span> <span class="na">ssl_key=</span><span class="s">"/path/to/file"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/destination&gt;</span></code></pre></figure>
-
-</div>
+<span class="nt">&lt;/destination&gt;</span>
+</code></pre></div></div>
 
 <h2 id="step-internals">Step internals</h2>
 
@@ -2200,7 +2200,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 <p>To execute a Step class, the class must be defined in config.xml file.</p>
 
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;config</span> <span class="na">xmlns:xs=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xs:noNamespaceSchemaLocation=</span><span class="s">"config.xsd"</span><span class="nt">&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;config</span> <span class="na">xmlns:xs=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xs:noNamespaceSchemaLocation=</span><span class="s">"config.xsd"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;steps</span> <span class="na">mode=</span><span class="s">"mode_name"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;step</span> <span class="na">title=</span><span class="s">"Step Name"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;integrity&gt;</span>Migration\Step\StepName\Integrity<span class="nt">&lt;/integrity&gt;</span>  <span class="c">&lt;!-- integrity check stage of the step --&gt;</span>
@@ -2210,23 +2210,23 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
         ...
     <span class="nt">&lt;/steps&gt;</span>
     ...
-<span class="nt">&lt;/config&gt;</span></code></pre></figure>
+<span class="nt">&lt;/config&gt;</span>
+</code></pre></div></div>
 
 <p>Every stage class must implement StageInterface.</p>
 
-<pre>
-class&nbsp;StageClass&nbsp;implements&nbsp;StageInterface
-{
-&nbsp;&nbsp;/**
-&nbsp;&nbsp;&nbsp;*&nbsp;Perform&nbsp;the&nbsp;stage
-&nbsp;&nbsp;&nbsp;*
-&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;bool
-&nbsp;&nbsp;&nbsp;*/
-&nbsp;&nbsp;public&nbsp;function&nbsp;perform()
-&nbsp;&nbsp;{
-&nbsp;&nbsp;}
-}
-</pre>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">StageClass</span> <span class="k">implements</span> <span class="nx">StageInterface</span>
+<span class="p">{</span>
+  <span class="sd">/**
+   * Perform the stage
+   *
+   * @return bool
+   */</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">perform</span><span class="p">()</span>
+  <span class="p">{</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>If the data stage supports rollback, it should implement the RollbackInterface interface.</p>
 
@@ -2234,9 +2234,10 @@ class&nbsp;StageClass&nbsp;implements&nbsp;StageInterface
 
 <p>Main methods for use are:</p>
 
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml">$this-&gt;progress-&gt;start();
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$this-&gt;progress-&gt;start();
 $this-&gt;progress-&gt;advance();
-$this-&gt;progress-&gt;finish();</code></pre></figure>
+$this-&gt;progress-&gt;finish();
+</code></pre></div></div>
 
 <h2 id="stages">Stages</h2>
 
@@ -2279,7 +2280,7 @@ $this-&gt;progress-&gt;finish();</code></pre></figure>
 
 <p>All store configuration keeps its data in core_config_data table in database. settings.xml file contains rules for this table that are applied during migration process. This file describes settings that should be ignored, renamed or should change their values. settings.xml file has the following structure:</p>
 
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;settings</span> <span class="na">xmlns:xs=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xs:noNamespaceSchemaLocation=</span><span class="s">"settings.xsd"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;key&gt;</span>
         <span class="nt">&lt;ignore&gt;</span>
@@ -2296,7 +2297,8 @@ $this-&gt;progress-&gt;finish();</code></pre></figure>
             <span class="nt">&lt;handler</span> <span class="na">class=</span><span class="s">"Some\Handler\Class"</span><span class="nt">/&gt;</span>
         <span class="nt">&lt;/transform&gt;</span>
     <span class="nt">&lt;/value&gt;</span>
-<span class="nt">&lt;/settings&gt;</span></code></pre></figure>
+<span class="nt">&lt;/settings&gt;</span>
+</code></pre></div></div>
 
 <p>Under node <code>&lt;key&gt;</code> there are rules that work with ‘path’ column of core_config_data table. <code>&lt;ignore&gt;</code> rules make the tool not to transfer some setting. Wildcards can be used in this node. All other settings not listed in <code>&lt;ignore&gt;</code> node, will be migrated. If path of some setting is changed in Magento 2, it should be added to //key/rename node, where old path indicates in //key/rename/path node and new path indicates in //key/rename/to node.</p>
 
@@ -2313,7 +2315,7 @@ $this-&gt;progress-&gt;finish();</code></pre></figure>
 
 <p>Map file has the next format:</p>
 
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;map</span> <span class="na">xmlns:xs=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xs:noNamespaceSchemaLocation=</span><span class="s">"map.xsd"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;source&gt;</span>
         <span class="nt">&lt;document_rules&gt;</span>
@@ -2361,7 +2363,8 @@ $this-&gt;progress-&gt;finish();</code></pre></figure>
             <span class="nt">&lt;/transform&gt;</span>
         <span class="nt">&lt;/field_rules&gt;</span>
     <span class="nt">&lt;/destination&gt;</span>
-<span class="nt">&lt;/map&gt;</span></code></pre></figure>
+<span class="nt">&lt;/map&gt;</span>
+</code></pre></div></div>
 
 <p>Areas:</p>
 
