@@ -3393,7 +3393,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
   <li>
     <p>Enter the following command:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find app/code pub/static app/etc var/generation var/di var/view_preprocessed vendor \( -type f -or -type d \) -exec chmod u-w {} \; &amp;&amp; chmod o-rwx app/etc/env.php &amp;&amp; chmod u+x bin/magento
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find app/code pub/static app/etc var/generation var/di var/view_preprocessed vendor \( -type f -or -type d \) -exec chmod u-w {} + &amp;&amp; chmod o-rwx app/etc/env.php &amp;&amp; chmod u+x bin/magento
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -3518,8 +3518,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
     <p>Enter the following commands in the order shown:</p>
 
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd &lt;your Magento install dir&gt;
-find var pub/static pub/media app/etc -type f -exec chmod g+w {} \;
-find var pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
+find var pub/static pub/media app/etc -type f -exec chmod g+w {} +
+find var pub/static pub/media app/etc -type d -exec chmod g+ws {} +
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -3556,7 +3556,7 @@ find var pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
   <li>
     <p>Enter the following command as a user with <code class="highlighter-rouge">root</code> privileges:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find app/code lib pub/static app/etc var/generation var/di var/view_preprocessed vendor \( -type d -or -type f \) -exec chmod g-w {} \; &amp;&amp; chmod o-rwx app/etc/env.php
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find app/code lib pub/static app/etc var/generation var/di var/view_preprocessed vendor \( -type d -or -type f \) -exec chmod g-w {} + &amp;&amp; chmod o-rwx app/etc/env.php
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -3571,7 +3571,7 @@ find var pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
   <li>
     <p>Enter the following command:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find app/code lib var pub/static pub/media vendor app/etc \( -type d -or -type f \) -exec chmod g+w {} \; &amp;&amp; chmod o+rwx app/etc/env.php
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find app/code lib var pub/static pub/media vendor app/etc \( -type d -or -type f \) -exec chmod g+w {} + &amp;&amp; chmod o+rwx app/etc/env.php
 </code></pre></div>    </div>
   </li>
 </ol>

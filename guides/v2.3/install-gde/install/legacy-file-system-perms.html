@@ -4704,12 +4704,12 @@ var/di
   <li>
     <p>Set permissions:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find . -type d -exec chmod 770 {} \; &amp;&amp; find . -type f -exec chmod 660 {} \; &amp;&amp; chmod u+x bin/magento
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find . -type d -exec chmod 770 {} + &amp;&amp; find . -type f -exec chmod 660 {} + &amp;&amp; chmod u+x bin/magento
 </code></pre></div>    </div>
 
     <p>If you must enter the commands as <code class="highlighter-rouge">sudo</code>, use:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo find . -type d -exec chmod 770 {} \; &amp;&amp; sudo find . -type f -exec chmod 660 {} \; &amp;&amp; sudo chmod u+x bin/magento
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo find . -type d -exec chmod 770 {} + &amp;&amp; sudo find . -type f -exec chmod 660 {} + &amp;&amp; sudo chmod u+x bin/magento
 </code></pre></div>    </div>
   </li>
 </ol>

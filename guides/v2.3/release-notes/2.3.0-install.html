@@ -2002,9 +2002,9 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
   </li>
   <li>Set file permissions as follows:
     <div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp"> cd /var/www/html/&lt;magento install directory&gt;</span>
-<span class="gp"> find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;</span>
-<span class="gp"> find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;</span>
-<span class="go"> chown -R :www-data . // Ubuntu
+<span class="go"> find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} +
+ find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
+ chown -R :www-data . // Ubuntu
  chmod u+x bin/magento
 </span></code></pre></div>    </div>
 

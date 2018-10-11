@@ -4698,9 +4698,9 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
     <p>Set read-write permissions for the web server group before you install the Magento software. This is necessary so that the Setup Wizard and command line can write files to the Magento file system.</p>
 
     <div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp"> cd /var/www/html/&lt;magento install directory&gt;</span>
-<span class="gp"> find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;</span>
-<span class="gp"> find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;</span>
-<span class="go"> chown -R :www-data . // Ubuntu
+<span class="go"> find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} +
+ find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
+ chown -R :www-data . // Ubuntu
  chmod u+x bin/magento
 </span></code></pre></div>    </div>
   </li>
@@ -4945,8 +4945,8 @@ systemctl enable php-fpm
     <p><a href="/guides/v2.1/install-gde/prereq/file-system-perms.html">Set directory ownership and file permissions</a>.</p>
 
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cd /usr/share/nginx/html/magento2
- find var vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;
- find var vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
+ find var vendor pub/static pub/media app/etc -type f -exec chmod g+w {} +
+ find var vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
  chown -R :apache .
  chmod u+x bin/magento
 </code></pre></div>    </div>

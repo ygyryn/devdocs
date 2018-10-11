@@ -2614,8 +2614,8 @@ PHP   3. Symfony\Component\Console\Application-&gt;__construct() /var/www/html/e
         <p>One Magento user (typical of shared hosting):</p>
 
         <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd &lt;your Magento install dir&gt;
-find var -type f -exec chmod u+w {} \;
-find var -type d -exec chmod u+w {} \;
+find var -type f -exec chmod u+w {} +
+find var -type d -exec chmod u+w {} +
 </code></pre></div>        </div>
 
         <p>If you don’t have access to a command line, use a file manager tool provided by your hosting provider to set permissions.</p>
@@ -2624,16 +2624,16 @@ find var -type d -exec chmod u+w {} \;
         <p>Two Magento users:</p>
 
         <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd &lt;your Magento install dir&gt;
-find var -type f -exec chmod g+w {} \;
-find var -type d -exec chmod g+ws {} \;
+find var -type f -exec chmod g+w {} +
+find var -type d -exec chmod g+ws {} +
 chown -R :&lt;web server group&gt; .
 </code></pre></div>        </div>
 
         <p>For example, on CentOS where the web server group is typically <code class="highlighter-rouge">apache</code>:</p>
 
         <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /var/www/html/magento2
-find var -type f -exec chmod g+w {} \;
-find var -type d -exec chmod g+ws {} \;
+find var -type f -exec chmod g+w {} +
+find var -type d -exec chmod g+ws {} +
 chown -R :apache .
 </code></pre></div>        </div>
       </li>

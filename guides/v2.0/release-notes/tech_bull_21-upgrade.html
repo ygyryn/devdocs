@@ -2949,15 +2949,15 @@ Failure to do so will cause your upgrade to fail.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> &lt;your Magento install dir&gt;
 </code></pre></div></div>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find var vendor pub/static pub/media app/etc <span class="nt">-type</span> f <span class="nt">-exec</span> chmod g+w <span class="o">{}</span> <span class="se">\;</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find var vendor pub/static pub/media app/etc <span class="nt">-type</span> f <span class="nt">-exec</span> chmod g+w <span class="o">{}</span> +
 </code></pre></div></div>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find var vendor pub/static pub/media app/etc <span class="nt">-type</span> d <span class="nt">-exec</span> chmod g+w <span class="o">{}</span> <span class="se">\;</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find var vendor pub/static pub/media app/etc <span class="nt">-type</span> d <span class="nt">-exec</span> chmod g+w <span class="o">{}</span> +
 </code></pre></div></div>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod u+x bin/magento
 </code></pre></div></div>
 
 <p>To optionally enter all commands on one line, enter the following assuming Magento is installed in <code class="highlighter-rouge">/var/www/html/magento2</code>:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/www/html/magento2 <span class="o">&amp;&amp;</span> find var vendor pub/static pub/media app/etc <span class="nt">-type</span> f <span class="nt">-exec</span> chmod g+w <span class="o">{}</span> <span class="se">\;</span> <span class="o">&amp;&amp;</span> find var vendor pub/static pub/media app/etc <span class="nt">-type</span> d <span class="nt">-exec</span> chmod g+w <span class="o">{}</span> <span class="se">\;</span> <span class="o">&amp;&amp;</span> chmod u+x bin/magento
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/www/html/magento2 <span class="o">&amp;&amp;</span> find var vendor pub/static pub/media app/etc <span class="nt">-type</span> f <span class="nt">-exec</span> chmod g+w <span class="o">{}</span> + <span class="o">&amp;&amp;</span> find var vendor pub/static pub/media app/etc <span class="nt">-type</span> d <span class="nt">-exec</span> chmod g+w <span class="o">{}</span> + <span class="o">&amp;&amp;</span> chmod u+x bin/magento
 </code></pre></div></div>
 
 <p>After you set file system permissions, manually clear the <code class="highlighter-rouge">var/cache</code>, <code class="highlighter-rouge">var/page_cache</code>, and <code class="highlighter-rouge">var/generation</code> directories.</p>
@@ -2972,9 +2972,9 @@ Failure to do so will cause your upgrade to fail.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> &lt;your Magento install dir&gt;
 </code></pre></div></div>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find var vendor pub/static pub/media app/etc <span class="nt">-type</span> f <span class="nt">-exec</span> chmod g+w <span class="o">{}</span> <span class="se">\;</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find var vendor pub/static pub/media app/etc <span class="nt">-type</span> f <span class="nt">-exec</span> chmod g+w <span class="o">{}</span> +
 </code></pre></div></div>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find var vendor pub/static pub/media app/etc <span class="nt">-type</span> d <span class="nt">-exec</span> chmod g+ws <span class="o">{}</span> <span class="se">\;</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find var vendor pub/static pub/media app/etc <span class="nt">-type</span> d <span class="nt">-exec</span> chmod g+ws <span class="o">{}</span> +
 </code></pre></div></div>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chown <span class="nt">-R</span> :&lt;web server group&gt; <span class="nb">.</span>
 </code></pre></div></div>
@@ -2982,7 +2982,7 @@ Failure to do so will cause your upgrade to fail.</p>
 </code></pre></div></div>
 
 <p>To optionally enter all commands on one line, enter the following assuming Magento is installed in <code class="highlighter-rouge">/var/www/html/magento2</code> and the web server group name is <code class="highlighter-rouge">apache</code>:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/www/html/magento2 <span class="o">&amp;&amp;</span> find var vendor pub/static pub/media app/etc <span class="nt">-type</span> f <span class="nt">-exec</span> chmod g+w <span class="o">{}</span> <span class="se">\;</span> <span class="o">&amp;&amp;</span> find var vendor pub/static pub/media app/etc <span class="nt">-type</span> d <span class="nt">-exec</span> chmod g+ws <span class="o">{}</span> <span class="se">\;</span> <span class="o">&amp;&amp;</span> chown <span class="nt">-R</span> :apache <span class="nb">.</span> <span class="o">&amp;&amp;</span> chmod u+x bin/magento
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/www/html/magento2 <span class="o">&amp;&amp;</span> find var vendor pub/static pub/media app/etc <span class="nt">-type</span> f <span class="nt">-exec</span> chmod g+w <span class="o">{}</span> + <span class="o">&amp;&amp;</span> find var vendor pub/static pub/media app/etc <span class="nt">-type</span> d <span class="nt">-exec</span> chmod g+ws <span class="o">{}</span> + <span class="o">&amp;&amp;</span> chown <span class="nt">-R</span> :apache <span class="nb">.</span> <span class="o">&amp;&amp;</span> chmod u+x bin/magento
 </code></pre></div></div>
 
 <!-- Link definitions -->
