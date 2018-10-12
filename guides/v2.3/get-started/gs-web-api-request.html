@@ -2073,7 +2073,9 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
     <p>Open the <a href="https://github.com/magento/magento2/blob/2.0/app/code/Magento/Customer/etc/webapi.xml">Magento/Customer/etc/webapi.xml</a>  configuration file and find the <a href="https://github.com/magento/magento2/blob/2.0/app/code/Magento/Customer/Api/CustomerRepositoryInterface.php">CustomerRepositoryInterface</a> interface with the <code class="highlighter-rouge">getList</code> method.</p>
   </li>
   <li>
-    <p>Set the headers, URI and method to a request object. Use URI <code class="highlighter-rouge">/V1/customers/search</code> and method <code class="highlighter-rouge">GET</code> values. Also, the <code class="highlighter-rouge">searchCriteria</code> parameter should be used to complete the Customer Search query. See <a href="/guides/v2.3/rest/performing-searches.html">searchCriteria usage</a>.</p>
+    <p>Set the headers, URI and method to a request object. Use URI <code class="highlighter-rouge">/V1/customers/search</code> and method <code class="highlighter-rouge">GET</code> values. Use the <code class="highlighter-rouge">searchCriteria</code> parameter to complete the Customer Search query. See <a href="/guides/v2.3/rest/performing-searches.html">searchCriteria usage</a>. Also check <a href="/rest/list.html">List of REST endpoints by module</a>.</p>
+
+    <p>The following example finds customers whose first name contains “ver” or whose last name contains “Costello”.</p>
 
     <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Zend\Http\Request</span><span class="p">();</span>
  <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="nv">$httpHeaders</span><span class="p">);</span>
@@ -2081,9 +2083,29 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
  <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">\Zend\Http\Request</span><span class="o">::</span><span class="na">METHOD_GET</span><span class="p">);</span>
 
  <span class="nv">$params</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Zend\Stdlib\Parameters</span><span class="p">([</span>
-   <span class="s1">'searchCriteria'</span> <span class="o">=&gt;</span> <span class="s1">'*'</span>
-   <span class="p">]);</span>
-   <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setQuery</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span>
+     <span class="s1">'searchCriteria'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+         <span class="s1">'filterGroups'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+             <span class="mi">0</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                 <span class="s1">'filters'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                     <span class="mi">0</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                         <span class="s1">'field'</span> <span class="o">=&gt;</span> <span class="s1">'firstname'</span><span class="p">,</span>
+                         <span class="s1">'value'</span> <span class="o">=&gt;</span> <span class="s1">'%ver%'</span><span class="p">,</span>
+                         <span class="s1">'condition_type'</span> <span class="o">=&gt;</span> <span class="s1">'like'</span>
+                     <span class="p">],</span>
+                     <span class="mi">1</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                         <span class="s1">'field'</span> <span class="o">=&gt;</span> <span class="s1">'lastname'</span><span class="p">,</span>
+                         <span class="s1">'value'</span> <span class="o">=&gt;</span> <span class="s1">'%Costello%'</span><span class="p">,</span>
+                         <span class="s1">'condition_type'</span> <span class="o">=&gt;</span> <span class="s1">'like'</span>
+                     <span class="p">]</span>
+                 <span class="p">]</span>
+             <span class="p">]</span>
+         <span class="p">]</span>
+     <span class="p">],</span>
+     <span class="s1">'current_page'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+     <span class="s1">'page_size'</span> <span class="o">=&gt;</span> <span class="mi">10</span>
+ <span class="p">]);</span>
+    
+ <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setQuery</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span>
 </code></pre></div>    </div>
   </li>
   <li>
@@ -2100,10 +2122,89 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
  <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
 </code></pre></div>    </div>
-
-    <p>This request returns a list of all customers in JSON format. You can also specify XML format by changing <code>Accept</code> header of the request.</p>
   </li>
 </ol>
+
+<p>This request returns a list of all customers in JSON format, as shown below. You can also specify XML format by changing <code>Accept</code> header of the request.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"default_billing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"default_shipping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-05 09:50:11"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-22 06:32:50"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default Store View"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"dob"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1973-12-15"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"roni_cost@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Veronica"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Costello"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"website_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"region"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"region_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MI"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Michigan"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"region_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"region_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"country_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="s2">"6146 Honey Bluff Parkway"</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(555) 229-3326"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49628-7978"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calder"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Veronica"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Costello"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"default_shipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"default_billing"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"region"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"region_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London "</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London "</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"region_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"region_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"country_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="s2">"1 Studio 103 The Business Centre 61"</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="s2">"telephone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CF24 3DG"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tottenham "</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Veronica"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Costello"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"disable_auto_group_change"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"search_criteria"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"filter_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firstname"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"%ver%"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"condition_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"like"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="next-step">Next step</h2>
 
