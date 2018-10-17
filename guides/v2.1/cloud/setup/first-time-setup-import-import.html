@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Import Magento EE into Magento Commerce (Cloud) | Magento 2 Developer Documentation</title>
+	<title>Import Magento Commerce code into a Cloud project | Magento 2 Developer Documentation</title>
 	<meta name="description" content="Magento 2 Developer Documentation.
 ">
 
@@ -2275,7 +2275,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
   
 <li class="active " role="menuitem">
   
-  <a href="/guides/v2.1/cloud/setup/first-time-setup-import-import.html">Import Magento Commerce into Magento Commerce (Cloud)</a>
+  <a href="/guides/v2.1/cloud/setup/first-time-setup-import-import.html">Import Magento Commerce code</a>
   
   
 </li>
@@ -4155,35 +4155,39 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 
 	
 
-	<h1 class="page-heading">Import Magento EE into Magento Commerce (Cloud)</h1>
+	<h1 class="page-heading">Import Magento Commerce code into a Cloud project</h1>
 </section>
 
-			<p>QUESTION: Do we really want to support a full overwrite?</p>
+			<p>Use the following instructions to import your Magento Commerce code into your current Magento Commerce Cloud project code.</p>
 
-<p>The following instructions walk-through importing your Magento Commerce code into your current project code. When importing, you are force pushing your existing code in a Git repository over the Magento Commerce Cloud’s Git <code class="highlighter-rouge">master</code> branch.</p>
-
-<p class="bs-callout bs-callout-warning">Warning: When you force push code from an existing Git branch to your Magento Commerce Cloud project, you overwrite the project code in <code class="highlighter-rouge">master</code>. Any data, websites, stores, and so on will be lost.
-Before you continue, make sure there is nothing in your Magento Commerce Cloud project you want to keep.</p>
+<p class="bs-callout bs-callout-warning">When you force push code from an existing Git branch to your Magento Commerce Cloud project, you overwrite the project code in <code class="highlighter-rouge">master</code> which removes all data, sites, stores, and other development work you have done on the project. If you want to keep any files or directories, copy them to a directory outside of your project.</p>
 
 <h2 id="required-information">Required information</h2>
 
-<p>Before you continue, make sure you have the <a href="/guides/v2.1/cloud/setup/first-time-setup-import-prepare.html">encryption key</a> from your Magento Commerce system.</p>
+<p>You need the following information to import code into your project:</p>
+
+<ul>
+  <li>
+    <p><a href="/guides/v2.1/cloud/setup/first-time-setup-import-prepare.html">Encryption key</a> from your Magento Commerce system</p>
+  </li>
+  <li>
+    <p>SSH or HTTPS   <span term-uuid="a05c59d3-77b9-47d0-92a1-2cbffe3f8622" class="glossary-term" data-toggle="popover">URL</span>
+ for your Magento Commerce installation Git repository.</p>
+  </li>
+</ul>
 
 <h2 id="cloud-import-ref">Create a remote Git reference</h2>
 
-<p>This section discusses how to create a remote Git reference from your Cloud Git repository to the repository in which your Magento Commerce installation is located.</p>
-
-<p>Before you continue, make sure you know the SSH or HTTPS   <span term-uuid="a05c59d3-77b9-47d0-92a1-2cbffe3f8622" class="glossary-term" data-toggle="popover">URL</span>
- for your Magento Commerce installation Git repository.</p>
-
-<p>To create a remote Git reference:</p>
+<p>Create a remote Git reference from your Cloud Git repository to the repository containing your Magento Commerce installation so you can pull the Magento Commerce code into your project.</p>
 
 <ol>
-  <li>Log in to your local Magento Commerce Cloud development machine as, or switch to, the <a href="/guides/v2.1/cloud/before/before-workspace-file-sys-owner.html">Magento file system owner</a>.</li>
   <li>
-    <p>Make a copy of <code class="highlighter-rouge">composer.json</code> <em>in a non-tracked directory</em> so it doesn’t get overwritten.</p>
+    <p>Log in to your local Magento Commerce Cloud development machine as, or switch to, the <a href="/guides/v2.1/cloud/before/before-workspace-file-sys-owner.html">Magento file system owner</a>.</p>
+  </li>
+  <li>
+    <p>Copy <code class="highlighter-rouge">composer.json</code> to a <em>non-tracked directory</em> so it doesn’t get overwritten.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   cp composer.json ../composer.json.cloud
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp composer.json ../composer.json.cloud
 </code></pre></div>    </div>
   </li>
   <li>
@@ -4199,28 +4203,29 @@ Before you continue, make sure there is nothing in your Magento Commerce Cloud p
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Confirm what you’ve done so far.</p>
+    <p>Review the remote branch configuration.</p>
 
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote -v
 </code></pre></div>    </div>
 
-    <p>Results are displayed as follows.</p>
+    <p>Verify that the remote branch configuration matches the following sample configuration, with your project name instead of <code class="highlighter-rouge">ikyyrqvlgnrai</code>.</p>
 
-    <pre class="no-copy">cloud-project   ikyyrqvlgnrai@git.us.magento.cloud:ikyykimjgnrao.git (fetch)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cloud-project   ikyyrqvlgnrai@git.us.magento.cloud:ikyykimjgnrao.git (fetch)
 cloud-project   ikyyrqvlgnrai@git.us.magento.cloud:ikyykimjgnrao.git (push)
 magento ikyyrqvlgnrai@git.us.magento.cloud:ikyykimjgnrao.git (fetch)
 magento ikyyrqvlgnrai@git.us.magento.cloud:ikyykimjgnrao.git (push)
 prev-project    git@github.com:mygitusername/myeereponame.git (fetch)
-prev-project    git@github.com:mygitusername/myeereponame.git (push)</pre>
+prev-project    git@github.com:mygitusername/myeereponame.git (push)
+</code></pre></div>    </div>
   </li>
   <li>
-    <p>Make sure you’re on the Cloud project <code class="highlighter-rouge">master</code> branch.</p>
+    <p>Checkout the Cloud project <code class="highlighter-rouge">master</code> branch.</p>
 
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>magento-cloud environment:checkout master
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Make sure this <code class="highlighter-rouge">master</code> branch is set up to import code to the Cloud project.</p>
+    <p>Set the <code class="highlighter-rouge">cloud-project</code> branch as an upstream tracking branch for <code class="highlighter-rouge">master</code>.</p>
 
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git fetch cloud-project
 git branch -u cloud-project/master
@@ -4230,9 +4235,7 @@ git branch -u cloud-project/master
 
 <h2 id="cloud-import-imp">Import your Magento Commerce code to your Cloud project</h2>
 
-<p>Before you continue, make sure you’ve completed all tasks discussed in the preceding section.</p>
-
-<p>To import your Magento Commerce code to Cloud:</p>
+<p>After you have completed the git reference configuration, you can import the Magento Commerce code.</p>
 
 <ol>
   <li>
@@ -4253,7 +4256,7 @@ git branch -u cloud-project/master
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push -f cloud-project master
 </code></pre></div>    </div>
 
-    <p>A successful deployment is indicated by the following messages:</p>
+    <p>If the import succeeds, the Magento Commerce Cloud environment redeploys.</p>
 
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Re-deploying environment 43biovskhelhy-master-l5ut8gq.
    Environment configuration:
@@ -4273,11 +4276,11 @@ Environment routes:
 
 <p>Before you can use your existing Magento Commerce code in Magento Commerce Cloud, you must import the database.</p>
 
-<p>To import the Magento database in Magento Commerce Cloud, you must know:</p>
+<p>You need the following information to complete this task:</p>
 
 <ul>
-  <li>The Magento Commerce Cloud environment’s <a href="/guides/v2.1/cloud/setup/first-time-setup-import-first-steps.html#ssh">SSH URL</a></li>
-  <li>The database name, username, and password of the <a href="/guides/v2.1/cloud/setup/first-time-setup-import-first-steps.html#db-creds">Cloud database</a></li>
+  <li><a href="/guides/v2.1/cloud/setup/first-time-setup-import-first-steps.html#ssh">SSH URL</a> for the Magento Commerce Cloud environment</li>
+  <li>The database name, username, and password for the <a href="/guides/v2.1/cloud/setup/first-time-setup-import-first-steps.html#db-creds">Cloud database</a></li>
 </ul>
 
 <p class="bs-callout bs-callout-info">This topic discusses how to import the Integration environment database. The database connection information is different for Staging and Production environments.</p>
@@ -4311,7 +4314,9 @@ Environment routes:
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create database main;
 </code></pre></div>    </div>
   </li>
-  <li>At the <code class="highlighter-rouge">MariaDB [main]&gt;</code> prompt, enter <code class="highlighter-rouge">exit</code>.</li>
+  <li>
+    <p>At the <code class="highlighter-rouge">MariaDB [main]&gt;</code> prompt, enter <code class="highlighter-rouge">exit</code>.</p>
+  </li>
   <li>
     <p>At the shell command prompt, enter the following command to re-create the database.</p>
 
@@ -4337,7 +4342,7 @@ Environment routes:
   <li>
     <p>If you haven’t already done so, SSH to the Cloud integration server.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    magento-cloud ssh
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>magento-cloud ssh
 </code></pre></div>    </div>
   </li>
   <li>
