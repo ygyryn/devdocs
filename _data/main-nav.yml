@@ -153,7 +153,7 @@
       url: http://omsdocs.magento.com/en/
 
     - label: Page Builder
-      url: /page-builder/README.html
+      url: /page-builder/introduction.html
       versionless:  true
 
     - label: Payment Integrations
