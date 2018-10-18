@@ -1,6 +1,7 @@
 # Reuse product conditions for content types
 
 <!--{% comment %}-->
+
 ## Navigation
 
 1. [Introduction]
@@ -19,7 +20,7 @@
     1. [Events]
     1. [Bindings]
     1. [Master format]
-    1. [Visual select] 
+    1. [Visual select]
     1. **Reuse product conditions in content types**
     1. [Store component master format as widget directive]
     1. [Use the block chooser UI component]
@@ -61,12 +62,15 @@
 <!--{% endcomment %}-->
 
 <!-- {% raw %} -->
+
 ## What's in this topic
-This topic describes how use the product conditions rule tree for different content types. By reusing the conditions mechanism you can apply it to your own custom content types.
+
+This topic describes how to use the product conditions rule tree for different content types. By reusing the conditions mechanism you can apply it to your own custom content types.
 
 ## Overview
 
 To reuse conditions for custom content types:
+
 1. [Add an attribute to the content type](#add-attribute)
 2. [Add the conditions form element to the `form` UI component](#add-conditions)
 3. [Create a custom `form` data provider](#data-provider)

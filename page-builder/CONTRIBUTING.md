@@ -1,5 +1,7 @@
 # Contributing to Magento 2 code
+
 <!-- {% comment %} -->
+
 ## Navigation
 
 1. [Introduction]
@@ -41,15 +43,15 @@
 [Roadmap and Known Issues]: roadmap.md
 [How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
 <!-- {% endcomment %} -->
+
 ## Overview
 
 Contributions to the Magento 2 codebase are done using the fork & pull model.
 This contribution model has contributors maintaining their own copy of the forked codebase (which can easily be synced with the main copy). The forked repository is then used to submit a request to the base repository to “pull” a set of changes (hence the phrase “pull request”).
 
-Contributions can take the form of new components/features, changes to existing features, tests, documentation (such as developer guides, user guides, examples, or specifications), bug fixes, optimizations or just good suggestions.
+Contributions can take the form of new components/features, changes to existing features, tests, documentation (such as developer guides, user guides, examples, or specifications), bug fixes, optimizations, or just good suggestions.
 
 The Magento 2 development team will review all issues and contributions submitted by the community of developers in the first in, first out order. During the review we might require clarifications from the contributor. If there is no response from the contributor for two weeks, the issue is closed.
-
 
 ## Contribution requirements
 
@@ -57,7 +59,7 @@ The Magento 2 development team will review all issues and contributions submitte
 2. Pull requests (PRs) must be accompanied by a meaningful description of their purpose. Comprehensive descriptions increase the chances of a pull request to be merged quickly and without additional clarification requests.
 3. Commits must be accompanied by meaningful commit messages.
 4. PRs which include bug fixing, must be accompanied with step-by-step description of how to reproduce the bug.
-3. PRs which include new logic or new features must be submitted along with:
+5. PRs which include new logic or new features must be submitted along with:
 * Unit/integration test coverage where applicable.
 * Updated documentation in the `docs` directory at the root level.
 1. For large features or changes, please [open an issue](https://github.com/magento/magento2/issues) and discuss first. This may prevent duplicate or unnecessary effort, and it may gain you some additional contributors.

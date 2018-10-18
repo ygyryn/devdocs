@@ -1,6 +1,7 @@
 # Store component master format as widget directive
 
 <!--{% comment %}-->
+
 ## Navigation
 
 1. [Introduction]
@@ -61,12 +62,15 @@
 <!--{% endcomment %}-->
 
 <!-- {% raw %} -->
+
 ## What's in this topic
+
 This topic describes how to store a component's master format as a `widget-directive`.
 
 ## Overview
 
 To enable the storage of a component's master format as a `widget-directive`:
+
 1. [Extend the `widget-directive` `mass-converter`](#extend)
 2. [Add the `mass-converter` to your content type declaration XML file](#declaration)
 
@@ -123,6 +127,7 @@ To add the extended converter to your content type declaration XML file, 'Magent
     </converter>
 </converters>
 ```
+
 The preceding code samples utilize example file paths. Substitute the file path with values specific to your content type and component.
 
 <!-- {% endraw %} -->
