@@ -51,26 +51,22 @@ pages:
         url: /page-builder/master-format.html
         versionless: true
 
-   - label: Migration to Page Builder
-     versionless: true
-     children:
-       - label: BlueFoot to Page Builder data migration
-         url: /page-builder/bluefoot-data-migration.html
-         versionless: true
+  - label: Migration to Page Builder
+    versionless: true
+    children:
+      - label: BlueFoot to Page Builder data migration
+        url: /page-builder/bluefoot-data-migration.html
+        versionless: true
         
-       - label: Third-party content type migration
-         url: /page-builder/new-content-type-example.html
-         versionless: true
+      - label: Third-party content type migration
+        url: /page-builder/new-content-type-example.html
+        versionless: true
   
   - label: Content Type
     versionless: true
     children:
       - label: Custom logic
         url: /page-builder/add-custom-logic.html
-        versionless: true
-    
-      - label: Image uploader
-        url: /page-builder/image-uploader.html
         versionless: true
             
       - label: Inline text editing
@@ -128,6 +124,10 @@ pages:
 
       - label: How to store a component's master format as a widget-directive
         url: /page-builder/widget-directive.html
+        versionless: true
+
+      - label: How to add an Image Uploader to the page
+        url: /page-builder/image-uploader.html
         versionless: true
 
   - label: Contribution guide
