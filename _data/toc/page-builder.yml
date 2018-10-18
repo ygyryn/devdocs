@@ -1,7 +1,7 @@
 label: Page Builder
 pages:
   - label: Getting Started
-    url: /page-builder/README.html
+    url: /page-builder/introduction.html
     versionless: true
     children:
       - label: Installation guide
@@ -52,15 +52,15 @@ pages:
         versionless: true
 
    - label: Migration to Page Builder
-    versionless: true
-    children:
-      - label: BlueFoot to Page Builder data migration
-        url: /page-builder/bluefoot-data-migration.html
-        versionless: true
-      
-      - label: Third-party content type migration
-        url: /page-builder/new-content-type-example.html
-        versionless: true
+     versionless: true
+     children:
+       - label: BlueFoot to Page Builder data migration
+         url: /page-builder/bluefoot-data-migration.html
+         versionless: true
+        
+       - label: Third-party content type migration
+         url: /page-builder/new-content-type-example.html
+         versionless: true
   
   - label: Content Type
     versionless: true
