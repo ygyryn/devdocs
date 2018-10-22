@@ -1,29 +1,7 @@
-# Installation Guide
-
-<!--{% comment %}-->
-## Navigation
-
-1. [Introduction]
-2. **Installation guide**
-    1. [Overview](#overview)
-    1. [Composer installation](#composer-installation)
-    1. [GitHub installation](#github-installation)
-    1. [Activation](#activation)
-    1. [Disable PageBuilder](#disable-pagebuilder)
-    1. [Troubleshooting](#troubleshooting)
-3. [Contribution guide]
-4. [Developer documentation]
-5. [Roadmap and known issues]
-6. [How to create custom PageBuilder content type container]
-
-[Introduction]: introduction.md
-[Contribution guide]: ../CONTRIBUTING.md
-[Developer documentation]: developer-documentation.md
-[Roadmap and known issues]: roadmap.md
-[How to create custom PageBuilder content type container]: how-to-create-custom-content-type-container.md
-<!--{% endcomment %}-->
+# Install Page Builder
 
 <!-- {% raw %} -->
+
 ## Overview
 
 Follow these steps to install Page Builder.
@@ -66,7 +44,7 @@ Follow these steps to install Page Builder.
 
 ## Update steps
 
-When a new version of Page Builder is available, destroy your existing 2.3.0-alpha instance and follow the [composer](install.md#composer-installation) or [GitHub](install.md#github-installation) installation steps.
+When a new version of Page Builder is available, destroy your existing 2.3.0-alpha instance and follow the [composer](install-pagebuilder.md#composer-installation) or [GitHub](install-pagebuilder.md#github-installation) installation steps.
 
 ## Troubleshooting
 
