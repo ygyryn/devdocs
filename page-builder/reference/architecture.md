@@ -1,4 +1,4 @@
-# Architecture overview <!-- omit in toc -->
+# Architecture <!-- omit in toc -->
 
 <!-- {% raw %} -->
 
