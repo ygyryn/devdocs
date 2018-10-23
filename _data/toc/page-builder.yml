@@ -8,16 +8,12 @@ pages:
         url: /page-builder/getting-started/install-pagebuilder.html
         versionless: true
 
-      - label: How Page Builder works
-        url: /page-builder/getting-started/how-pagebuilder-works.html
-        versionless: true
-
       - label: Activate Page Builder
-        url: /page-builder/getting-started/activate-deactivate-pagebuilder.html
+        url: /page-builder/getting-started/activate-pagebuilder.html
         versionless: true
 
-      - label: Page Builder integration
-        url: /page-builder/getting-started/pagebuilder-integration.html
+      - label: Integrate Page Builder
+        url: /page-builder/getting-started/integrate-pagebuilder.html
         versionless: true
   
   # - label: Developer documentation
@@ -43,7 +39,7 @@ pages:
         url: /page-builder/customizations/custom-logic.html
         versionless: true
 
-      - label: Visual select
+      - label: Visual selects
         url: /page-builder/customizations/visual-selects.html
         versionless: true
 
@@ -66,7 +62,7 @@ pages:
         url: /page-builder/how-to/how-to-add-new-content-type.html
         versionless: true
 
-      - label: How to add an Image Uploader to the page
+      - label: How to add an Image Uploader
         url: /page-builder/how-to/how-to-add-image-uploader.html
         versionless: true
 
@@ -79,7 +75,7 @@ pages:
         versionless: true
       
       - label: How to create a custom container
-        url: /page-builder/how-to/how-to-create-custom-content-type-container.html
+        url: /page-builder/how-to/how-to-create-custom-container.html
         versionless: true
 
       - label: How to store a component's master format as a widget-directive
@@ -89,8 +85,8 @@ pages:
   - label: Reference
     versionless: true
     children:
-      - label: Architecture overview
-        url: /page-builder/reference/architecture-overview.html
+      - label: Architecture
+        url: /page-builder/reference/architecture.html
         versionless: true
       
       # - label: Iconography

@@ -1,4 +1,4 @@
-# Visual select
+# Visual selects
 
 <!-- {% raw %} -->
 

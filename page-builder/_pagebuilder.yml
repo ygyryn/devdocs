@@ -1,23 +1,19 @@
 label: Page Builder
 pages:
   - label: Getting Started
-    url: /page-builder/introductions.html
+    url: /page-builder/getting-started/introduction.html
     versionless: true
     children:
       - label: Install Page Builder
-        url: /page-builder/install-pagebuilder.html
-        versionless: true
-
-      - label: How Page Builder works
-        url: /page-builder/how-pagebuilder-works.html
+        url: /page-builder/getting-started/install-pagebuilder.html
         versionless: true
 
       - label: Activate Page Builder
-        url: /page-builder/activate-deactivate-pagebuilder.html
+        url: /page-builder/getting-started/activate-pagebuilder.html
         versionless: true
 
-      - label: Page Builder integration
-        url: /page-builder/pagebuilder-integration.html
+      - label: Integrate Page Builder
+        url: /page-builder/getting-started/integrate-pagebuilder.html
         versionless: true
   
   # - label: Developer documentation
@@ -28,69 +24,69 @@ pages:
     versionless: true
     children:
       - label: Block chooser
-        url: /page-builder/block-chooser.html
+        url: /page-builder/customizations/block-chooser.html
         versionless: true
 
       - label: Full-width page layouts
-        url: /page-builder/full-width-page-layouts.html
+        url: /page-builder/customizations/full-width-page-layouts.html
         versionless: true
     
       - label: Responsive layouts
-        url: /page-builder/responsive-layouts.html
+        url: /page-builder/customizations/responsive-layouts.html
         versionless: true
 
       - label: Custom logic
-        url: /page-builder/custom-logic.html
+        url: /page-builder/customizations/custom-logic.html
         versionless: true
 
-      - label: Visual select
-        url: /page-builder/visual-selects.html
+      - label: Visual selects
+        url: /page-builder/customizations/visual-selects.html
         versionless: true
 
       - label: Data configuration
-        url: /page-builder/data-configuration.html
+        url: /page-builder/customizations/data-configuration.html
         versionless: true
 
       - label: Product conditions
-        url: /page-builder/product-conditions.html
+        url: /page-builder/customizations/product-conditions.html
         versionless: true
       
       - label: Server-side rendered previews
-        url: /page-builder/server-side-rendered-previews.html
+        url: /page-builder/customizations/server-side-rendered-previews.html
         versionless: true
 
   - label: How Tos
     versionless: true
     children:
       - label: How to add a new content type
-        url: /page-builder/how-to-add-new-content-type.html
+        url: /page-builder/how-to/how-to-add-new-content-type.html
         versionless: true
 
-      - label: How to add an Image Uploader to the page
-        url: /page-builder/how-to-add-image-uploader.html
+      - label: How to add an Image Uploader
+        url: /page-builder/how-to/how-to-add-image-uploader.html
         versionless: true
 
       - label: How to add inline text editing
-        url: /page-builder/how-to-add-inline-text-editing.html
+        url: /page-builder/how-to/how-to-add-inline-text-editing.html
         versionless: true
 
       - label: How to add a custom toolbar
-        url: /page-builder/how-to-add-custom-toolbar.html
+        url: /page-builder/how-to/how-to-add-custom-toolbar.html
         versionless: true
       
       - label: How to create a custom container
-        url: /page-builder/how-to-create-custom-content-type-container.html
+        url: /page-builder/how-to/how-to-create-custom-container.html
         versionless: true
 
       - label: How to store a component's master format as a widget-directive
-        url: /page-builder/how-to-store-master-format-as-widget-directive.html
+        url: /page-builder/how-to/how-to-store-master-format-as-widget-directive.html
         versionless: true
 
   - label: Reference
     versionless: true
     children:
-      - label: Architecture overview
-        url: /page-builder/architecture-overview.html
+      - label: Architecture
+        url: /page-builder/reference/architecture.html
         versionless: true
       
       # - label: Iconography
@@ -117,11 +113,11 @@ pages:
     versionless: true
     children:
       - label: BlueFoot data migration
-        url: /page-builder/bluefoot-data-migration.html
+        url: /page-builder/migration/bluefoot-data-migration.html
         versionless: true
       
       - label: Third-party content type migration
-        url: /page-builder/third-party-content-type-migration.html
+        url: /page-builder/migration/third-party-content-type-migration.html
         versionless: true
 
   - label: Contribution guide
