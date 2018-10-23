@@ -1,7 +1,7 @@
 label: Page Builder
 pages:
   - label: Getting Started
-    url: /page-builder/introduction.html
+    url: /page-builder/getting-started/introduction.html
     versionless: true
     children:
       - label: Install Page Builder
