@@ -56,10 +56,11 @@ If you are having trouble accessing PageBuilder repositories, please contact [Ig
 
 If you run into any of the following errors:
 
-```
+```shell
 Could not find package magento/project-enterprise-edition with version 2.3.0-alpha.
 ```
-```
+
+```shell
 Could not find a matching version of package magento/module-page-builder-commerce. Check the package spelling, your version constraint and that the package is available in a stability which matches your minimum-stability (stable).
 ```
 
