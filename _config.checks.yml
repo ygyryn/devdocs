@@ -13,6 +13,7 @@ html-proofer:
   :parallel:
     :in_processes: 3
   :file_ignore:
+  - !ruby/regexp /page-builder/
   - !ruby/regexp /404.html/
   - !ruby/regexp /action-groups.html/
   - !ruby/regexp /cloud-fastly.html/
@@ -33,6 +34,7 @@ html-proofer:
   - !ruby/regexp /videos/
   - !ruby/regexp /whats-new.html/
   :url_ignore:
+  - !ruby/regexp /page-builder/
   - !ruby/regexp /account.magento.com/
   - !ruby/regexp /config-guide/
   - !ruby/regexp /docs.magento.com/

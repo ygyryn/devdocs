@@ -30,10 +30,10 @@ versions:
       url: /guides/v2.3/
 
 # GitHub variables
-
+github_repo: "https://github.com/magento/devdocs/"
+github_files: "https://github.com/magento/devdocs/blob/master/"
 github_link: true
 feedback_link: true
-mage2bloburl: "https://github.com/magento/magento2/blob/"
 
 # 2.0.0 variables
 gdeurl: "/guides/v2.0/"
@@ -55,6 +55,7 @@ githuburl22: "https://github.com/magento/devdocs/tree/develop/guides/v2.2/"
 mage2200url: "https://github.com/magento/magento2/blob/2.2/"
 
 # 2.3.0 variables
+
 gdeurl23: "/guides/v2.3/"
 githuburl23: "https://github.com/magento/devdocs/tree/develop/guides/v2.3/"
 mage2300url: "https://github.com/magento/magento2/blob/2.3-develop/"
@@ -71,9 +72,6 @@ collections:
     output: true
     permalink: "/videos/:path/"
 
-plugins:
-  - jekyll-redirect-from
-  - jekyll-titles-from-headings
 
 defaults:
 
@@ -82,8 +80,6 @@ defaults:
       path: ""
     values:
       layout: default
-      github_repo: "https://github.com/magento/devdocs/"
-      github_files: "https://github.com/magento/devdocs/blob/master/"
   -
     scope:
       path: "guides/m1x"
@@ -94,23 +90,15 @@ defaults:
       type: videos
     values:
       layout: video
-
   -
     scope:
-      path: "mftf/2.2"
+      path: page-builder
     values:
-      group: magento-functional-testing-framework-guide
-      functional_areas:
-        - Test
+      layout: default
+      group: page-builder
+      strip_title: true
 
-  -
-    scope:
-      path: "mftf/2.3"
-    values:
-      group: magento-functional-testing-framework-guide-2_3
-      functional_areas:
-        - Test
-
+# toc_baseurl: "https://github.corp.ebay.com/pages/Magento/devdocs_internal"
 titles_from_headings:
   enabled:     true
   strip_title: true
@@ -121,8 +109,6 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   toc_levels: 2..3
-  syntax_highlighter_opts:
-    css_class: 'highlighter'
 
 incremental: false
 
@@ -132,28 +118,26 @@ algolia:
   application_id: 'E642SEDTHL'
   index_name: 'devdocs'
   api_key: 'd2d0f33ab73e291ef8d88d8b565e754c'
+  lazy_update: false
   files_to_exclude:
     - guides/m1x/**/*.html
     - guides/m1x/**/*.md
     - swagger
-    - redoc
 
 google:
   analytics: 'UA-66243208-1'
 
-exclude:
-  - scss
-  - bin
-  - node_modules
-  - vendor
-  - .git
-  - .idea
-  - Gemfile
-  - Gemfile.lock
-  - gulpfile.js
-  - package.json
-  - package-lock.json
-  - Rakefile
-  - rakelib
-  - README.md
-  - _plugins
+exclude: ['scss', 'bin', 'node_modules', 'vendor', '.git', '.idea', 'Rakefile' ]
+
+plugins:
+- jekyll-redirect-from
+- jekyll-optional-front-matter
+- jekyll-relative-links
+- jekyll-titles-from-headings
+
+optional_front_matter:
+  remove_originals: true
+
+include:
+- CONTRIBUTING.md
+- README.md
