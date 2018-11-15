@@ -1,11 +1,11 @@
 ---
-group: UI_Components_guide
+group: ui-components-guide
 title: InsertForm component
 ---
 
 The InsertForm component inserts the [Form component]({{ page.baseurl }}/ui_comp_guide/components/ui-form.html) into other components.
 
-## Сonfiguration options
+## Configuration options
 
 <table>
   <tr>
