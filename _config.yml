@@ -37,6 +37,13 @@ collections:
     output: true
     permalink: "/videos/:path/"
 
+github_repo: https://github.com/magento/devdocs/
+github_files: https://github.com/magento/devdocs/blob/master/
+# Enables the 'Edit this page on GitHub' appearences on pages
+github_link: true
+# Enables the 'Give us feedback' appearences on pages
+feedback_link: true
+
 defaults:
 
   -
@@ -45,12 +52,7 @@ defaults:
     values:
       lang: en
       layout: default
-      github_repo: https://github.com/magento/devdocs/
-      github_files: https://github.com/magento/devdocs/blob/master/
-      # Enables the 'Edit this page on GitHub' appearences on pages
-      github_link: true
-      # Enables the 'Give us feedback' appearences on pages
-      feedback_link: true
+
   -
     scope:
       path: guides/m1x
@@ -118,8 +120,17 @@ defaults:
 #
 plugins:
   - jekyll-sitemap
-  - jekyll-redirect-from
   - jekyll-titles-from-headings
+  - jekyll-redirect-from
+  - jekyll-optional-front-matter
+  - jekyll-relative-links
+
+optional_front_matter:
+  remove_originals: true
+
+include:
+- CONTRIBUTING.md
+- README.md
 
 # Settings for the jekyll-titles-from-headings plugin.
 # For more details about the plugin, refer to https://github.com/benbalter/jekyll-titles-from-headings
@@ -136,6 +147,10 @@ kramdown:
   syntax_highlighter_opts:
     css_class: highlighter
 
+incremental: false
+
+livereload: true
+
 # Search engine settings. For more details, refer to https://github.com/algolia/jekyll-algolia
 #
 algolia:
@@ -146,7 +161,6 @@ algolia:
     - guides/m1x/**/*.html
     - guides/m1x/**/*.md
     - swagger
-    - redoc
 
 google:
   analytics: UA-66243208-1
@@ -208,16 +222,3 @@ exclude:
   - rakelib
   - README.md
   - _plugins
-
-plugins:
-- jekyll-redirect-from
-- jekyll-optional-front-matter
-- jekyll-relative-links
-- jekyll-titles-from-headings
-
-optional_front_matter:
-  remove_originals: true
-
-include:
-- CONTRIBUTING.md
-- README.md

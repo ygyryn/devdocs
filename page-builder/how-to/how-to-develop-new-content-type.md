@@ -6,8 +6,7 @@ Out of the box, Page Builder comes with several content types (controls) that yo
 
 ![Page Builder Content Types](../images/panel-horizontal.png)
 
-
-This topic describes how to develop and add your own content types for use within Page Builder as outlined here and detailed after.
+To create your own content types for use within Page Builder, follow these basic steps.
 
 ![Creating Custom Content Types](../images/content-type-overview.png)
 
@@ -16,8 +15,6 @@ This topic describes how to develop and add your own content types for use withi
 - Registered module
 
 ## Step 1: Create Content Type configuration
-
-The configuration for a content type 
 
 Adding new content type starts with [configuration](content-type-configuration.md).
 
