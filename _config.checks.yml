@@ -13,6 +13,7 @@ html-proofer:
   :parallel:
     :in_processes: 3
   :file_ignore:
+  - !ruby/regexp /include/
   - !ruby/regexp /page-builder/
   - !ruby/regexp /404.html/
   - !ruby/regexp /action-groups.html/
