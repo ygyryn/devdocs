@@ -52,7 +52,6 @@ defaults:
     values:
       lang: en
       layout: default
-
   -
     scope:
       path: guides/m1x
@@ -63,6 +62,15 @@ defaults:
       type: videos
     values:
       layout: video
+
+  -
+    scope:
+      path: "mftf/2.2"
+    values:
+      group: magento-functional-testing-framework-guide
+      functional_areas:
+        - Test
+
   -
     scope:
       path: page-builder
@@ -161,6 +169,7 @@ algolia:
     - guides/m1x/**/*.html
     - guides/m1x/**/*.md
     - swagger
+    - redoc
 
 google:
   analytics: UA-66243208-1
