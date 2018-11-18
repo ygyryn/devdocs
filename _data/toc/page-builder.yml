@@ -13,12 +13,9 @@ pages:
         versionless: true
 
   - label: Create content type
+    url: /page-builder/create-basic-content-type/overview.html
     versionless: true
     children:
-      - label: Overview
-        url: /page-builder/create-basic-content-type/overview.html
-        versionless: true
-
       - label: Step 1. Add configuration
         url: /page-builder/create-basic-content-type/step-1-add-configuration.html
         versionless: true
