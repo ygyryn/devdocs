@@ -1,15 +1,15 @@
 ---
 layout: tutorial
-title: Content type tutorial
+title: Extending Page Builder tutorial
 menu_title: Initial tasks
 menu_order: 0
-level3_subgroup: content-type-tutorial
+level3_subgroup: extending-page-builder-tutorial
 return_to:
-   title: Create content type
-   url: page-builder/create-basic-content-type/overview.html
+   title: Getting Started
+   url: page-builder/getting-started/introduction.html
 ---
 
-Out of the box, Page Builder comes with several content types (controls) that you can drag onto the stage to build your storefront pages, as shown below. In this topic, you will learn how to create your own content type for use within Page Builder.
+Out of the box, Page Builder comes with several content types (controls) that you can drag onto the stage to build your storefront pages, as shown below. In this tutorial, you will learn how to create your own content type for use within Page Builder.
 
 ![Page Builder Content Types](../images/panel-horizontal.png)
 
