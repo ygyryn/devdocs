@@ -4,9 +4,10 @@ title: Content type tutorial
 menu_title: Initial tasks
 menu_order: 0
 level3_subgroup: content-type-tutorial
+return_to:
+   title: Create content type
+   url: page-builder/create-basic-content-type/overview.html
 ---
-
-# Content type Overview
 
 Out of the box, Page Builder comes with several content types (controls) that you can drag onto the stage to build your storefront pages, as shown below. In this topic, you will learn how to create your own content type for use within Page Builder.
 
