@@ -12,50 +12,53 @@ pages:
         url: /page-builder/getting-started/activate-pagebuilder.html
         versionless: true
 
-      - label: Extend Page Builder tutorial
-        class: tutorial
-        url: /page-builder/create-basic-content-type/overview.html
+      - label: View Page Builder
+        url: /page-builder/getting-started/view-pagebuilder.html
+        versionless: true
 
-#  - label: Create content type
-#    url: /page-builder/create-basic-content-type/overview.html
-#    versionless: true
-#    children:
-#      - label: Step 1. Add configuration
-#        url: /page-builder/create-basic-content-type/step-1-add-configuration.html
-#        versionless: true
-#
-#      - label: Step 2. Add templates
-#        url: /page-builder/create-basic-content-type/step-2-add-templates.html
-#        versionless: true
-#
-#      - label: Step 3. Add components
-#        url: /page-builder/create-basic-content-type/step-3-add-components.html
-#        versionless: true
-#
-#      - label: Step 4. Add form editor
-#        url: /page-builder/create-basic-content-type/step-4-add-form-editor.html
-#        versionless: true
-#
-#      - label: Step 5. Add layout
-#        url: /page-builder/create-basic-content-type/step-5-add-layout.html
-#        versionless: true
-#
-#      - label: Step 6. Add styles and icons
-#        url: /page-builder/create-basic-content-type/step-6-add-styles-and-icons.html
-#        versionless: true
-#
-#      - label: Step 7. Add frontend widget
-#        url: /page-builder/create-basic-content-type/step-7-add-frontend-widget.html
-#        versionless: true
-#
-#      - label: What's next?
-#        url: /page-builder/create-basic-content-type/whats-next.html
-#        versionless: true
+  - label: Create content type
+    versionless: true
+    children:
+      - label: Overview
+        url: /page-builder/create-basic-content-type/overview.html
+        versionless: true
+
+      - label: Step 1. Add configuration
+        url: /page-builder/create-basic-content-type/step-1-add-configuration.html
+        versionless: true
+
+      - label: Step 2. Add templates
+        url: /page-builder/create-basic-content-type/step-2-add-templates.html
+        versionless: true
+
+      - label: Step 3. Add components
+        url: /page-builder/create-basic-content-type/step-3-add-components.html
+        versionless: true
+
+      - label: Step 4. Add form editor
+        url: /page-builder/create-basic-content-type/step-4-add-form-editor.html
+        versionless: true
+
+      - label: Step 5. Add layout
+        url: /page-builder/create-basic-content-type/step-5-add-layout.html
+        versionless: true
+
+      - label: Step 6. Add styles and icons
+        url: /page-builder/create-basic-content-type/step-6-add-styles-and-icons.html
+        versionless: true
+
+      - label: Step 7. Add frontend widget
+        url: /page-builder/create-basic-content-type/step-7-add-frontend-widget.html
+        versionless: true
+
+      - label: What's next?
+        url: /page-builder/create-basic-content-type/whats-next.html
+        versionless: true
 
   - label: Configurations
     versionless: true
     children:
-      - label: Configuration
+      - label: Content type configuration
         url: /page-builder/reference/content-type-configuration.html
         versionless: true
 
@@ -63,8 +66,12 @@ pages:
         url: /page-builder/configurations/additional-configurations.html
         versionless: true
 
-      - label: Panel configuration
+      - label: Panel configurations
         url: /page-builder/configurations/panel-configurations.html
+        versionless: true
+
+      - label: Option menu configurations
+        url: /page-builder/configurations/option-menu-configurations.html
         versionless: true
 
       - label: Iconography
@@ -102,6 +109,10 @@ pages:
   - label: How Tos
     versionless: true
     children:
+      - label: How to develop a new content type
+        url: /page-builder/how-to/how-to-develop-new-content-type.html
+        versionless: true
+
       - label: How to develop a container content type
         url: /page-builder/how-to/how-to-develop-container-content-type.html
         versionless: true
