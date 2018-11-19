@@ -44,7 +44,7 @@ pages:
     versionless: true
 
   - label: Step 6. Add styles and icons
-    url: /page-builder/create-basic-content-type/step-6-add-styles-and-icons.html
+    url: /page-builder/create-basic-content-type/step-6-add-styles-icons.html
     versionless: true
 
   - label: Step 7. Add frontend widget
@@ -59,7 +59,7 @@ pages:
   versionless: true
   children:
   - label: Content type configuration
-    url: /page-builder/reference/content-type-configuration.html
+    url: /page-builder/configurations/content-type-configuration.html
     versionless: true
 
   - label: Additional configurations
