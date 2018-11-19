@@ -1,11 +1,5 @@
----
-layout: tutorial
-title: Step 3. Add component
-subtitle: Extending Page Builder tutorial
-menu_order: 3
-level3_subgroup: extending-page-builder-tutorial
-return_to:
-   title: Getting Started
-   url: page-builder/getting-started/introduction.html
----
+# Step 3: Add components
 
+Components are JavaScript files that define the behavior of your content type within the Admin UI stage (using preview.js) and the storefront UI (using master.js).
+
+1. Add a preview.js file to ...
