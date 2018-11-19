@@ -59,7 +59,7 @@ pages:
     versionless: true
     children:
       - label: Content type configuration
-        url: /page-builder/reference/content-type-configuration.html
+        url: /page-builder/configurations/content-type-configuration.html
         versionless: true
 
       - label: Additional configurations
