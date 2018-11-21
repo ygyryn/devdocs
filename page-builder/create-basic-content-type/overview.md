@@ -3,7 +3,7 @@
 # Overview
 
 {: .bs-callout .bs-callout-info }
-The development of this tutorial is currently **IN PROGRESS**. A more complete rough draft is available in the How Tos section here: [How to develop a new content type](docs/how-to/how-to-develop-new-content-type.md). When this tutorial is complete, it will replace the equivalent How To topic.
+The development of this tutorial is currently **IN PROGRESS** and incomplete. Expected completion time will be Nov. 27.
 
 Out of the box, Page Builder comes with several content types (controls) that you can drag onto the stage to build your storefront pages, as shown below. In this topic, you will learn how to create your own content type for use within Page Builder.
 
