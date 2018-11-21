@@ -1,8 +1,15 @@
 <!-- {% raw %} -->
+{: .bs-callout .bs-callout-warning }
+The development of this tutorial is currently **IN PROGRESS**, **INCOMPLETE**, and potentially **INCORRECT**. The expected completion time is Nov. 27.
 
 # Step 7: Add frontend widget
 
-{: .bs-callout .bs-callout-info }
-The development of this tutorial is currently **IN PROGRESS** and incomplete. Expected completion time will be Nov. 27.
+
+## Location
+
+Add your frontend widget here (`view/base/web/js/content-type/example/appearance/default/`):
+
+![Create config file](../images/step7-add-widget.png)
+
 
 <!-- {% endraw %} -->
