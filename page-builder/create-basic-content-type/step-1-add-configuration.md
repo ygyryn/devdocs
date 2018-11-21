@@ -1,4 +1,6 @@
 <!-- {% raw %} -->
+{: .bs-callout .bs-callout-warning }
+The development of this tutorial is currently **IN PROGRESS**, **INCOMPLETE**, and potentially **INCORRECT**. The expected completion time is Nov. 27.
 
 # Step 1: Add configuration
 
@@ -9,11 +11,11 @@ Only a subset of configuration elements are described here (enough to understand
 
 ## Location
 
-The configuration file lives here within your module (`view/adminhtml/pagebuilder/content_type/my-content-type.xml`):
+Add your configuration file here (`view/adminhtml/pagebuilder/content_type/`):
 
-![Create config file](../images/create-config-file.png)
+![Create config file](../images/step1-add-config-file.png)
 
-The file name should reflect the name of your content type, using underscores to separate multi-word names. 
+The file name should reflect the name of your content type, using underscores to separate multi-word names as needed. 
 
 ## Example
 
@@ -88,7 +90,9 @@ All content types must have at least one `<appearance>` defined within the `<app
 
 ## The `element` node
 
-The purpose of the `<element>` nodes in a configuration is to map the data of the content type from the given source back to the master format so that the content type can be updated and rendered correctly within both the Admin preview and the storefront.
+**[Dave, I know the following sentence is incorrect. Please rewrite to correct it and add more information as needed. :) ]**
+
+The purpose of the `<element>` nodes in a configuration is to map the data from the content type from the given source back to the master format so that the content type can be updated and rendered correctly within both the Admin preview and the storefront.
 
 **[Add table to describe element attributes and nodes]**
 
