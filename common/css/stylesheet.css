@@ -693,3 +693,18 @@ a.image:hover {
 .message-banner p:last-child {
 	margin-bottom: 0;
 }
+
+.status {
+    padding: 2px;
+}
+.status.red {
+    color: #fff;
+    background-color: #d04437;
+}
+.status.yellow {
+    background-color: #f6c342;
+}
+.status.green {
+    background-color: #14892c;
+    color: #fff;
+}
