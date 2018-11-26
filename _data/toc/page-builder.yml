@@ -163,10 +163,10 @@ pages:
         url: /page-builder/migration/migrate-custom-content-types-from-bluefoot.html
         versionless: true
 
-  - label: Contribution guide
-    url: /page-builder/CONTRIBUTING.html
+  - label: Component status
+    url: /page-builder/component-status.html
     versionless: true
 
-  - label: Roadmap and Known Issues
-    url: /page-builder/roadmap.html
+  - label: Known Issues
+    url: /page-builder/known-issues.html
     versionless: true
