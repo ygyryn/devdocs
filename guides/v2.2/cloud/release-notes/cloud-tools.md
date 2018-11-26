@@ -251,7 +251,7 @@ The ece-tools version 2002.0.11 is required for 2.2.4 compatibility.
     -   <!-- MAGECLOUD-2044 -->Fixed the behavior of the `SCD_COMPRESSION_LEVEL` environment variable configuration flow so the overrides work as expected.
     -   <!-- MAGECLOUD-2046 -->Fixed an issue that prevented the configuration of the `SCD_THREADS` environment variable in the `.magento.env.yaml` file _deploy_ stage.
 
-## v2002.0.10
+-   {:.fix}<!-- MAGECLOUD-1489 -->The first installation of the Staging & Production environments of a PRO project now includes different index prefixes for ElasticSearch to prevent possible conflicts while identifying records belonging to each environment.
 
 -   {:.new}<!-- MAGECLOUD-1285 -->**Static Content Deployment (SCD)**—There is a new, alternative deployment process to generate static content when requested (on-demand). This decreases downtime and improves cache handling by generating the most critical assets.
 
@@ -283,10 +283,9 @@ The ece-tools version 2002.0.11 is required for 2.2.4 compatibility.
 
 -   {:.fix}<!-- MAGECLOUD-1853 -->Fixed a Redis session locking issue that caused an Admin login delay. Also, the fix is available for 2.1.x.
 
-## v2002.0.9
+-   {:.new}<!-- MAGECLOUD-1285 -->**Static Content Deployment (SCD)**—There is a new, alternative deployment process to generate static content when requested (on-demand). This decreases downtime and improves cache handling by generating the most critical assets.
 
-{:.bs-callout .bs-callout-info}
-You must [upgrade the {{site.data.var.ece}} metapackage]({{ site.baseurl }}/guides/v2.2/cloud/project/project-upgrade-parent.html) to get this and all future updates.
+    -   <!-- MAGECLOUD-1738 -->**New environment variable**—Added the `SCD_ON_DEMAND` global environment variable to generate static content when requested.
 
 -   {:.new}<!-- MAGECLOUD-1086 -->**ece-tools**—The `{{site.data.var.ct}}` package now supports Magento 2.1.x.
 
