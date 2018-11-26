@@ -73,7 +73,6 @@ See [Install Page Builder](docs/getting-started/install-pagebuilder.md)
 
 * [Component status](../component-status.md)
 * [Known issues](../known-issues.md)
-
 <!-- {% endcomment %} -->
 
 ## Contribute to PageBuilder
