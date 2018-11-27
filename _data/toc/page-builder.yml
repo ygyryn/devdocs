@@ -1,6 +1,6 @@
 label: Page Builder
 pages:
-  - label: Getting Started
+  - label: Getting started
     url: /page-builder/getting-started/introduction.html
     versionless: true
     children:
@@ -102,7 +102,7 @@ pages:
         url: /page-builder/configurations/server-side-rendered-previews.html
         versionless: true
 
-  - label: How Tos
+  - label: How tos
     versionless: true
     children:
       - label: How to develop a new content type
@@ -167,6 +167,10 @@ pages:
     url: /page-builder/component-status.html
     versionless: true
 
-  - label: Known Issues
+  - label: Known issues
     url: /page-builder/known-issues.html
+    versionless: true
+
+  - label: Contribution guide
+    url: https://github.com/magento/magento2-page-builder/blob/develop/CONTRIBUTING.md
     versionless: true
