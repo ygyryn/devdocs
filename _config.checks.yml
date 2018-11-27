@@ -43,6 +43,7 @@ html-proofer:
   - !ruby/regexp /frontend-dev-guide/
   - !ruby/regexp /github.com/
   - !ruby/regexp /guides\/v2.0/
+  - !ruby/regexp /guides\/v2.3/
   - !ruby/regexp /howdoi/
   - !ruby/regexp /mariadb.com/
   - !ruby/regexp /mrg/
