@@ -73,22 +73,20 @@ See [Install Page Builder](install-pagebuilder.md)
 
 * [Component status](../component-status.md)
 * [Known issues](../known-issues.md)
-* [Contribution guide](../CONTRIBUTING.md)
+* [Contribution guide](https://github.com/magento/magento2-page-builder/blob/develop/CONTRIBUTING.md)
 
 <!-- {% endcomment %} -->
 
 ## Contribute to Page Builder
 
-We appreciate any and all contributions to PageBuilder. If you are interested in contributing to this repository, please see our [Contribution Guide].
+We appreciate any and all contributions to PageBuilder. If you are interested in contributing to this repository, please see our [Contribution guide](https://github.com/magento/magento2-page-builder/blob/develop/CONTRIBUTING.md).
 
 ## Page Builder updates from the Magento core team
 
-We will push new beta releases once a week, including work from the backlog. We don't expect any large breaking changes, but we  will communicate them to you if the need arises.
+We will push new beta releases once a week, including work from the backlog. We don't expect any large breaking changes, but we will communicate them to you if the need arises.
 
 ## Contact us
 
 To participate in technical discussions and ask questions, join us in [Slack], where a number of Page Builder team members are present.
 
-
-[Contribution Guide]: ../CONTRIBUTING.md
 [Slack]: https://magentocommeng.slack.com/messages/GANS1R4C9
