@@ -21,7 +21,7 @@ In your configuration file, reference your templates as shown here within the `<
 
 | Attribute        | Description                                                  |
 | ---------------- | ------------------------------------------------------------ |
-| preview_template | `preview.html` - the HTML template for rendering the preview appearance of a content type on the stage within the Admin UI. |
+| *preview_template* | `preview.html` - the HTML template for rendering the preview appearance of a content type on the stage within the Admin UI. |
 | render_template  | `master.html` - the HTML template for rendering the appearance of a content type on the storefront for customers to see. |
 
 ## Location
@@ -29,7 +29,6 @@ In your configuration file, reference your templates as shown here within the `<
 Content types cannot be rendered without these templates. Add them to your module here (`view/adminhtml/web/template/content-type/<content-type-name>/default/`):
 
 ![Create config file](../images/step2-add-templates.png)
-
 
 
 ## Create the `preview_template`
