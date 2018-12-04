@@ -1,2 +1,3 @@
 # Set the site environment for the tag manager
 environment: public
+url: https://devdocs.magento.com
