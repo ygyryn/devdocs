@@ -1,3 +1,5 @@
+<!-- {% raw %} -->
+
 # Step 1: Add configuration
 
 ***
@@ -103,3 +105,5 @@ The purpose of `<elements>` node in the configuration is to map the data from th
 ## Next
 
 At this point, if you try to view Page Builder you get an error noting that the `preview_template` and `render_template` from the `<appearance>` element are missing. These templates are referenced in the `example.xml` config file, but we have not yet created them. Let's do that next in [Step 2: Add templates](step-2-add-templates.md).
+
+<!-- {% endraw %} -->
