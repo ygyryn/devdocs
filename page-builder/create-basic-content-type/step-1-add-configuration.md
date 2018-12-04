@@ -20,6 +20,7 @@ Only a subset of configuration elements are described in this example (enough to
 The following configuration shows the minimal requirements for defining a content type called `example`. The `example` content type is nearly identical to the built-in `heading` content type in order to help you learn the fundamental parts of a content type as seen in the configuration file here. An overview of these elements and attributes are described in the tables that follow.
 
 {% highlight xml linenos %}
+
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
   <type name="example"
@@ -59,6 +60,7 @@ The following configuration shows the minimal requirements for defining a conten
     </appearances>
   </type>
 </config>
+
 {% endhighlight %}
 
 ## The `type` node
