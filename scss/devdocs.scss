@@ -1,7 +1,10 @@
 // Import all the variables (this is a copy of devdocs-theme variables)
-@import 'variables';
+@import '_variables';
 
 // Files to import
 @import 'partials/home';
 @import 'partials/contributors';
 @import 'partials/list-icons';
+@import 'partials/code';
+@import 'partials/table';
+@import 'partials/highlight';

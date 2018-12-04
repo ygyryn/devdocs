@@ -1,28 +1,29 @@
-<!-- {% raw %} -->
-
 # Step 2: Add templates
 
-{: .bs-callout .bs-callout-info }
+***
 The development of this tutorial is currently **IN PROGRESS**.
+
+***
 
 Templates are the HTML files that define the appearance of content types within both the Admin UI (using the `preview.html`) and the storefront UI (using the `master.html`). 
 
-## Configuration
+### Configuration
 
 In your configuration file, reference your templates as shown here within the `<appearance>` element:
 
 ```xml
 <appearance name="default"
             default="true"
-            preview_template="Vendor_Module/content-type/example/default/preview"
+            preview_template="Vendor_Module/content-type/example/default/preview" 
             render_template="Vendor_Module/content-type/example/default/master"
             reader="Magento_PageBuilder/js/master-format/read/configurable">
 ```
 
+
 | Attribute        | Description                                                  |
 | ---------------- | ------------------------------------------------------------ |
-| *preview_template* | `preview.html` - the HTML template for rendering the preview appearance of a content type on the stage within the Admin UI. |
-| render_template  | `master.html` - the HTML template for rendering the appearance of a content type on the storefront for customers to see. |
+| `preview_template` | `preview.html` - the HTML template for rendering the preview appearance of a content type on the stage within the Admin UI. |
+| `render_template`  | `master.html` - the HTML template for rendering the appearance of a content type on the storefront for customers to see. |
 
 ## Location
 
@@ -34,7 +35,6 @@ Content types cannot be rendered without these templates. Add them to your modul
 ## Create the `preview_template`
 
 1. Create the `preview.html` file (as noted above) using the example content that follows.
-
     ```html
     <!--preview.html-->
     <div class="pagebuilder-content-type" 
@@ -70,8 +70,3 @@ Content types cannot be rendered without these templates. Add them to your modul
     html="data.main.html">
 </h2>
 ```
-
-
-
-
-<!-- {% endraw %} -->
