@@ -110,6 +110,9 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jekyll-titles-from-headings
+  - jekyll-optional-front-matter
+  - jekyll-relative-links
+
 
 titles_from_headings:
   enabled:     true
@@ -117,8 +120,6 @@ titles_from_headings:
   collections: false
 
 # Build settings
-markdown: kramdown
-highlighter: rouge
 kramdown:
   toc_levels: 2..3
   syntax_highlighter_opts:
