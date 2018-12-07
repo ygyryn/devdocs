@@ -24,7 +24,7 @@ In your configuration file, reference your UI component form as shown here withi
 
 | Attribute | Description                                                  |
 | --------- | ------------------------------------------------------------ |
-| form      | `pagebuilder_example_form.xml` - UI component form that provides the editor for your content type. |
+| `form`      | `pagebuilder_example_form.xml` - UI component form that provides the editor for your content type. |
 
 ## Location
 
@@ -177,10 +177,8 @@ In this example, let's create a form that extends `pagebuilder_base_form` to pro
     </field>
   </fieldset>
 </form>
-
 ```
 
 [Insert descriptions]
 
 ## Create layout
-

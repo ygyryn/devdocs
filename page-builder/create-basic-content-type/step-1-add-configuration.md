@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 # Step 1: Add configuration
 
 ***
@@ -21,8 +19,7 @@ Only a subset of configuration elements are described in this example (enough to
 
 The following configuration shows the minimal requirements for defining a content type called `example`. The `example` content type is nearly identical to the built-in `heading` content type in order to help you learn the fundamental parts of a content type as seen in the configuration file here. An overview of these elements and attributes are described in the tables that follow.
 
-{%highlight xml linenos%}
-
+```xml
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
   <type name="example"
@@ -62,8 +59,7 @@ The following configuration shows the minimal requirements for defining a conten
     </appearances>
   </type>
 </config>
-
-{%endhighlight%}
+```
 
 ## The `type` node
 
@@ -79,7 +75,7 @@ The `<type>` node defines the key properties of your content type. The attribute
 | `master_component`  | JavaScript file that provides master format rendering logic generic for all appearances of your content type when rendered on the storefront.                                                                                                                                                                                                     |
 | `form`              | UI component form that provides the form controls for editing your content type.                                                                                                                                                                                                                                                                  |
 | `icon`              | Optional. PNG or SVG image displayed in the Page Builder panel alongside the label.                                                                                                                                                                                                                                                               |
-| `is_hideable`       | Optional. Default `true`. Include it only when you want to set it to `false` to prevent the end-user from hiding your  content type on demand, using a button (eye icon) in the options menu. A setting of false will remove the hide button from the options menu.                                                                               |
+| `sortOrder`         | Optional. The listed order within the menu group. For example, `sortOrder=21` puts the content type third in the `Elements` menu group, after the content types with `sortOrder`s of 10 and 20. |
 | `translate`         | Identifies the attribute you want Magento to translate. Here, the `label` value is set for translation.                                                                                                                                                                                                                                           |
 
 ## The `appearance` node
@@ -105,5 +101,3 @@ The purpose of `<elements>` node in the configuration is to map the data from th
 ## Next
 
 At this point, if you try to view Page Builder you get an error noting that the `preview_template` and `render_template` from the `<appearance>` element are missing. These templates are referenced in the `example.xml` config file, but we have not yet created them. Let's do that next in [Step 2: Add templates](step-2-add-templates.md).
-
-<!-- {% endraw %} -->

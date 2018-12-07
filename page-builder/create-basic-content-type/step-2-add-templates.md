@@ -7,7 +7,7 @@ The development of this tutorial is currently **IN PROGRESS**.
 
 Templates are the HTML files that define the appearance of content types within both the Admin UI (using the `preview.html`) and the storefront UI (using the `master.html`). 
 
-### Configuration
+## Configuration
 
 In your configuration file, reference your templates as shown here within the `<appearance>` element:
 
@@ -18,7 +18,6 @@ In your configuration file, reference your templates as shown here within the `<
             render_template="Vendor_Module/content-type/example/default/master"
             reader="Magento_PageBuilder/js/master-format/read/configurable">
 ```
-
 
 | Attribute        | Description                                                  |
 | ---------------- | ------------------------------------------------------------ |
@@ -31,10 +30,10 @@ Content types cannot be rendered without these templates. Add them to your modul
 
 ![Create config file](../images/step2-add-templates.png)
 
-
 ## Create the `preview_template`
 
 1. Create the `preview.html` file (as noted above) using the example content that follows.
+
     ```html
     <!--preview.html-->
     <div class="pagebuilder-content-type" 
@@ -59,8 +58,6 @@ Content types cannot be rendered without these templates. Add them to your modul
     Notice that you also have an options menu when you hover over your content type. This is provided by including the `<render args="getOptions().template" />` within your `preview.html` template. See [Option menu configurations](option-menu-configurations.md) for more details.
 
 ## Create the `master_template`
-
-
 
 ```html
 <!--master.html-->
