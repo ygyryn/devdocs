@@ -85,13 +85,13 @@ A Mass converter modifies data for all content type elements.
 For example, the content type of two elements, main and image has data stored in the fields `border`, `border_color`, `border_width`, `background_image`.
 A mass converter allows you to modify all these fields.
 
-For more information, read about how [data is stored internally](#Data store). 
+For more information, read about how [data is stored internally](#Datastore). 
 
 ### Element converter
 
 An element converter modifies a single field at a time.
 
-## Data store
+## Datastore
 
 Data for content types are stored in a simple object called the DataStore `Magento_PageBuilder/js/data-store`.
 
@@ -101,7 +101,7 @@ You can use the `subscribe` method to subscribe to changes in the data and perfo
 
 ## Content type configuration
 
-Please see [content type configuration](../configurations/content-type-configuration.md#Converter Interfaces) for information on content type configuration.
+Please see [content type configuration](../configurations/content-type-configuration.md) for information on content type configuration.
 
 ## Appearances
 
