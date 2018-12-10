@@ -1,5 +1,7 @@
 # Migrate custom content types from BlueFoot
 
+<!-- {% raw %} -->
+
 ## Before you begin
 
 This tutorial goes through the process of using the PageBuilder migration API to convert data from a third-party content type into its new PageBuilder content type.
@@ -181,13 +183,15 @@ Run the following command on the server to initiate your module's migration proc
 
 `magento setup:upgrade`
 
-## Congratulations
+## Congratulations!
 
 You have migrated your old BlueFoot content type into your new PageBuilder content type!
 
-[PageBuilder migration API]: migrate-from-bluefoot.md
-[BlueFoot data migration]: migrate-from-bluefoot.md
+[PageBuilder migration API]: bluefoot-data-migration.md
+[BlueFoot data migration]: bluefoot-data-migration.md
 [`composer.json`]: https://devdocs.magento.com/guides/v2.2/extension-dev-guide/build/composer-integration.html
 [versioning policy]: https://devdocs.magento.com/guides/v2.2/extension-dev-guide/versioning/
 [module lifecycle]: https://devdocs.magento.com/guides/v2.2/extension-dev-guide/prepare/lifecycle.html
 [data upgrade]: https://devdocs.magento.com/guides/v2.2/extension-dev-guide/prepare/lifecycle.html#data-upgrade
+
+<!-- {% endraw %} -->
