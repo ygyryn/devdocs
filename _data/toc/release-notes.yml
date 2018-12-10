@@ -223,7 +223,7 @@ pages:
               url: /cloud/release-notes/CloudReleaseNotes2.1.2.html
 
     - label: Third-party extension contact information
-      exclude_versions: ["2.0", "2.1"]
+      include_versions: ["2.2"]
       children:
 
         - label: Contact Information for Third-Party Extensions

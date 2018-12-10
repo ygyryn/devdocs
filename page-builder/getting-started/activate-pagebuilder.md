@@ -1,5 +1,7 @@
 # Activate and deactivate Page Builder
 
+<!-- {% raw %} -->
+
 ## Activate Page Builder
 
 Follow these steps to activate PageBuilder in the Admin:
@@ -21,3 +23,5 @@ If you disabled or uninstalled the entire PageBuilder module instead of just the
 
 1. Implement PageBuilder widgets and initialize them on dynamic blocks since JavaScript functionality provided by PageBuilder will no longer work.
 2. Change the layout in the database for entities that use the full width layout to prevent blank layout content.
+
+<!-- {% endraw %} -->

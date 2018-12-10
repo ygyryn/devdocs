@@ -88,8 +88,8 @@ Magento Commerce 2.3.0 includes a wealth of new features as well as hundreds of 
 	* Configure source locations available for Click & Collect pick-ups
 
 	* Updates to Shipment Form for UPS (U.S. only)
- 
- 	* Customers can also select Click & Collect locations during checkout. This feature is supported by workflows and notifications for Click & Collect pick up, packing, and collection.
+
+	* Customers can also select Click & Collect locations during checkout. This feature is supported by workflows and notifications for Click & Collect pick up, packing, and collection.
 	
  
 * The batch details page now displays collection point addresses, as applicable
@@ -711,7 +711,6 @@ We've fixed hundreds of issues in the Magento 2.3.0 core code.
 
 <!---ENGCOM-1807 -->* The JavaScript code in the `spli.phtml` template file for the button widget has been refactored. *Fix submitted by [Vijay Golani](https://github.com/vijay-wagento) in pull request [15731](https://github.com/magento/magento2/pull/15731)*. [GitHub-15354](https://github.com/magento/magento2/issues/15354)
 
-<!---ENGCOM-1807 -->* The JavaScript code in the `spli.phtml` template file for the button widget has been refactored. [GitHub-15354](https://github.com/magento/magento2/issues/15354)
 
 <!---ENGCOM-1817 -->* The JavaScript code for the UrlRewrite module edit page has been refactored. *Fix submitted by [Vijay Golani](https://github.com/vijay-wagento) in pull request [15747](https://github.com/magento/magento2/pull/15747)*. [GitHub-15356](https://github.com/magento/magento2/issues/15356)
 

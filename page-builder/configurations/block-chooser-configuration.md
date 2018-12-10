@@ -1,8 +1,18 @@
-# Block chooser
+# Block chooser <!-- omit in toc -->
 
-## What's in this topic
+<!-- {% raw %} -->
+
+## What's in this topic <!-- omit in toc -->
 
 This topic describes how to use the block chooser UI component for a custom content type.
+
+## Overview <!-- omit in toc -->
+
+To use the block chooser component for your custom content type:
+
+- [Configuration options](#configuration-options)
+- [Add the block select grid listing modal to content type XML](#add-the-block-select-grid-listing-modal-to-content-type-xml)
+- [Add component to content type XML](#add-component-to-content-type-xml)
 
 ## Configuration options
 
@@ -127,3 +137,5 @@ To insert the block chooser UI component, `Magento_PageBuilder/js/form/element/b
 The `block_id` field pulls in the selected value from the modal.
 
 Then the `block_chooser` component pulls in the value from the `block_id` field to ascertain when it should commence updating.
+
+<!-- {% endraw %} -->

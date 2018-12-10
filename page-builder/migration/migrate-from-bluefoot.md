@@ -1,5 +1,7 @@
 # Migrate from BlueFoot
 
+<!-- {% raw %} -->
+
 ## Overview
 
 This topic goes over the data migration process for BlueFoot data into the PageBuilder module in Magento 2.3.
@@ -253,3 +255,5 @@ If you are creating a new renderer for migration outside the PageBuilder module,
 [lifecycle]: https://devdocs.magento.com/guides/v2.2/extension-dev-guide/prepare/lifecycle.html
 [`di.xml`]: https://devdocs.magento.com/guides/v2.2/extension-dev-guide/build/di-xml-file.html
 [dependency injection]: https://devdocs.magento.com/guides/v2.2/extension-dev-guide/depend-inj.html
+
+<!-- {% endraw %} -->

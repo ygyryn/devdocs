@@ -17,9 +17,6 @@ We are pleased to present {{site.data.var.ce}} 2.3.0 General Availability. This 
 
 * **CMS enhancements** include banner enhancements. You can now create banner content in native Magento WYSIWYG. (Within the product interface, we now use the term  “dynamic block” instead of  “banner”.) We've also updated the WYSIWYG editor to use TinyMCE 4.6. (TinyMCE is now integrated into Magento through an adapter that allows it to be replaced with any other WYSIWYG editor.) 
 
-* **CMS enhancements** include banner enhancements. You can now create banner content in native Magento WYSIWYG or Page Builder. (Within the product interface, we now use the term  “dynamic block” instead of  “banner”.) We've also updated the WYSIWYG editor to use TinyMCE 4.6. (TinyMCE is now integrated into Magento through an adapter that allows it to be replaced with any other WYSIWYG editor.) 
-
-* **PageBuilder** is a drag-and-drop visual content editing tool that lets merchants customize the appearance of their storefront without writing any HTML or CSS. PageBuilder Beta code will be available in 2018 Q4. Registered participants will be able to install PageBuilder Beta on Magento 2.3.0 Commerce code.  Watch this space for more information about participating in the PageBuilder Beta program plus installation instructions. 
 
 
 ### Improved developer experience
@@ -31,7 +28,6 @@ We are pleased to present {{site.data.var.ce}} 2.3.0 General Availability. This 
 * **GraphQL API** is now available with Magento 2.3.0. This API provides an alternative to REST and SOAP web APIs for custom frontend development, including headless storefronts and PWAs. See [GraphQL Developer Guide]({{site.baseurl}}/guides/v2.3/graphql/index.html) for more information about Magento's implementation of this data query language. GraphQL is a Magento Community Engineering special project open to contributors. To take part and contribute, see the [GraphQL GitHub](https://github.com/magento/graphql-ce) repository and [wiki](https://github.com/magento/graphql-ce/wiki) to get started. Join us in our [Slack](https://magentocommeng.slack.com/messages/C8076E0KS) channel (or [self signup](https://tinyurl.com/engcom-slack)) to discuss the project.
 
 * **Asynchronous Web APIs** allow any previous Magento REST APIs to be called asynchronously. This community-contributed feature includes separate status APIs that have been created to check the status of each request. Developers can now use the asynchronous APIs  in conjunction with queues that have also been migrated to {{site.data.var.ce}}. See [Asynchronous web endpoints](https://devdocs.magento.com/guides/v2.3/rest/asynchronous-web-endpoints.html) for more information. 
-
 
 * **Bulk Web APIs**  allow all existing REST APIs to accept payloads with multiple entities. These community-contributed bulk APIs support more efficient and scalable implementations that eliminate round-trip network overhead. Like asynchronous APIs, bulk web APIs can be used in conjunction with queues that have also been migrated to {{site.data.var.ce}}. [See Bulk endpoints](https://devdocs.magento.com/guides/v2.3/rest/bulk-endpoints.html) for more information. 
 
@@ -85,9 +81,9 @@ We are pleased to present {{site.data.var.ce}} 2.3.0 General Availability. This 
 	* Configure source locations available for Click & Collect pick-ups
 
 	* Updates to Shipment Form for UPS (U.S. only)
- 
- 	* Customers can also select Click & Collect locations during checkout. This feature is supported by workflows and notifications for Click & Collect pick up, packing, and collection.
- 
+
+	* Customers can also select Click & Collect locations during checkout. This feature is supported by workflows and notifications for Click & Collect pick up, packing, and collection.
+
  
 * The batch details page now displays collection point addresses, as applicable
  
@@ -96,7 +92,7 @@ We are pleased to present {{site.data.var.ce}} 2.3.0 General Availability. This 
 * Tracking popups for multi-package shipments are now displayed.
  
 * The dispatch details page has been enhanced.
- 
+
 #### Vertex
 
 * The Magento implementation of Vertex now supports Vertex O Series 7.0. 
@@ -638,7 +634,6 @@ The following issues, which were identified in our 2.3.0 Alpha code base, have b
 
 <!---ENGCOM-2593 -->* Template syntax errors in `app/code/Magento/Theme/Block/Html/Breadcrumbs.php` have been corrected. *Fix submitted by [Vishal Gelani](https://github.com/gelanivishal) in pull request [16805](https://github.com/magento/magento2/pull/16805)*. [GitHub-15345](https://github.com/magento/magento2/issues/15345)
 
-<!---ENGCOM-2462 -->* Unneeded JavaScript was removed from `logout.phtml` and replaced with a new JavaScript component.
 
 <!---ENGCOM-2692 -->* Magento now disables the **Shop By** button on the search page when a customer sets additional search filters. *Fix submitted by [Pratik Oza](https://github.com/mage2pratik) in pull request [17418](https://github.com/magento/magento2/pull/17418)*. [GitHub-13445](https://github.com/magento/magento2/issues/13445)
 
@@ -663,7 +658,6 @@ The following issues, which were identified in our 2.3.0 Alpha code base, have b
 
 <!--- ENGCOM-2065 -->* Magento now displays the Contact Us page on the menu as expected. Previously, Magento displayed unnecessary space between the category page and the main footer. *Fix submitted by [Sanjay Patel](https://github.com/sanjay-wagento) in pull request [15726](https://github.com/magento/magento2/pull/15726)*. [GitHub-12601](https://github.com/magento/magento2/issues/12601)
 
-<!--- ENGCOM-2065 -->* Magento now displays the Contact Us page on the menu as expected. Previously, Magento displayed unnecessary space between the category page and the main footer. [GitHub-12601](https://github.com/magento/magento2/issues/12601)
 
 
 
