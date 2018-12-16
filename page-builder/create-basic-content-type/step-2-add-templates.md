@@ -68,9 +68,9 @@ The following table describes each `appearance` attribute in our example.
 | `render_template`  | References the `master.html` (the master format storefront template) for rendering the appearance of your content type on the storefront for customers to see. |
 | `reader`           | Reads content type data from the master format.      |
 
-## Quote `preview_template`
+## Quote `preview.html`
 
-The Quote `preview_template`  (`preview.html`) is shown here in full, followed by the attribute descriptions to help you understand the basics of content type templates.
+The `preview.html` template defined for our Quote's appearance, is shown here in full followed by descriptions to help you understand the basics of this template.
 
 ```html
 <!-- preview.html -->
@@ -171,9 +171,9 @@ The `liveEdit` binding enables end users to enter HTML content directly on the A
 
 The `event` attribute enables the options menu to be shown and hidden when users interact with the content type using the mouse. If you have a special circumstance with the way you wish to handle your option menus, you can modify this logic to suit your needs.
 
-## Quote `render_template`
+## Quote `master.html`
 
-The Quote `render_template` (`master.html`) is shown here in full. The same attributes and descriptions from the `preview.html` template apply to the `master.html` template as well. However, the  `master.html` template introduces one addition attribute, `html`, which is described after the code.
+The `master.html` template defined for the Quote appearance is shown here in full. The same attributes and descriptions from the Admin preview template apply to this template as well, with one addition, the `html` attribute. 
 
 ```html
 <!--master.html-->
@@ -200,9 +200,7 @@ The Quote `render_template` (`master.html`) is shown here in full. The same attr
 
 ### html
 
-The `html` attribute applies the actual user-entered HTML content to the template element. In our Quote example, the end-user enters their quote text either on the Admin stage using `liveEdit` (which is bound to the `quote_text` field in the form editor) or on the form, directly into the`quote_text` field itself.
-
-For example, from the Quote `preview.html` template, the `liveEdit` binding on the `blockquote` is bound to the `quote_text` field that stores the HTML content, as shown here (`{ field: 'quote_text'...}`):
+The `html` attribute applies the actual user-entered HTML to the template element. In our Quote example, the end-user enters their quote text either from the Admin stage using `liveEdit`, which is bound to the `quote_text` field, or from the form. 
 
 ```html
 <!--preview.html-->
@@ -210,7 +208,9 @@ For example, from the Quote `preview.html` template, the `liveEdit` binding on t
 </blockquote>
 ```
 
-The master format storefront template uses the `html` attribute to retrieve the HTML content and display it in the `blockquote` element as follows: 
+From `liveEdit`, we see that the content of `blockquote` is bound to the `quote_text` field that stores the html. 
+
+The master format storefront template uses the `html` attribute to retrieve the HTML content and display it in the `blockquote` element: 
 
 ```html
 <!--master.html-->
@@ -223,7 +223,6 @@ The `html` value is derived from the configuration `element` name  (`quote`) and
 <element name="quote">
   <html name="quote_text" converter="Magento_PageBuilder/js/converter/html/tag-escaper"/>
 	...
-</element>
 ```
 
 ## Next
