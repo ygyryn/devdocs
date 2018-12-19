@@ -5,7 +5,7 @@ The development of this tutorial is currently **IN PROGRESS**.
 
 ***
 
-In this step, we will create a UI component form to give our Quote example an editor we can use to edit content and style its appearance in various ways.
+In this step, we will create a UI component form. This form will give users another way to enter text for the quote and style its appearance.
 
 ## About forms
 
@@ -19,39 +19,35 @@ Inheriting from either base form gives you an editor for your content type that 
 
 ### `pagebuilder_base_form`
 
-The `pagebuilder_base_form` gives you the following form fields in the editor, along with the Close, Reset, and Save buttons as shown here:
+The `pagebuilder_base_form` gives you the following form fields in a fieldset named Advance, along with the Close, Reset, and Save buttons as shown here:
 
- ![Create config file](../images/pagebuilder_base_form.png)
-
-
+![Create config file](../images/pagebuilder_base_form.png)
 
 ### `pagebuilder_base_form_with_background_attributes`
 
-In addition the the "Advanced" form fields from `pagebuilder_base_form`,  the `pagebuilder_base_form_with_background_attributes` gives you the following "Background" form fields as shown here:
+In addition to all the fields from `pagebuilder_base_form`,  the `pagebuilder_base_form_with_background_attributes` gives you the following "Background" form fields as shown here:
 
 ![Create config file](../images/pagebuilder_base_form_with_background_attributes.png)
 
-The base form you decide to inherit from depends on the type of content type you create and/or the level of customization you want to give to end-users.
+The base form you inherit from depends on the complexity of the content type you create and the level of customization you want to give to end-users.
 
 ## Form and layout conventions
 
 The conventions for naming your form and its layout are as follows:
 
-- Your form should be named `pagebuilder_` + `content_type_name_` + `form.xml`. For example `pagebuilder_example_quote_form.xml`
-- The layout for the form must match the name of your form, in this case: `pagebuilder_example_quote_form.xml`.
+- The name for your form should follow this pattern: `pagebuilder_` + `content_type_name_` + `form.xml`. For example `pagebuilder_example_quote_form.xml`.
+- The name for your layout must match the name of your form, in this case: `pagebuilder_example_quote_form.xml`.
 
-The form and layout files should be added to your module in the following locations:
+Add your form and layout files to your module in the following locations:
 
 - `view/adminhtml/layout/`
 - `view/adminhtml/ui_component/`
 
 ![Create config file](../images/step4-add-form.png)
 
-Make sure you add these files as shown before continuing.
-
 ## Form configuration
 
-In your configuration file, reference your UI component form as shown here within the `<type>` element:
+In your configuration file, add your form name (without the .xml file extension) to the `form` attribute within the `<type>` element, as shown here:
 
 ```xml
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -64,169 +60,22 @@ In your configuration file, reference your UI component form as shown here withi
 
 | Attribute | Description                                                  |
 | --------- | ------------------------------------------------------------ |
-| `form`      | `pagebuilder_example_quote_form` - UI component form that provides the form editor for your content type. |
+| `form`    | Name of the UI component form that provides the form editor for your content type. |
 
-### Configuration elements
+## The Quote form
 
-As mentioned previously in the add configuration step, the `elements` section, within the `appearance` of your configuration file, maps the data and the styles from your form to the content type's master format so that the values entered in the form can be stored and rendered correctly on the Admin stage and storefront.
-
-The following elements are from the `example_quote.xml` configuration. The elements are shown here in full, followed by descriptions of the key attributes:
-
-```xml
-<elements>
-  <element name="main">
-    <style name="text_align" source="text_align"/>
-    <style name="border" source="border_style" converter="Magento_PageBuilder/js/converter/style/border-style"/>
-    <style name="border_color" source="border_color"/>
-    <style name="background_color" source="background_color"/>
-    <style name="background_image" source="background_image" converter="Magento_PageBuilder/js/converter/style/background-image" preview_converter="Magento_PageBuilder/js/converter/style/preview/background-image"/>
-    <style name="border_width" source="border_width" converter="Magento_PageBuilder/js/converter/style/border-width"/>
-    <style name="border_radius" source="border_radius" converter="Magento_PageBuilder/js/converter/style/remove-px"/>
-    <style name="margins" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/margins" converter="Magento_PageBuilder/js/converter/style/margins"/>
-    <style name="padding" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/paddings" converter="Magento_PageBuilder/js/converter/style/paddings"/>
-    <style name="display" source="display" converter="Magento_PageBuilder/js/converter/style/display" preview_converter="Magento_PageBuilder/js/converter/style/preview/display"/>
-    <attribute name="name" source="data-role"/>
-    <attribute name="appearance" source="data-appearance"/>
-    <css name="css_classes"/>
-  </element>
-  <element name="quote">
-    <style name="text_align" source="text_align"/>
-    <html name="quote_text" converter="Magento_PageBuilder/js/converter/html/tag-escaper"/>
-    <css name="quote_css"/>
-  </element>
-  <element name="author">
-    <style name="text_align" source="text_align"/>
-    <html name="quote_author" converter="Magento_PageBuilder/js/converter/html/tag-escaper"/>
-  </element>
-  <element name="author_title">
-    <style name="text_align" source="text_align"/>
-    <html name="quote_author_desc" converter="Magento_PageBuilder/js/converter/html/tag-escaper"/>
-  </element>
-</elements>
-```
-
-#### element
-
-The `<element>` element provides a scope for the data bindings within it.
-
-| Attribute | Description                                                  |
-| --------- | ------------------------------------------------------------ |
-| `name`    | Specifies the name of the element scope for the data binding when applied to template elements. In our example, the element name of `main` is used as the scope for binding styles and other attributes to the top-level `<div>` element in our template: `<div attr="data.main.attributes" ko-style="data.main.style">` |
-
-#### style
-
-The `<style>` element configures the bindings from the form style fields to the template elements.
-
-| Attribute           | Description                                                  |
-| ------------------- | ------------------------------------------------------------ |
-| `name`              | By convention, the name of the element should match the source. |
-| `source`            | The name of the form field you want the style bound to.      |
-| `converter`         | [Please add description/purpose]                             |
-| `preview_converter` | [Please add description/purpose]                             |
-| `storage_key`       | [Please add description/purpose]                             |
-| `reader`            | [Please add description/purpose]                             |
-
-#### attribute
-
-The `<attribute>` element provides... [Please describe the purpose of this element.]
-
-| Attribute | Description                                                  |
-| --------- | ------------------------------------------------------------ |
-| `name`    | [Please add description/purpose as it applies to the code example above] |
-| `source`  | [Please add description/purpose as it applies to the code example above] |
-
-#### css
-
-The `<css>` element sets the binding for the CSS Classes form field (`css_classes`) from the `pagebuilder_base_form`, or from any custom input field you add to your form. When the `<css>` element is defined, class names entered into the CSS Classes field are applied to the template elements that use them.
-
-| Attribute | Description                                      |
-| --------- | ------------------------------------------------ |
-| `name`    | Specifies the name of the form field to bind to. |
-
-For example, in our Quote configuration, we define an  `<element>` named `quote` with a `<css>` element bound to an input field in our form named `quote_css`, as shown here: 
-
-```xml
-<!-- from example_quote.xml -->
-<element name="quote">
-	...
-  <css name="quote_css"/>
-</element>
-```
-
-The corresponding `quote_css` form field is shown here:
-
-```xml
-<!-- from pagebuilder_example_quote_form.xml -->
-<field name="quote_css" sortOrder="40" formElement="input">
-  <argument name="data" xsi:type="array">
-    <item name="config" xsi:type="array">
-      <item name="source" xsi:type="string">page</item>
-    </item>
-  </argument>
-  <settings>
-    <dataScope>quote_css</dataScope>
-    <dataType>text</dataType>
-    <label translate="true">CSS for Quote</label>
-  </settings>
-</field>
-```
-
-And the application of the binding in the `preview.html` template is shown here:
-
-```html
-<!-- from preview.html -->
-<blockquote css="data.quote.css" ...></blockquote>
-```
-
-#### html
-
-The `<html>` element binds the HTML content entered in a form field. When the `<html>` element names a field for binding, content entered into the field is applied to the template elements that use them.
-
-| Attribute | Description                                      |
-| --------- | ------------------------------------------------ |
-| `name`    | Specifies the name of the form field to bind to. |
-
-For example, as with the previous `css` binding, the Quote configuration defines the `<element>` named `quote` with an `<html>` element that is bound to an input field in our form named `quote_text`, as shown here: 
-
-```xml
-<!-- from example_quote.xml -->
-<element name="quote">
-  ...
-  <html name="quote_text" converter="Magento_PageBuilder/js/converter/html/tag-escaper"/>
-  <css name="quote_css"/>
-</element>
-```
-
-The corresponding `quote_text` form field is shown here:
-
-```xml
-<!-- from pagebuilder_example_quote_form.xml -->
-<field name="quote_text" sortOrder="10" formElement="textarea">
-  <argument name="data" xsi:type="array">
-    <item name="config" xsi:type="array">
-      <item name="source" xsi:type="string">page</item>
-    </item>
-  </argument>
-  <settings>
-    <dataScope>quote_text</dataScope>
-    <dataType>text</dataType>
-    <label translate="true">Quote</label>
-  </settings>
-</field>
-```
-
-And the application of the binding in the `master.html` template is shown here:
-
-```html
-<!-- from master.html -->
-<blockquote css="data.quote.css" html="data.quote.html"></blockquote>
-```
-
-## Quote form
-
-The Quote form inherits from `pagebuilder_base_form_with_background_attributes` to provide all the form fields available for customizing our content type. In addition to the fields we get from inheritance, we want to add specific entry and styling fields for our Quote, as shown here:
+In our Quote form, we will inherit from `pagebuilder_base_form_with_background_attributes`. This will give end-users all the native Page Builder form fields shown in the two previous screenshots. In addition to those fields, we want to add four specific content entry and styling fields, as shown here:
 
 ![Create config file](../images/custom-form-fields.png)
+
+The purpose of each field is described as follows:
+
+| Field         | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| Quote         | A textarea for writing or pasting in the quote's text.       |
+| Author        | A text input field for the author's name.                    |
+| Description   | A text input field to describe the author's title or origin of the quote. |
+| CSS for Quote | A text input field for end-users to add css class names for styling the text in the Quote field. |
 
 The Quote form is shown in full here for you to copy into your `pagebuilder_example_form.xml` file, followed by descriptions of the key parts.
 
@@ -316,12 +165,12 @@ The Quote form is shown in full here for you to copy into your `pagebuilder_exam
 
 ### fieldset
 
-The `<fieldset>` element is required and provides a basic grouping mechanism (with an optional label) for the fields in your form. You can define as many fieldsets as you want.
+Page Builder requires fields to be grouped within named `<fieldset>`s. Fieldsets provide your fields with a basic grouping mechanism and an optional label. You can define as many fieldsets as you want.
 
 | Attribute   | Description                                                  |
 | ----------- | ------------------------------------------------------------ |
-| `name`      | _What significance or conventions apply to the fieldset name?_ |
-| `sortOrder` | Determines where the fieldset is placed in the editor. The `sortOrder` for the `pagebuilder_base_form` fieldset is set to `90`. Setting your fieldset to a value less than that (such as `20`) will put your fieldset above the inherited fieldsets. A value greater than `90` will put your fieldset below the inherited fieldsets. |
+| `name`      | You can name your fieldset whatever you want. Currently, it has no significance for data binding. |
+| `sortOrder` | Determines where Page Builder puts the fieldset within the editor in relation to other fieldsets. Page Builder sets the `sortOrder` for the `pagebuilder_base_form` fieldset to `90`. Setting your fieldset to a value less than that (such as `20`) will put your fieldset above both inherited fieldsets. A value greater than `90` will put your fieldset below the inherited fieldsets. |
 
 ### field
 
@@ -329,23 +178,24 @@ The `<field>` element creates the actual HTML form element as specified by the `
 
 | Attribute     | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
-| `name`        | The name of the field used for bindings.                     |
-| `sortOrder`   | Determines where the field is placed within the fieldset in relation to other fields. |
+| `name`        | The name of the field used for data bindings.                |
+| `sortOrder`   | Determines where Page Builder puts the field within the fieldset in relation to other fields. |
 | `formElement` | Determines the HTML form element to render for the field.    |
 
-### argument data source
+### data source
 
-Defines the data source for the field. 
-
-[Need more info. What does it mean for the `page` to be specified as the data source?]
+Defines the data source for the field. The source` node's value corresponds to a key (`page`) in the data array returned by the `\Magento\Framework\View\Element\UiComponent\DataProvider\DataProviderInterface::getData` method of your UI component.
 
 ```xml
-<argument name="data" xsi:type="array">
-  <item name="config" xsi:type="array">
-    <item name="source" xsi:type="string">page</item>
-  </item>
-</argument>
+<field name="quote_text" sortOrder="10" formElement="textarea">
+  <argument name="data" xsi:type="array">
+    <item name="config" xsi:type="array">
+      <item name="source" xsi:type="string">page</item>
+    </item>
+  </argument>
 ```
+
+For example, the `quote_text` field above specifies that the `source` of its data should come from tthe data stored under the key `page` returned by the page's DataProvider.
 
 ### settings
 
@@ -358,9 +208,12 @@ The `<settings>` element defines the data scope, data type, and label to use for
   <label translate="true">Quote</label>
 </settings>
 ```
-The `dataType` values are typically `text` and `boolean`.
 
-[What is the dataScope? What's its significance? How is it used?]
+| Attribute   | Description                                                  |
+| ----------- | ------------------------------------------------------------ |
+| `dataScope` | Specifies the name of your input field for data binding. The `dataScope` node allows you to change the value of the `name` attribute for your input field. We do not need to change the field name value, so we keep our dataScope value the same as our field name. |
+| `dataType`  | Specifies the data type for the field's data. Common values are `text` and `boolean`. |
+| `label`     | Specifies the text label applied to the input field on the form. |
 
 ## Quote form layout
 
@@ -376,6 +229,162 @@ The layout for our Quote form is shown in full here for you to copy into your `p
         </referenceContainer>
     </body>
 </page>
+```
+
+## Configuration data mapping
+
+As mentioned in [Step 1: Add configuration](step-1-add-configuration.md), the `elements` section of your configuration file, maps the data from your form to the content type's master format so that the values entered in the form can be stored and rendered correctly on the Admin stage and storefront.
+
+The following elements are from our `example_quote.xml` configuration. These elements are shown here in full for you to copy into your configuration file. Descriptions of the key attributes follow.
+
+```xml
+<elements>
+  <element name="main">
+    <style name="text_align" source="text_align"/>
+    <style name="border" source="border_style" converter="Magento_PageBuilder/js/converter/style/border-style"/>
+    <style name="border_color" source="border_color"/>
+    <style name="background_color" source="background_color"/>
+    <style name="background_image" source="background_image" converter="Magento_PageBuilder/js/converter/style/background-image" preview_converter="Magento_PageBuilder/js/converter/style/preview/background-image"/>
+    <style name="border_width" source="border_width" converter="Magento_PageBuilder/js/converter/style/border-width"/>
+    <style name="border_radius" source="border_radius" converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+    <style name="margins" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/margins" converter="Magento_PageBuilder/js/converter/style/margins"/>
+    <style name="padding" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/paddings" converter="Magento_PageBuilder/js/converter/style/paddings"/>
+    <style name="display" source="display" converter="Magento_PageBuilder/js/converter/style/display" preview_converter="Magento_PageBuilder/js/converter/style/preview/display"/>
+    <attribute name="name" source="data-role"/>
+    <attribute name="appearance" source="data-appearance"/>
+    <css name="css_classes"/>
+  </element>
+  <element name="quote">
+    <style name="text_align" source="text_align"/>
+    <html name="quote_text" converter="Magento_PageBuilder/js/converter/html/tag-escaper"/>
+    <css name="quote_css"/>
+  </element>
+  <element name="author">
+    <style name="text_align" source="text_align"/>
+    <html name="quote_author" converter="Magento_PageBuilder/js/converter/html/tag-escaper"/>
+  </element>
+  <element name="author_title">
+    <style name="text_align" source="text_align"/>
+    <html name="quote_author_desc" converter="Magento_PageBuilder/js/converter/html/tag-escaper"/>
+  </element>
+</elements>
+```
+
+#### element
+
+The `<element>` element provides a scope for the data bindings within it.
+
+| Attribute | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| `name`    | Specifies the name of the element's scope for data binding when applied to template elements. In our example, we use the element name of `main` as the scope for binding styles and other attributes to the top-level `<div>` element in our template: `<div attr="data.main.attributes" ko-style="data.main.style">` |
+
+#### style
+
+The `<style>` element configures the bindings from the form style fields to the template elements.
+
+| Attribute           | Description                                                  |
+| ------------------- | ------------------------------------------------------------ |
+| `name`              | By convention, the name of the element should match the source. |
+| `source`            | The name of the form field you want the style bound to.      |
+| `converter`         | [Please add description/purpose]                             |
+| `preview_converter` | [Please add description/purpose]                             |
+| `storage_key`       | [Please add description/purpose]                             |
+| `reader`            | [Please add description/purpose]                             |
+
+#### attribute
+
+The `<attribute>` element provides... [Please describe the purpose of this element.]
+
+| Attribute | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| `name`    | [Please add description/purpose as it applies to the code example above] |
+| `source`  | [Please add description/purpose as it applies to the code example above] |
+
+#### css
+
+The `<css>` element sets the binding for the CSS Classes form field (`css_classes`) from the `pagebuilder_base_form`, or from any custom input field you add to your form. When we define the `<css>` element, Page Builder applies the class names from the form's CSS Classes field to the template elements that use the `css` binding element.
+
+| Attribute | Description                                      |
+| --------- | ------------------------------------------------ |
+| `name`    | Specifies the name of the form field to bind to. |
+
+For example, in our Quote configuration, we define an  `<element>` named `quote` with a `<css>` element bound to an input field in our form named `quote_css`, as shown here: 
+
+```xml
+<!-- from example_quote.xml -->
+<element name="quote">
+	...
+  <css name="quote_css"/>
+</element>
+```
+
+The corresponding `quote_css` form field is shown here:
+
+```xml
+<!-- from pagebuilder_example_quote_form.xml -->
+<field name="quote_css" sortOrder="40" formElement="input">
+  <argument name="data" xsi:type="array">
+    <item name="config" xsi:type="array">
+      <item name="source" xsi:type="string">page</item>
+    </item>
+  </argument>
+  <settings>
+    <dataScope>quote_css</dataScope>
+    <dataType>text</dataType>
+    <label translate="true">CSS for Quote</label>
+  </settings>
+</field>
+```
+
+And the `css` binding is applied in the `preview.html` template, as shown here:
+
+```html
+<!-- from preview.html -->
+<blockquote css="data.quote.css" ...></blockquote>
+```
+
+#### html
+
+The `<html>` element binds the HTML content entered in a form field. When the `<html>` element names a field for binding, content entered into the field is applied to the template elements that use them.
+
+| Attribute | Description                                      |
+| --------- | ------------------------------------------------ |
+| `name`    | Specifies the name of the form field to bind to. |
+
+For example, as with the previous `css` binding, the Quote configuration defines the `<element>` named `quote` with an `<html>` element that is bound to an input field in our form named `quote_text`, as shown here: 
+
+```xml
+<!-- from example_quote.xml -->
+<element name="quote">
+  ...
+  <html name="quote_text" converter="Magento_PageBuilder/js/converter/html/tag-escaper"/>
+  <css name="quote_css"/>
+</element>
+```
+
+The corresponding `quote_text` form field is shown here:
+
+```xml
+<!-- from pagebuilder_example_quote_form.xml -->
+<field name="quote_text" sortOrder="10" formElement="textarea">
+  <argument name="data" xsi:type="array">
+    <item name="config" xsi:type="array">
+      <item name="source" xsi:type="string">page</item>
+    </item>
+  </argument>
+  <settings>
+    <dataScope>quote_text</dataScope>
+    <dataType>text</dataType>
+    <label translate="true">Quote</label>
+  </settings>
+</field>
+```
+
+And the `html` binding is applied in the `master.html` template, as shown here:
+
+```html
+<!-- from master.html -->
+<blockquote css="data.quote.css" html="data.quote.html"></blockquote>
 ```
 
 ## Next
