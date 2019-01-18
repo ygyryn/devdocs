@@ -43,8 +43,8 @@ pages:
         url: /page-builder/create-basic-content-type/step-5-add-styles.html
         versionless: true
 
-      - label: Step 6. Add frontend widget
-        url: /page-builder/create-basic-content-type/step-6-add-frontend-widget.html
+      - label: Step 6. Add icon
+        url: /page-builder/create-basic-content-type/step-6-add-icon.html
         versionless: true
 
       - label: What's next?
