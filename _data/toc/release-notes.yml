@@ -222,12 +222,12 @@ pages:
             - label: Magento Commerce (Cloud) version 2.1.2 and 2.0.10
               url: /cloud/release-notes/CloudReleaseNotes2.1.2.html
 
-        - label: Third-party extension contact information
-          exclude_versions: ["2.0", "2.1"]
-          children:
+    - label: Third-party extension contact information
+      include_versions: ["2.2"]
+      children:
 
-            - label: Contact Information for Third-Party Extensions
-              url: /release-notes/cbe-support-info.html
+        - label: Contact Information for Third-Party Extensions
+          url: /release-notes/cbe-support-info.html
 
     - label: Backward incompatible changes
       url: /release-notes/backward-incompatible-changes/index.html
