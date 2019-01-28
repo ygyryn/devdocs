@@ -85,7 +85,7 @@ A Mass converter modifies data for all content type elements.
 For example, the content type of two elements, main and image has data stored in the fields `border`, `border_color`, `border_width`, `background_image`.
 A mass converter allows you to modify all these fields.
 
-For more information, read about how [data is stored internally](#Datastore). 
+For more information, read about how [data is stored internally](#datastore). 
 
 ### Element converter
 
