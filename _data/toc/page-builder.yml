@@ -143,10 +143,6 @@ pages:
       - label: Knockout bindings
         url: /page-builder/reference/knockout-bindings.html
         versionless: true
-      
-      - label: Master format
-        url: /page-builder/reference/master-format.html
-        versionless: true
   
   - label: Migration to Page Builder
     versionless: true
