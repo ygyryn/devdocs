@@ -16,6 +16,7 @@ html-proofer:
   - !ruby/regexp /guides\/m1x/
   - !ruby/regexp /template\.html/
   - !ruby/regexp /videos/
+  - !ruby/regexp /guides/
   - !ruby/regexp /whats-new\.html/
   - !ruby/regexp /include\//
   :url_ignore:
