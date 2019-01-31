@@ -70,8 +70,8 @@ pages:
         url: /page-builder/configurations/option-menu-configurations.html
         versionless: true
 
-      - label: Iconography
-        url: /page-builder/configurations/iconography.html
+      - label: Icons and images
+        url: /page-builder/configurations/icons-and-images.html
         versionless: true
 
       - label: Block chooser
