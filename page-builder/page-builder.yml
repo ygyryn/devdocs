@@ -1,8 +1,8 @@
 label: Page Builder
+url: /page-builder/
+versionless: true
 pages:
 - label: Getting started
-  url: /page-builder/getting-started/introduction.html
-  versionless: true
   children:
   - label: Install Page Builder
     url: /page-builder/getting-started/install-pagebuilder.html
@@ -155,12 +155,12 @@ pages:
     url: /page-builder/migration/migrate-custom-content-types-from-bluefoot.html
     versionless: true
 
-  - label: Release notes
-    url: /page-builder/release-notes.html
-    versionless: true
+- label: Release notes
+  url: /page-builder/release-notes.html
+  versionless: true
 
 - label: Component status
-    url: /page-builder/comp-status2.html
+  url: /page-builder/comp-status2.html
   versionless: true
 
 - label: Contribution guide
