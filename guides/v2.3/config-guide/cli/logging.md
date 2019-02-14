@@ -86,7 +86,7 @@ The setting in the Magento Admin has been removed.
 
 Logging to `syslog` is disabled by default.
 
-1. Use the `setup:config:set` command to change the `dev/syslog/syslog_logging` database value to `true`.
+1. Use the `setup:config:set` command to change enable the syslog.
 
     ```bash
     bin/magento setup:config:set --enable-syslog-logging=true
@@ -100,7 +100,7 @@ Logging to `syslog` is disabled by default.
 
 ### To disable syslog logging
 
-1. Use the `setup:config:set` command to change the `dev/syslog/syslog_logging` database value to `false`.
+1. Use the `setup:config:set` command to disable the syslog.
 
     ```bash
     bin/magento setup:config:set --enable-syslog-logging=false
